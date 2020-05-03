@@ -15,6 +15,11 @@ class CreateConfigsTable extends Migration
     {
         Schema::create('configs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('config_filepath')->nullable();
+            $table->string('autoexec_filepath')->nullable();
+            $table->string('windows_sensitivity')->nullable();
+            $table->string('ingame_sensitivity')->nullable();
             $table->timestamps();
         });
     }

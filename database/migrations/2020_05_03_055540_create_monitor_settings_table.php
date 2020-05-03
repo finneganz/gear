@@ -15,6 +15,8 @@ class CreateMonitorSettingsTable extends Migration
     {
         Schema::create('monitor_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('setting_params')->nullable();
             $table->timestamps();
         });
     }

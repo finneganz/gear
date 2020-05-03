@@ -15,6 +15,11 @@ class CreateVideoSettingsTable extends Migration
     {
         Schema::create('video_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('resolution_id')->foreign('resolution_id')->references('id')->on('resolutions')->onDelete('set null')->nullable();
+            $table->integer('streatch')->nullable();
+            $table->integer('anti_alias')->nullable();
+            $table->integer('shadow_quality')->nullable();
             $table->timestamps();
         });
     }

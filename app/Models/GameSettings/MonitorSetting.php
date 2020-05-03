@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\GameSettings;
+namespace App\Models\GameSettings;
 
 use Illuminate\Database\Eloquent\Model;
 

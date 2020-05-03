@@ -29,8 +29,8 @@ services:
   workspace:
     build: ./workspace
     volumes:
-     - ../:/var/www/
+      - ../:/var/www/
     ports:
-     - "22:22"
+      - "22:22"
     extra_hosts:
       - "gear-archive:$LOCAL_HOST_IP"

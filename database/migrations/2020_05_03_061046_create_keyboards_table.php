@@ -15,6 +15,8 @@ class CreateKeyboardsTable extends Migration
     {
         Schema::create('keyboards', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('keyboard_name');
+            $table->unsignedBigInteger('maker_id')->foreign('maker_id')->references('id')->on('makers')->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateHeadsetsTable extends Migration
     {
         Schema::create('headsets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('headset_name');
+            $table->unsignedBigInteger('maker_id')->foreign('maker_id')->references('id')->on('makers')->onDelete('set null');
             $table->timestamps();
         });
     }

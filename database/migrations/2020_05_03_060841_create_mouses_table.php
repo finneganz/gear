@@ -15,6 +15,8 @@ class CreateMousesTable extends Migration
     {
         Schema::create('mouses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('mouse_name');
+            $table->unsignedBigInteger('maker_id')->foreign('maker_id')->references('id')->on('makers')->onDelete('set null');
             $table->timestamps();
         });
     }

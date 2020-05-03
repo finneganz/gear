@@ -15,6 +15,8 @@ class CreateMonitorsTable extends Migration
     {
         Schema::create('monitors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('monitor_name');
+            $table->unsignedBigInteger('maker_id')->foreign('maker_id')->references('id')->on('makers')->onDelete('set null');
             $table->timestamps();
         });
     }

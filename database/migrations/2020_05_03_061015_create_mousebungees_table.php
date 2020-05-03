@@ -15,6 +15,8 @@ class CreateMousebungeesTable extends Migration
     {
         Schema::create('mousebungees', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('mousebungee_name');
+            $table->unsignedBigInteger('maker_id')->foreign('maker_id')->references('id')->on('makers')->onDelete('set null');
             $table->timestamps();
         });
     }

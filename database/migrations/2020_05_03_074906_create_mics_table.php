@@ -15,6 +15,8 @@ class CreateMicsTable extends Migration
     {
         Schema::create('mics', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('mic_name');
+            $table->unsignedBigInteger('maker_id')->foreign('maker_id')->references('id')->on('makers')->onDelete('set null');
             $table->timestamps();
         });
     }

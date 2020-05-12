@@ -10,39 +10,44 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// 1. ユーザー利用画面
+// 1.1 Top（ユーザーリスト一覧）
+Route::get('/', 'UserController@showUserList');
+// 1.2 ユーザー登録
 Route::get('/register', 'Auth\RegisterController@showRegisterPage');
 Route::post('/register', 'Auth\RegisterController@register');
-
+// 1.3 ログイン
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@login');
-
+// 1.4 ユーザー情報表示・編集
 Route::get('/{username}', 'UserController@showUserPage');
 Route::get('/{username}/edit', 'UserController@showUserEditPage');
 Route::post('/{username}/edit', 'UserController@editUser');
-
+// 1.5 デバイス一覧
 Route::get('/devices', 'DeviceController@showDevicesList');
 Route::get('/devices/{device}/{maker}/{product}', 'DeviceController@showDeviceProduct');
-
+// 1.6 静的ページ
 Route::get('/about', 'StaticsController@showAbout');
 Route::get('/policy', 'StaticsController@showPolicy');
 Route::get('/contact', 'StaticsController@showContact');
 Route::post('/contact', 'StaticsController@contact');
 
-// Admin Page
-Route::get('/devices/{device}/{maker}/{product}/edit', 'DeviceController@showDeviceEditPage');
-Route::post('/devices/{device}/{maker}/{product}/edit', 'DeviceController@editDevice');
+// 2. 管理画面
+// 2.1 デバイス
+// 登録
 Route::get('/device/add', 'DeviceController@showDeviceAddPage');
 Route::post('/device/add', 'DeviceController@addDevice');
+// 編集
+Route::get('/devices/{device}/{maker}/{product}/edit', 'DeviceController@showDeviceEditPage');
+Route::post('/devices/{device}/{maker}/{product}/edit', 'DeviceController@editDevice');
 
+// 2.2 メーカー
+// 登録
 Route::get('/makers', 'MakerController@showMakersList');
 Route::get('/maker/add', 'MakerController@showMakerAddPage');
 Route::post('/maker/add', 'MakerController@addMaker');
+// 編集
 Route::get('/maker/edit', 'MakerController@showMakerEditPage');
 Route::post('/maker/edit', 'MakerController@editMaker');
 

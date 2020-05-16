@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DeviceController extends Controller
 {
-    public function showDeviceList()
+    public function showDevicesList()
     {
         //
     }

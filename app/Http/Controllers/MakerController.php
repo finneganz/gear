@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class MakerController extends Controller
 {
     // 管理者用
-    public function showMakerList()
+    public function showMakersList()
     {
         //
     }

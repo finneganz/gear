@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function showUserList()
     {
-        //
+        return view('layouts.app');
     }
     public function showUserPage()
     {

@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <top-component></top-component>
+    <device-genre-component></device-genre-component>
 @endsection

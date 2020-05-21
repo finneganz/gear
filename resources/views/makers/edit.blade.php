@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <top-component></top-component>
+    <maker-edit-component></maker-edit-component>
 @endsection

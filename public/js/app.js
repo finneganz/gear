@@ -14065,7 +14065,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_MakerEdit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/MakerEdit */ "./resources/js/pages/MakerEdit.vue");
 /* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/Login */ "./resources/js/pages/Login.vue");
 /* harmony import */ var _pages_Logout__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/Logout */ "./resources/js/pages/Logout.vue");
-/* harmony import */ var _pages_Register__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/Register */ "./resources/js/pages/Register.vue");
+/* harmony import */ var _pages_Register__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/Register */ "./resources/js/pages/Register.vue");
 
 
 
@@ -14103,7 +14103,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     'maker-edit-component': _pages_MakerEdit__WEBPACK_IMPORTED_MODULE_14__["default"],
     'login-component': _pages_Login__WEBPACK_IMPORTED_MODULE_15__["default"],
     'logout-component': _pages_Logout__WEBPACK_IMPORTED_MODULE_16__["default"],
-    'register-component': _pages_Register__WEBPACK_IMPORTED_MODULE_18__["default"]
+    'register-component': _pages_Register__WEBPACK_IMPORTED_MODULE_17__["default"]
   }
 });
 

@@ -8,15 +8,15 @@ class UserController extends Controller
 {
     public function showUserList()
     {
-        return view('layouts.app');
+        return view('users.list');
     }
     public function showUserPage()
     {
-        //
+        return view('users.user');
     }
     public function showUserEditPage()
     {
-        //
+        return view('users.edit');
     }
     public function editUser()
     {

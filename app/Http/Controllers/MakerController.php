@@ -9,11 +9,11 @@ class MakerController extends Controller
     // 管理者用
     public function showMakersList()
     {
-        //
+        return view('makers.list');
     }
     public function showMakerAddPage()
     {
-        //
+        return view('makers.add');
     }
     public function addMaker()
     {
@@ -21,7 +21,7 @@ class MakerController extends Controller
     }
     public function showMakerEditPage()
     {
-        //
+        return view('makers.edit');
     }
     public function editMaker()
     {

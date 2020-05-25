@@ -13,6 +13,7 @@
 // 1. ユーザー利用画面
 // 1.1 Top（ユーザーリスト一覧）
 Route::get('/', 'UserController@showUserList');
+Route::get('/devices', 'DeviceController@showDevicesList');
 // 1.2 ユーザー登録
 Route::get('/register', 'Auth\RegisterController@showRegisterPage');
 Route::post('/register', 'Auth\RegisterController@register');
@@ -25,7 +26,6 @@ Route::get('/{username}', 'UserController@showUserPage');
 Route::get('/{username}/edit', 'UserController@showUserEditPage');
 Route::post('/{username}/edit', 'UserController@editUser');
 // 1.5 デバイス一覧
-Route::get('/devices', 'DeviceController@showDevicesList');
 Route::get('/devices/{device}/{maker}/{product}', 'DeviceController@showDeviceProduct');
 // 1.6 静的ページ
 Route::get('/about', 'StaticsController@showAbout');

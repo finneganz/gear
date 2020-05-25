@@ -8,9 +8,8 @@
 </head>
 <body>
   <div id="app">
-    <!-- <example-component></example-component> -->
     @yield('content')
   </div>
-  <script src="{{ asset('/js/app.js') }}"></script>
+  @yield('script')
 </body>
 </html>

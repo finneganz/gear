@@ -22,9 +22,9 @@ Route::get('/login', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@login');
 // 1.4 ユーザー情報表示・編集
-Route::get('/{username}', 'UserController@showUserPage');
-Route::get('/{username}/edit', 'UserController@showUserEditPage');
-Route::post('/{username}/edit', 'UserController@editUser');
+Route::get('/users/{username}', 'UserController@showUserPage');
+Route::get('/users/{username}/edit', 'UserController@showUserEditPage');
+Route::post('/users/{username}/edit', 'UserController@editUser');
 // 1.5 デバイス一覧
 Route::get('/devices/{device}/{maker}/{product}', 'DeviceController@showDeviceProduct');
 // 1.6 静的ページ

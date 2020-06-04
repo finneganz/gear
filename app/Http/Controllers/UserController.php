@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Users\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -25,8 +26,15 @@ class UserController extends Controller
     }
     public function showUserEditPage(int $username)
     {
+        // twitterAPI関係がはっきりしたら、$userを入れ替えること。web.phpにAuthミドルウェアも追加。
+        // $user = Auth::id();
 
-        return view('users.edit');
+        // ユーザーidを取得(ページ確認用)
+        $user = User::where('id', $username)->first()->id;
+        //ユーザーconfig情報を取得
+        $user_config = User::find($user_id)->getUserConfig;
+
+        return view('users.edit', compact('user_id', 'user_config'));
     }
     public function editUser()
     {

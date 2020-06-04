@@ -19,4 +19,9 @@ class User extends Authenticatable
         'mouse_id', 'mousepad_id', 'mousebungee_id', 'keyboard_id',
         'headset_id', 'mic_id', 'monitor_id',
     ];
+
+    public function getUserConfig()
+    {
+        return $this->hasOne('App\Models\GameSettings\Config');
+    }
 }

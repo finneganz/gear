@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users\User;
+use App\Models\GameSettings\Resolution;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,8 +22,16 @@ class UserController extends Controller
         $user_id = User::where('id', $username)->first()->id;
         // ユーザーconfig情報を取得
         $user_config = User::find($user_id)->getUserConfig;
+        // ユーザーモニター設定を取得
+        $user_monitor_setting = User::find($user_id)->getUserMonitorSetting;
+        // ユーザービデオ設定を取得
+        $user_video_setting = User::find($user_id)->getUserVideoSetting;
+        // ユーザーマウス設定を取得
+        $user_mouse_setting = User::find($user_id)->getUserMouseSetting;
+        // ユーザー解像度を取得
+        $user_resolution = Resolution::find($user_video_setting->resolution_id);
 
-        return view('users.user', compact('user_id', 'user_config'));
+        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution',));
     }
     public function showUserEditPage(int $username)
     {
@@ -33,8 +42,16 @@ class UserController extends Controller
         $user = User::where('id', $username)->first()->id;
         //ユーザーconfig情報を取得
         $user_config = User::find($user_id)->getUserConfig;
+        // ユーザーモニター設定を取得
+        $user_monitor_setting = User::find($user_id)->getUserMonitorSetting;
+        // ユーザービデオ設定を取得
+        $user_video_setting = User::find($user_id)->getUserVideoSetting;
+        // ユーザーマウス設定を取得
+        $user_mouse_setting = User::find($user_id)->getUserMouseSetting;
+        // ユーザー解像度を取得
+        $user_resolution = Resolution::find($user_video_setting->resolution_id);
 
-        return view('users.edit', compact('user_id', 'user_config'));
+        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution',));
     }
     public function editUser()
     {

@@ -32,10 +32,6 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\GameSettings\MouseSetting');
     }
-    public function getUserResolution()
-    {
-        return $this->hasOne('App\Models\GameSettings\Resolution');
-    }
     public function getUserVideoSetting()
     {
         return $this->hasOne('App\Models\GameSettings\VideoSetting');

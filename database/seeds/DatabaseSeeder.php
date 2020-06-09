@@ -18,6 +18,14 @@ class DatabaseSeeder extends Seeder
             MouseSettingsTableSeeder::class,
             ResolutionsTableSeeder::class,
             VideoSettingsTableSeeder::class,
+            HeadsetsTableSeeder::class,
+            KeyboardsTableSeeder::class,
+            MakersTableSeeder::class,
+            MicsTableSeeder::class,
+            MonitorsTableSeeder::class,
+            MousebungeesTableSeeder::class,
+            MousepadTableSeeder::class,
+            MousesTableSeeder::class,
         ]);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class MicsTableSeeder extends Seeder
 {
@@ -12,18 +13,26 @@ class MicsTableSeeder extends Seeder
     public function run()
     {
         DB::table('mics')->truncate();
+
+        $now = Carbon::now();
         DB::table('mics')->insert([
             [
                 'mic_name' => 'Yeti',
                 'maker_id' => 2,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'mic_name' => 'SEIREN X',
                 'maker_id' => 4,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'mic_name' => 'Strix Magnus',
                 'maker_id' => 5,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
         ]);
     }

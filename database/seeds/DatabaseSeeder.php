@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             MicsTableSeeder::class,
             MonitorsTableSeeder::class,
             MousebungeesTableSeeder::class,
-            MousepadTableSeeder::class,
+            MousepadsTableSeeder::class,
             MousesTableSeeder::class,
         ]);
     }

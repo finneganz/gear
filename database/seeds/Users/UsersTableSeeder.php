@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,6 +13,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->truncate();
+
+        $now = Carbon::now();
         DB::table('users')->insert([
             [
                 'mouse_id' => 1,
@@ -21,6 +24,8 @@ class UsersTableSeeder extends Seeder
                 'headset_id' => 1,
                 'mic_id' => 1,
                 'monitor_id' => 1,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'mouse_id' => 2,
@@ -30,6 +35,8 @@ class UsersTableSeeder extends Seeder
                 'headset_id' => 2,
                 'mic_id' => 2,
                 'monitor_id' => 2,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'mouse_id' => 3,
@@ -39,6 +46,8 @@ class UsersTableSeeder extends Seeder
                 'headset_id' => 3,
                 'mic_id' => 3,
                 'monitor_id' => 3,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'mouse_id' => 4,
@@ -48,6 +57,8 @@ class UsersTableSeeder extends Seeder
                 'headset_id' => 4,
                 'mic_id' => 4,
                 'monitor_id' => 4,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'mouse_id' => 5,
@@ -57,6 +68,8 @@ class UsersTableSeeder extends Seeder
                 'headset_id' => 5,
                 'mic_id' => 5,
                 'monitor_id' => 5,
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
         ]);
     }

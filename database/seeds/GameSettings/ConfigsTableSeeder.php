@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ConfigsTableSeeder extends Seeder
 {
@@ -12,6 +13,8 @@ class ConfigsTableSeeder extends Seeder
     public function run()
     {
         DB::table('configs')->truncate();
+
+        $now = Carbon::now();
         DB::table('configs')->insert([
             [
                 'user_id' => '1',
@@ -19,6 +22,8 @@ class ConfigsTableSeeder extends Seeder
                 'autoexec_filepath' => 'http/test.com1-2',
                 'windows_sensitivity' => '6/11',
                 'ingame_sensitivity' => '2.3',
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'user_id' => '2',
@@ -26,6 +31,8 @@ class ConfigsTableSeeder extends Seeder
                 'autoexec_filepath' => 'http/test.com2-2',
                 'windows_sensitivity' => '6/11',
                 'ingame_sensitivity' => '2.1',
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'user_id' => '3',
@@ -33,6 +40,8 @@ class ConfigsTableSeeder extends Seeder
                 'autoexec_filepath' => 'http/test.com3-2',
                 'windows_sensitivity' => '6/11',
                 'ingame_sensitivity' => '2.0',
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'user_id' => '4',
@@ -40,6 +49,8 @@ class ConfigsTableSeeder extends Seeder
                 'autoexec_filepath' => 'http/test.com4-2',
                 'windows_sensitivity' => '6/11',
                 'ingame_sensitivity' => '1.7',
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'user_id' => '5',
@@ -47,6 +58,8 @@ class ConfigsTableSeeder extends Seeder
                 'autoexec_filepath' => 'http/test.com5-2',
                 'windows_sensitivity' => '6/11',
                 'ingame_sensitivity' => '1.55',
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
         ]);
     }

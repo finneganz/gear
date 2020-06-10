@@ -40,7 +40,7 @@ class UserController extends Controller
         // ユーザーのモニターを取得
         $user_monitor = User::find($user_id)->getUserMonitor;
         // ユーザーのマウスを取得
-        // $user_mouse = User::find($user_id)->getUserMouse;
+        $user_mouse = User::find($user_id)->getUserMouse;
         // ユーザーのマウスバンジーを取得
         $user_mousebungee = User::find($user_id)->getUserMousebungee;
         // ユーザーのマウスパッドを取得
@@ -75,7 +75,7 @@ class UserController extends Controller
         // ユーザーのモニターを取得
         $user_monitor = User::find($user_id)->getUserMonitor;
         // ユーザーのマウスを取得
-        // $user_mouse = User::find($user_id)->getUserMouse;
+        $user_mouse = User::find($user_id)->getUserMouse;
         // ユーザーのマウスバンジーを取得
         $user_mousebungee = User::find($user_id)->getUserMousebungee;
         // ユーザーのマウスパッドを取得

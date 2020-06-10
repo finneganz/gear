@@ -22,19 +22,19 @@ class User extends Authenticatable
 
     public function getUserConfig()
     {
-        return $this->hasOne('App\Models\GameSettings\Config');
+        return $this->hasOne('App\Models\GameSettings\Config', 'user_id');
     }
     public function getUserMonitorSetting()
     {
-        return $this->hasOne('App\Models\GameSettings\MonitorSetting');
+        return $this->hasOne('App\Models\GameSettings\MonitorSetting', 'user_id');
     }
     public function getUserMouseSetting()
     {
-        return $this->hasOne('App\Models\GameSettings\MouseSetting');
+        return $this->hasOne('App\Models\GameSettings\MouseSetting', 'user_id');
     }
     public function getUserVideoSetting()
     {
-        return $this->hasOne('App\Models\GameSettings\VideoSetting');
+        return $this->hasOne('App\Models\GameSettings\VideoSetting', 'user_id');
     }
     public function getUserHeadset()
     {

@@ -36,4 +36,32 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\GameSettings\VideoSetting');
     }
+    public function getUserHeadset()
+    {
+        return $this->belongsTo('App\Models\Devices\Headset', 'headset_id');
+    }
+    public function getUserKeyboard()
+    {
+        return $this->belongsTo('App\Models\Devices\Keyboard', 'keyboard_id');
+    }
+    public function getUserMic()
+    {
+        return $this->belongsTo('App\Models\Devices\Mic', 'mic_id');
+    }
+    public function getUserMonitor()
+    {
+        return $this->belongsTo('App\Models\Devices\Monitor', 'monitor_id');
+    }
+    public function getUserMouse()
+    {
+        return $this->belongsTo('App\Models\Devices\Mouse', 'mouse_id');
+    }
+    public function getUserMousebungee()
+    {
+        return $this->belongsTo('App\Models\Devices\Mousebungee', 'mousebungee_id');
+    }
+    public function getUserMousepad()
+    {
+        return $this->belongsTo('App\Models\Devices\Mousepad', 'mousepad_id');
+    }
 }

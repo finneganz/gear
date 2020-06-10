@@ -31,7 +31,22 @@ class UserController extends Controller
         // ユーザー解像度を取得
         $user_resolution = Resolution::find($user_video_setting->resolution_id);
 
-        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution',));
+        // ユーザーのヘッドセットを取得
+        $user_headset = User::find($user_id)->getUserHeadset;
+        // ユーザーのキーボードを取得
+        $user_keyboard = User::find($user_id)->getUserKeyboard;
+        // ユーザーのマイクを取得
+        $user_mic = User::find($user_id)->getUserMic;
+        // ユーザーのモニターを取得
+        $user_monitor = User::find($user_id)->getUserMonitor;
+        // ユーザーのマウスを取得
+        // $user_mouse = User::find($user_id)->getUserMouse;
+        // ユーザーのマウスバンジーを取得
+        $user_mousebungee = User::find($user_id)->getUserMousebungee;
+        // ユーザーのマウスパッドを取得
+        $user_mousepad = User::find($user_id)->getUserMousepad;
+
+        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution', 'user_headset', 'user_keyboard', 'user_mic', 'user_monitor', 'user_mousebungee', 'user_mousepad'));
     }
     public function showUserEditPage(int $username)
     {
@@ -51,7 +66,22 @@ class UserController extends Controller
         // ユーザー解像度を取得
         $user_resolution = Resolution::find($user_video_setting->resolution_id);
 
-        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution',));
+        // ユーザーのヘッドセットを取得
+        $user_headset = User::find($user_id)->getUserHeadset;
+        // ユーザーのキーボードを取得
+        $user_keyboard = User::find($user_id)->getUserKeyboard;
+        // ユーザーのマイクを取得
+        $user_mic = User::find($user_id)->getUserMic;
+        // ユーザーのモニターを取得
+        $user_monitor = User::find($user_id)->getUserMonitor;
+        // ユーザーのマウスを取得
+        // $user_mouse = User::find($user_id)->getUserMouse;
+        // ユーザーのマウスバンジーを取得
+        $user_mousebungee = User::find($user_id)->getUserMousebungee;
+        // ユーザーのマウスパッドを取得
+        $user_mousepad = User::find($user_id)->getUserMousepad;
+
+        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution', 'user_headset', 'user_keyboard', 'user_mic', 'user_monitor', 'user_mousebungee', 'user_mousepad'));
     }
     public function editUser()
     {

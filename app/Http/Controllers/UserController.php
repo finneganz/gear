@@ -84,7 +84,7 @@ class UserController extends Controller
         $user_mousebungee = $this->user_mousebungee;
         $user_mousepad = $this->user_mousepad;
 
-        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution', 'user_headset', 'user_keyboard', 'user_mic', 'user_monitor', 'user_mousebungee', 'user_mousepad'));
+        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_resolution', 'user_headset', 'user_keyboard', 'user_mic', 'user_monitor', 'user_mousebungee', 'user_mouse', 'user_mousepad'));
     }
     public function showUserEditPage(int $username)
     {
@@ -102,7 +102,7 @@ class UserController extends Controller
         $user_mousebungee = $this->user_mousebungee;
         $user_mousepad = $this->user_mouse;
 
-        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_mouse_setting', 'user_resolution', 'user_headset', 'user_keyboard', 'user_mic', 'user_monitor', 'user_mousebungee', 'user_mousepad'));
+        return view('users.user', compact('user_id', 'user_config', 'user_monitor_setting', 'user_video_setting', 'user_mouse_setting', 'user_resolution', 'user_headset', 'user_keyboard', 'user_mic', 'user_monitor', 'user_mousebungee', 'user_mouse', 'user_mousepad'));
     }
     public function editUser()
     {

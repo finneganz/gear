@@ -19,6 +19,10 @@ class DeviceController extends Controller
     {
         return view('devices.list');
     }
+    public function showDeviceGenre()
+    {
+        return view('devices.genre');
+    }
     public function showDeviceProduct(Router $router)
     {
         $routeParams = $router->getCurrentRoute()->parameters();

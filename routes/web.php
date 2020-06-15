@@ -26,6 +26,8 @@ Route::get('/users/{username}', 'UserController@showUserPage');
 Route::get('/users/{username}/edit', 'UserController@showUserEditPage');
 Route::post('/users/{username}/edit', 'UserController@editUser');
 // 1.5 デバイス一覧
+Route::get('/devices', 'DeviceController@showDeviceList');
+Route::get('/devices/{device}', 'DeviceController@showDeviceGenre');
 Route::get('/devices/{device}/{maker}/{product}', 'DeviceController@showDeviceProduct');
 // 1.6 静的ページ
 Route::get('/about', 'StaticsController@showAbout');

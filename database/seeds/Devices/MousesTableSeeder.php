@@ -17,7 +17,7 @@ class MousesTableSeeder extends Seeder
         $now = Carbon::now();
         DB::table('mouses')->insert([
             [
-                'mouse_name' => 'RIVAL 600',
+                'mouse_name' => 'RIVAL_600',
                 'maker_id' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -29,19 +29,19 @@ class MousesTableSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'mouse_name' => 'ZA 13',
+                'mouse_name' => 'ZA_13',
                 'maker_id' => 3,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mouse_name' => 'DeathAdder V2',
+                'mouse_name' => 'DeathAdder_V2',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mouse_name' => 'ROG Gradius Ⅱ',
+                'mouse_name' => 'ROG_Gradius_I',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

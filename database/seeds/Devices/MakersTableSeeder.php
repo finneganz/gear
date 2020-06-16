@@ -22,7 +22,7 @@ class MakersTableSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'maker_name' => 'Logicool G',
+                'maker_name' => 'Logicool_G',
                 'created_at' => $now,
                 'updated_at' => $now,
             ],

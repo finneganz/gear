@@ -17,31 +17,31 @@ class KeyboardsTableSeeder extends Seeder
         $now = Carbon::now();
         DB::table('keyboards')->insert([
             [
-                'keyboard_name' => 'APEX PRO',
+                'keyboard_name' => 'APEX_PRO',
                 'maker_id' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'keyboard_name' => 'PRO X',
+                'keyboard_name' => 'PRO_X',
                 'maker_id' => 2,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'keyboard_name' => 'CELERITAS II',
+                'keyboard_name' => 'CELERITAS_II',
                 'maker_id' => 3,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'keyboard_name' => 'HUNTSMAN ELITE',
+                'keyboard_name' => 'HUNTSMAN_ELITE',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'keyboard_name' => 'ROG Strix Flare',
+                'keyboard_name' => 'ROG_Strix_Flare',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

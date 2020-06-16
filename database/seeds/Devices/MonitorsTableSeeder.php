@@ -23,13 +23,13 @@ class MonitorsTableSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'monitor_name' => 'Razer Raptop 27',
+                'monitor_name' => 'Razer_Raptop_27',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'monitor_name' => 'SWIFT PG258Q',
+                'monitor_name' => 'SWIFT_PG258Q',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

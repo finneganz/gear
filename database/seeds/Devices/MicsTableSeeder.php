@@ -23,13 +23,13 @@ class MicsTableSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'mic_name' => 'SEIREN X',
+                'mic_name' => 'SEIREN_X',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mic_name' => 'Strix Magnus',
+                'mic_name' => 'Strix_Magnus',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

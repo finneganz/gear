@@ -17,13 +17,13 @@ class HeadsetsTableSeeder extends Seeder
         $now = Carbon::now();
         DB::table('headsets')->insert([
             [
-                'headset_name' => 'Siberia V2',
+                'headset_name' => 'Siberia_V2',
                 'maker_id' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'headset_name' => 'PRO X',
+                'headset_name' => 'PRO_X',
                 'maker_id' => 2,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -35,7 +35,7 @@ class HeadsetsTableSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'headset_name' => 'ROG Theta 7.1',
+                'headset_name' => 'ROG_Theta_7.1',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

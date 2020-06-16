@@ -19,8 +19,39 @@ class DeviceController extends Controller
     {
         return view('devices.list');
     }
-    public function showDeviceGenre()
+    public function showDeviceGenre(Router $router)
     {
+        // ルートパラメータを取得
+        $routeParam = $router->getCurrentRoute()->parameters();
+        $deviceGenreParam = $routeParam['device'];
+
+        switch ($deviceGenreParam) {
+            case 'headsets':
+                $headsets = Headset::orderBy('id', 'ASC')->take(10)->get();
+                break;
+            case 'keyboards':
+                $keyboards = Keyboard::orderBy('id', 'ASC')->take(10)->get();
+                break;
+            case 'mics':
+                $mics = Mic::orderBy('id', 'ASC')->take(10)->get();
+                break;
+            case 'monitors':
+                $monitors = Monitor::orderBy('id', 'ASC')->take(10)->get();
+                break;
+            case 'mouses':
+                $mice = Mouse::orderBy('id', 'ASC')->take(10)->get();
+                break;
+            case 'mousebungees':
+                $mousebungees = Mousebungee::orderBy('id', 'ASC')->take(10)->get();
+                break;
+            case 'mousepads':
+                $mousepads = Mousepad::orderBy('id', 'ASC')->take(10)->get();
+                break;
+            default:
+                //
+                break;
+        }
+        
         return view('devices.genre');
     }
     public function showDeviceProduct(Router $router)
@@ -57,8 +88,6 @@ class DeviceController extends Controller
                 //
                 break;
         }
-        
-
 
         return view('devices.product');
     }

@@ -27,52 +27,52 @@ class DeviceController extends Controller
 
         switch ($deviceGenreParam) {
             case 'headsets':
-                $headsets = Headset::orderBy('id', 'ASC')->take(10)->get();
-                foreach($headsets as $headset)
+                $devices = Headset::orderBy('id', 'ASC')->take(10)->get();
+                foreach($devices as $device)
                 {
-                    $headset->headset_name = str_replace('_', ' ', $headset->headset_name);
+                    $device->headset_name = str_replace('_', ' ', $device->headset_name);
                 }
                 break;
             case 'keyboards':
-                $keyboards = Keyboard::orderBy('id', 'ASC')->take(10)->get();
-                foreach($keyboards as $keyboard)
+                $devices = Keyboard::orderBy('id', 'ASC')->take(10)->get();
+                foreach($devices as $device)
                 {
-                    $keyboard->keyboard_name = str_replace('_', ' ', $keyboard->keyboard_name);
+                    $device->keyboard_name = str_replace('_', ' ', $device->keyboard_name);
                 }
                 break;
             case 'mics':
-                $mics = Mic::orderBy('id', 'ASC')->take(10)->get();
-                foreach($mics as $mic)
+                $devices = Mic::orderBy('id', 'ASC')->take(10)->get();
+                foreach($devices as $device)
                 {
-                    $mic->mic_name = str_replace('_', ' ', $mic->mic_name);
+                    $device->mic_name = str_replace('_', ' ', $device->mic_name);
                 }
                 break;
             case 'monitors':
-                $monitors = Monitor::orderBy('id', 'ASC')->take(10)->get();
-                foreach($monitors as $monitor)
+                $devices = Monitor::orderBy('id', 'ASC')->take(10)->get();
+                foreach($devices as $device)
                 {
-                    $monitor->monitor_name = str_replace('_', ' ', $monitor->monitor_name);
+                    $device->monitor_name = str_replace('_', ' ', $device->monitor_name);
                 }
                 break;
             case 'mouses':
-                $mice = Mouse::orderBy('id', 'ASC')->take(10)->get();
-                foreach($mice as $mouse)
+                $device = Mouse::orderBy('id', 'ASC')->take(10)->get();
+                foreach($devices as $device)
                 {
-                    $mouse->mouse_name = str_replace('_', ' ', $mouse->mouse_name);
+                    $device->mouse_name = str_replace('_', ' ', $device->mouse_name);
                 }
                 break;
             case 'mousebungees':
-                $mousebungees = Mousebungee::orderBy('id', 'ASC')->take(10)->get();
-                foreach($mousebungees as $mousebungee)
+                $devices = Mousebungee::orderBy('id', 'ASC')->take(10)->get();
+                foreach($devices as $device)
                 {
-                    $mousebungee->mousebungee_name = str_replace('_', ' ', $mousebungee->mousebungee_name);
+                    $device->mousebungee_name = str_replace('_', ' ', $device->mousebungee_name);
                 }
                 break;
             case 'mousepads':
-                $mousepads = Mousepad::orderBy('id', 'ASC')->take(10)->get();
-                foreach($mousepads as $mousepad)
+                $devices = Mousepad::orderBy('id', 'ASC')->take(10)->get();
+                foreach($devices as $device)
                 {
-                    $mousepad->mousepad_name = str_replace('_', ' ', $mousepad->mousepad_name);
+                    $device->mousepad_name = str_replace('_', ' ', $device->mousepad_name);
                 }
                 break;
             default:
@@ -80,7 +80,7 @@ class DeviceController extends Controller
                 break;
         }
         
-        return view('devices.genre');
+        return view('devices.genre', compact('devices'));
     }
     public function showDeviceProduct(Router $router)
     {
@@ -92,39 +92,39 @@ class DeviceController extends Controller
         $maker_name = Maker::where('maker_name', $makerParam)->first()->maker_name;
         switch ($deviceParam) {
             case 'headsets':
-                $headset = Headset::where('headset_name', $productParam)->first();
-                $headset->headset_name = str_replace('_', ' ', $headset->headset_name);
+                $deviceProduct = Headset::where('headset_name', $productParam)->first();
+                $deviceProduct->headset_name = str_replace('_', ' ', $deviceProduct->headset_name);
                 break;
             case 'keyboards':
-                $keyboard = Keyboard::where('keyboard_name', $productParam)->first();
-                $keyboard->keyboard_name = str_replace('_', ' ', $keyboard->keyboard_name);
+                $deviceProduct = Keyboard::where('keyboard_name', $productParam)->first();
+                $deviceProduct->keyboard_name = str_replace('_', ' ', $deviceProduct->keyboard_name);
                 break;
             case 'mics':
-                $mic = Mic::where('mic_name', $productParam)->first();
-                $mic->mic_name = str_replace('_', ' ', $mic->mic_name);
+                $deviceProduct = Mic::where('mic_name', $productParam)->first();
+                $deviceProduct->mic_name = str_replace('_', ' ', $deviceProduct->mic_name);
                 break;
             case 'monitors':
-                $monitor = Monitor::where('monitor_name', $productParam)->first();
-                $monitor->monitor_name = str_replace('_', ' ', $monitor->monitor_name);
+                $deviceProduct = Monitor::where('monitor_name', $productParam)->first();
+                $deviceProduct->monitor_name = str_replace('_', ' ', $deviceProduct->monitor_name);
                 break;
             case 'mouses':
-                $mouse = Mouse::where('mouse_name', $productParam)->first();
-                $mouse->mouse_name = str_replace('_', ' ', $mouse->mouse_name);                
+                $deviceProduct = Mouse::where('mouse_name', $productParam)->first();
+                $deviceProduct->mouse_name = str_replace('_', ' ', $deviceProduct->mouse_name);
                 break;
             case 'mousebungees':
-                $mousebungee = Mousebungee::where('mousebungee_name', $productParam)->first();
-                $mousebungee->mousebungee_name = str_replace('_', ' ', $mousebungee->mousebungee_name);
+                $deviceProduct = Mousebungee::where('mousebungee_name', $productParam)->first();
+                $deviceProduct->mousebungee_name = str_replace('_', ' ', $deviceProduct->mousebungee_name);
                 break;
             case 'mousepads':
-                $mousepad = Mousepad::where('mousepad_name', $productParam)->first();
-                $mousepad->mousepad_name = str_replace('_', ' ', $mousepad->mousepad_name);
+                $deviceProduct = Mousepad::where('mousepad_name', $productParam)->first();
+                $deviceProduct->mousepad_name = str_replace('_', ' ', $deviceProduct->mousepad_name);
                 break;
             default:
                 //
                 break;
         }
 
-        return view('devices.product');
+        return view('devices.product', compact('deviceProduct'));
     }
 
     // 管理者用

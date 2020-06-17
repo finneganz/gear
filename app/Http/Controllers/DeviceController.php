@@ -89,40 +89,41 @@ class DeviceController extends Controller
         $makerParam = $routeParams['maker'];
         $productParam = $routeParams['product'];
 
-        $maker_name = Maker::where('maker_name', $makerParam)->first()->maker_name;
+        $makerId = Maker::where('maker_name', $makerParam)->first()->id;
         switch ($deviceParam) {
             case 'headsets':
-                $deviceProduct = Headset::where('headset_name', $productParam)->first();
+                $deviceProduct = Headset::where('headset_name', $productParam)->where('maker_id', $makerId)->first();
                 $deviceProduct->headset_name = str_replace('_', ' ', $deviceProduct->headset_name);
                 break;
             case 'keyboards':
-                $deviceProduct = Keyboard::where('keyboard_name', $productParam)->first();
+                $deviceProduct = Keyboard::where('keyboard_name', $productParam)->where('maker_id', $makerId)->first();
                 $deviceProduct->keyboard_name = str_replace('_', ' ', $deviceProduct->keyboard_name);
                 break;
             case 'mics':
-                $deviceProduct = Mic::where('mic_name', $productParam)->first();
+                $deviceProduct = Mic::where('mic_name', $productParam)->where('maker_id', $makerId)->first();
                 $deviceProduct->mic_name = str_replace('_', ' ', $deviceProduct->mic_name);
                 break;
             case 'monitors':
-                $deviceProduct = Monitor::where('monitor_name', $productParam)->first();
+                $deviceProduct = Monitor::where('monitor_name', $productParam)->where('maker_id', $makerId)->first();
                 $deviceProduct->monitor_name = str_replace('_', ' ', $deviceProduct->monitor_name);
                 break;
             case 'mouses':
-                $deviceProduct = Mouse::where('mouse_name', $productParam)->first();
+                $deviceProduct = Mouse::where('mouse_name', $productParam)->where('maker_id', $makerId)->first();
                 $deviceProduct->mouse_name = str_replace('_', ' ', $deviceProduct->mouse_name);
                 break;
             case 'mousebungees':
-                $deviceProduct = Mousebungee::where('mousebungee_name', $productParam)->first();
+                $deviceProduct = Mousebungee::where('mousebungee_name', $productParam)->where('maker_id', $makerId)->first();
                 $deviceProduct->mousebungee_name = str_replace('_', ' ', $deviceProduct->mousebungee_name);
                 break;
             case 'mousepads':
-                $deviceProduct = Mousepad::where('mousepad_name', $productParam)->first();
+                $deviceProduct = Mousepad::where('mousepad_name', $productParam)->where('maker_id', $makerId)->first();
                 $deviceProduct->mousepad_name = str_replace('_', ' ', $deviceProduct->mousepad_name);
                 break;
             default:
                 //
                 break;
         }
+        echo $deviceProduct;
 
         return view('devices.product', compact('deviceProduct'));
     }

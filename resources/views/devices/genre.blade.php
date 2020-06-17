@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <device-genre-component></device-genre-component>
+    <devices-genre-component></devices-genre-component>
 @endsection
 
 @section('script')

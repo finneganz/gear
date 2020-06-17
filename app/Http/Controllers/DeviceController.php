@@ -28,24 +28,52 @@ class DeviceController extends Controller
         switch ($deviceGenreParam) {
             case 'headsets':
                 $headsets = Headset::orderBy('id', 'ASC')->take(10)->get();
+                foreach($headsets as $headset)
+                {
+                    $headset->headset_name = str_replace('_', ' ', $headset->headset_name);
+                }
                 break;
             case 'keyboards':
                 $keyboards = Keyboard::orderBy('id', 'ASC')->take(10)->get();
+                foreach($keyboards as $keyboard)
+                {
+                    $keyboard->keyboard_name = str_replace('_', ' ', $keyboard->keyboard_name);
+                }
                 break;
             case 'mics':
                 $mics = Mic::orderBy('id', 'ASC')->take(10)->get();
+                foreach($mics as $mic)
+                {
+                    $mic->mic_name = str_replace('_', ' ', $mic->mic_name);
+                }
                 break;
             case 'monitors':
                 $monitors = Monitor::orderBy('id', 'ASC')->take(10)->get();
+                foreach($monitors as $monitor)
+                {
+                    $monitor->monitor_name = str_replace('_', ' ', $monitor->monitor_name);
+                }
                 break;
             case 'mouses':
                 $mice = Mouse::orderBy('id', 'ASC')->take(10)->get();
+                foreach($mice as $mouse)
+                {
+                    $mouse->mouse_name = str_replace('_', ' ', $mouse->mouse_name);
+                }
                 break;
             case 'mousebungees':
                 $mousebungees = Mousebungee::orderBy('id', 'ASC')->take(10)->get();
+                foreach($mousebungees as $mousebungee)
+                {
+                    $mousebungee->mousebungee_name = str_replace('_', ' ', $mousebungee->mousebungee_name);
+                }
                 break;
             case 'mousepads':
                 $mousepads = Mousepad::orderBy('id', 'ASC')->take(10)->get();
+                foreach($mousepads as $mousepad)
+                {
+                    $mousepad->mousepad_name = str_replace('_', ' ', $mousepad->mousepad_name);
+                }
                 break;
             default:
                 //
@@ -65,24 +93,31 @@ class DeviceController extends Controller
         switch ($deviceParam) {
             case 'headsets':
                 $headset = Headset::where('headset_name', $productParam)->first();
+                $headset->headset_name = str_replace('_', ' ', $headset->headset_name);
                 break;
             case 'keyboards':
                 $keyboard = Keyboard::where('keyboard_name', $productParam)->first();
+                $keyboard->keyboard_name = str_replace('_', ' ', $keyboard->keyboard_name);
                 break;
             case 'mics':
                 $mic = Mic::where('mic_name', $productParam)->first();
+                $mic->mic_name = str_replace('_', ' ', $mic->mic_name);
                 break;
             case 'monitors':
                 $monitor = Monitor::where('monitor_name', $productParam)->first();
+                $monitor->monitor_name = str_replace('_', ' ', $monitor->monitor_name);
                 break;
             case 'mouses':
                 $mouse = Mouse::where('mouse_name', $productParam)->first();
+                $mouse->mouse_name = str_replace('_', ' ', $mouse->mouse_name);                
                 break;
             case 'mousebungees':
                 $mousebungee = Mousebungee::where('mousebungee_name', $productParam)->first();
+                $mousebungee->mousebungee_name = str_replace('_', ' ', $mousebungee->mousebungee_name);
                 break;
             case 'mousepads':
                 $mousepad = Mousepad::where('mousepad_name', $productParam)->first();
+                $mousepad->mousepad_name = str_replace('_', ' ', $mousepad->mousepad_name);
                 break;
             default:
                 //

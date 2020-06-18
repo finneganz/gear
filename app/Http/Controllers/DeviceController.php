@@ -123,7 +123,6 @@ class DeviceController extends Controller
                 //
                 break;
         }
-        echo $deviceProduct;
 
         return view('devices.product', compact('deviceProduct'));
     }

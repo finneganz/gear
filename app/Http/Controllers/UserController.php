@@ -37,30 +37,30 @@ class UserController extends Controller
             // ユーザーidを取得
             $this->userId = User::where('id', $userName)->first()->id;
             // ユーザーconfig情報を取得
-            $this->userConfig = User::find($this->user_id)->getUserConfig;
+            $this->userConfig = User::find($this->userId)->getUserConfig;
             // ユーザーモニター設定を取得
-            $this->userMonitorSetting = User::find($this->user_id)->getUserMonitorSetting;
+            $this->userMonitorSetting = User::find($this->userId)->getUserMonitorSetting;
             // ユーザービデオ設定を取得
-            $this->userVideoSetting = User::find($this->user_id)->getUserVideoSetting;
+            $this->userVideoSetting = User::find($this->userId)->getUserVideoSetting;
             // ユーザーマウス設定を取得
-            $this->userMouseSetting = User::find($this->user_id)->getUserMouseSetting;
+            $this->userMouseSetting = User::find($this->userId)->getUserMouseSetting;
             // ユーザー解像度を取得
             $this->userResolution = Resolution::find($this->userVideoSetting->resolution_id);
     
             // ユーザーのヘッドセットを取得
-            $this->userHeadset = User::find($this->user_id)->getUserHeadset;
+            $this->userHeadset = User::find($this->userId)->getUserHeadset;
             // ユーザーのキーボードを取得
-            $this->userKeyboard = User::find($this->user_id)->getUserKeyboard;
+            $this->userKeyboard = User::find($this->userId)->getUserKeyboard;
             // ユーザーのマイクを取得
-            $this->userMic = User::find($this->user_id)->getUserMic;
+            $this->userMic = User::find($this->userId)->getUserMic;
             // ユーザーのモニターを取得
-            $this->userMonitor = User::find($this->user_id)->getUserMonitor;
+            $this->userMonitor = User::find($this->userId)->getUserMonitor;
             // ユーザーのマウスを取得
-            $this->userMouse = User::find($this->user_id)->getUserMouse;
+            $this->userMouse = User::find($this->userId)->getUserMouse;
             // ユーザーのマウスバンジーを取得
-            $this->userMousebungee = User::find($this->user_id)->getUserMousebungee;
+            $this->userMousebungee = User::find($this->userId)->getUserMousebungee;
             // ユーザーのマウスパッドを取得
-            $this->userMousepad = User::find($this->user_id)->getUserMousepad;
+            $this->userMousepad = User::find($this->userId)->getUserMousepad;
         }
 
     }
@@ -84,7 +84,7 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        return view('users.user', compact('userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'useMousepad'));
+        return view('users.user', compact('userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
     }
     public function showUserEditPage(int $username)
     {
@@ -102,7 +102,7 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        return view('users.user', compact('userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'useMousepad'));
+        return view('users.user', compact('userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
     }
     public function editUser()
     {

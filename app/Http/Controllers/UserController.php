@@ -10,6 +10,7 @@ use Illuminate\Routing\Router;
 
 class UserController extends Controller
 {
+    private $user;
     private $userId;
     private $userConfig;
     private $userMonitorSetting;
@@ -32,10 +33,13 @@ class UserController extends Controller
         {
             // twitterAPI関係がはっきりしたら、上のint => string と $user_idを入れ替えること
             // $user_id = User::where('username', $username)->first()->id;
-
+            
             $userName = $routeParam['username'];
+            
+            // ユーザーを取得
+            $this->user = User::where('id', $userName)->first();
             // ユーザーidを取得
-            $this->userId = User::where('id', $userName)->first()->id;
+            $this->userId = $this->user->id;
             // ユーザーconfig情報を取得
             $this->userConfig = User::find($this->userId)->getUserConfig;
             // ユーザーモニター設定を取得
@@ -70,6 +74,7 @@ class UserController extends Controller
     }
     public function showUserPage(int $username)
     {
+        $user = $this->user;
         $userId = $this->userId;
         $userConfig = $this->userConfig;
         $userMonitorSetting = $this->userMonitorSetting;
@@ -84,10 +89,11 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        return view('users.user', compact('userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
+        return view('users.user', compact('user', 'userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
     }
     public function showUserEditPage(int $username)
     {
+        $user = $this->user;
         $userId = $this->userId;
         $userConfig = $this->userConfig;
         $userMonitorSetting = $this->userMonitorSetting;
@@ -102,10 +108,44 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        return view('users.user', compact('userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
+        return view('users.user', compact('user', 'userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
     }
-    public function editUser()
+    public function editUser(Request $request)
     {
-        //
+        // Config
+        $this->userConfig->config_filepath = $request->input('configFilepath');
+        $this->userConfig->autoexec_filepath = $request->input('autoexecFilepath');
+        $this->userConfig->windows_sensitivity = $request->input('windowsSensitivity');
+        $this->userConfig->ingame_sensitivity = $request->input('inGameSensitivity');
+        
+        // モニター設定
+        $this->userMonitorSetting->setting_params = $request->input('monitorSetting');
+
+        // ビデオ設定
+        $this->userVideoSetting->resolution_id = $request->resolution;
+        $this->userVideoSetting->streatch = $request->streatch;
+        $this->userVideoSetting->anti_alias = $request->antiAlias;
+        $this->userVideoSetting->shadow_quality = $request->shadowQuality;
+
+        // マウス設定
+        $this->userMouseSetting->polling_rate = $request->input('dpi');
+        $this->userMouseSetting->dpi = $request->input('pollingRate');
+
+        // デバイス
+        $this->user->headset_id = $request->headset;
+        $this->user->keyboard_id = $request->keyboard;
+        $this->user->mic_id = $request->mic;
+        $this->user->monitor_id = $request->monitor;
+        $this->user->mouse_id = $request->mouse;
+        $this->user->mousebungee_id = $request->mousebungee;
+        $this->user->mousepad_id = $request->mousepad;
+
+        $this->userConfig->save();
+        $this->userMonitorSetting->save();
+        $this->userVideoSetting->save();
+        $this->userMouseSetting->save();
+        $this->user->save();
+
+        return view('users.user');
     }
 }

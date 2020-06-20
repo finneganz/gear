@@ -28,8 +28,12 @@ class MakerController extends Controller
     {
         return view('makers.edit');
     }
-    public function editMaker()
+    public function editMaker(string $makername, Request $request)
     {
-        //
+        $maker = Maker::where('maker_name', $makername)->first();
+        $maker->maker_name = $request->input('makerName');
+        $maker->save();
+
+        return view('makers.list');
     }
 }

@@ -31,9 +31,13 @@ class MakerController extends Controller
 
         return view('makers.list');
     }
-    public function showMakerEditPage()
+    public function showMakerEditPage(string $makername)
     {
-        return view('makers.edit');
+        $maker = Maker::where('maker_name', $makername)->first();
+        // 表示用に文字列を置き換え
+        $maker->maker_name = str_replace('_', ' ', $maker->maker_name);
+        
+        return view('makers.edit', compact('maker'));
     }
     public function editMaker(string $makername, Request $request)
     {

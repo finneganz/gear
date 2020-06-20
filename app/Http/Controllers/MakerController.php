@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Devices\Maker;
 
 use Illuminate\Http\Request;
 
@@ -15,9 +16,13 @@ class MakerController extends Controller
     {
         return view('makers.add');
     }
-    public function addMaker()
+    public function addMaker(Request $request)
     {
-        //
+        $maker = new Maker;
+        $maker->maker_name = $request->input('makerName');
+        $maker->save();
+
+        return view('makers.list');
     }
     public function showMakerEditPage()
     {

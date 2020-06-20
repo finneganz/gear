@@ -10,7 +10,14 @@ class MakerController extends Controller
     // 管理者用
     public function showMakersList()
     {
-        return view('makers.list');
+        $makers = Maker::orderBy('id', 'ASC')->take(10)->get();
+        // 表示用に文字列を置き換え
+        foreach($makers as $maker)
+        {
+            $maker->maker_name = str_replace('_', ' ', $maker->maker_name);
+        }
+
+        return view('makers.list', compact('makers'));
     }
     public function showMakerAddPage()
     {

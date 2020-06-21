@@ -50,8 +50,8 @@ Route::get('/makers', 'MakerController@showMakersList');
 Route::get('/maker/add', 'MakerController@showMakerAddPage');
 Route::post('/maker/add', 'MakerController@addMaker');
 // 編集
-Route::get('/maker/edit', 'MakerController@showMakerEditPage');
-Route::post('/maker/edit', 'MakerController@editMaker');
+Route::get('/maker/{makername}/edit', 'MakerController@showMakerEditPage');
+Route::post('/maker/{makername}/edit', 'MakerController@editMaker');
 
 
 

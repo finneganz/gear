@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Devices\Maker;
 
+use App\Models\Devices\Maker;
+use App\Http\Requests\EditMakerRequest;
 use Illuminate\Http\Request;
 
 class MakerController extends Controller
@@ -39,7 +40,7 @@ class MakerController extends Controller
         
         return view('makers.edit', compact('maker'));
     }
-    public function editMaker(string $makername, Request $request)
+    public function editMaker(string $makername, EditMakerRequest $request)
     {
         $maker = Maker::where('maker_name', $makername)->first();
         $maker->maker_name = $request->input('makerName');

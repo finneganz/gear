@@ -13,7 +13,6 @@
 // 1. ユーザー利用画面
 // 1.1 Top（ユーザーリスト一覧）
 Route::get('/', 'UserController@showUserList');
-Route::get('/devices', 'DeviceController@showDevicesList');
 // 1.2 ユーザー登録
 Route::get('/register', 'Auth\RegisterController@showRegisterPage');
 Route::post('/register', 'Auth\RegisterController@register');

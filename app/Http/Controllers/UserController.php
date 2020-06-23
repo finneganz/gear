@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Users\User;
 use App\Models\GameSettings\Resolution;
+use App\Http\Requests\UserSettingRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Router;
@@ -110,7 +111,7 @@ class UserController extends Controller
 
         return view('users.edit', compact('user', 'userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
     }
-    public function editUser(Request $request)
+    public function editUser(UserSettingRequest $request)
     {
         // Config
         $this->userConfig->config_filepath = $request->input('configFilepath');

@@ -132,9 +132,62 @@ class DeviceController extends Controller
     {
         return view('devices.add');
     }
-    public function addDevice()
+    public function addDevice(Request $request)
     {
-        //
+        switch ($request->deviceType) {
+            case 'headset':
+                $device = new Headset;
+                $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
+                $device->headset_name = $request->input('deviceName');
+                $device->maker_id = $makerId;
+                $device->save();
+                break;
+            case 'keyboard':
+                $device = new Keyboard;
+                $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
+                $device->keyboard_name = $request->input('deviceName');
+                $device->maker_id = $makerId;
+                $device->save();
+                break;
+            case 'mic':
+                $device = new Mic;
+                $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
+                $device->mic_name = $request->input('deviceName');
+                $device->maker_id = $makerId;
+                $device->save();
+                break;
+            case 'monitor':
+                $device = new Monitor;
+                $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
+                $device->monitor_name = $request->input('deviceName');
+                $device->maker_id = $makerId;
+                $device->save();
+                break;
+            case 'mouse':
+                $device = new Mouse;
+                $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
+                $device->mouse_name = $request->input('deviceName');
+                $device->maker_id = $makerId;
+                $device->save();
+                break;
+            case 'mousebungee':
+                $device = new Mousebungee;
+                $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
+                $device->mousebungee_name = $request->input('deviceName');
+                $device->maker_id = $makerId;
+                $device->save();
+                break;
+            case 'mousepad':
+                $device = new Mousepad;
+                $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
+                $device->mousepad_name = $request->input('deviceName');
+                $device->maker_id = $makerId;
+                $device->save();
+                break;
+            default:
+                //
+                break;
+        }
     }
     public function showDeviceEditPage()
     {

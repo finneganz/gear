@@ -11,6 +11,7 @@ use App\Models\Devices\Mouse;
 use App\Models\Devices\Mousebungee;
 use App\Models\Devices\Mousepad;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddDeviceRequest;
 use Illuminate\Routing\Router;
 
 class DeviceController extends Controller
@@ -132,7 +133,7 @@ class DeviceController extends Controller
     {
         return view('devices.add');
     }
-    public function addDevice(Request $request)
+    public function addDevice(AddDeviceRequest $request)
     {
         switch ($request->deviceType) {
             case 'headset':

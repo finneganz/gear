@@ -25,13 +25,13 @@ class UserSettingRequest extends FormRequest
     {
         return [
             // 1~11の整数のみ
-            'windowsSensitivity' => ['nullable', 'regex:/[1-9]/', 'regex:/1[0-1]/'],
+            'windowsSensitivity' => ['nullable', 'regex:/[1-9]|1[0-1]/'],
             // 整数or少数
             'inGameSensitivity' => ['nullable', 'regex:/\d+(\.\d+)?/'],
             // // 1~9999のみ
-            'dpi' => ['nullable', 'regex:/[1-9]/', 'regex:/[1-9][0-9]{1,3}/'],
+            'dpi' => ['nullable', 'regex:/[1-9]|[1-9][0-9]{1,3}/'],
             // // 1~9999のみ
-            'pollingRate' => ['nullable', 'regex:/[1-9]/', 'regex:/[1-9][0-9]{1,3}/'],
+            'pollingRate' => ['nullable', 'regex:/[1-9]|[1-9][0-9]{1,3}/'],
         ];
     }
 }

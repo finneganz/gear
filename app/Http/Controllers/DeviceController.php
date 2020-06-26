@@ -206,37 +206,37 @@ class DeviceController extends Controller
         switch ($deviceParam) {
             case 'headsets':
                 $deviceProduct = Headset::where('headset_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->headset_name = $request->input('headsetName');
+                $deviceProduct->headset_name = $request->input('deviceName');
                 $deviceProduct->save();
                 break;
             case 'keyboards':
                 $deviceProduct = Keyboard::where('keyboard_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->keyboard_name = $request->input('keyboardName');
+                $deviceProduct->keyboard_name = $request->input('deviceName');
                 $deviceProduct->save();
                 break;
             case 'mics':
                 $deviceProduct = Mic::where('mic_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->mic_name = $request->input('micName');
+                $deviceProduct->mic_name = $request->input('deviceName');
                 $deviceProduct->save();
                 break;
             case 'monitors':
                 $deviceProduct = Monitor::where('monitor_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->monitor_name = $request->input('monitorName');
+                $deviceProduct->monitor_name = $request->input('deviceName');
                 $deviceProduct->save();
                 break;
             case 'mouses':
                 $deviceProduct = Mouse::where('mouse_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->mouse_name = $request->input('mouseName');
+                $deviceProduct->mouse_name = $request->input('deviceName');
                 $deviceProduct->save();
                 break;
             case 'mousebungees':
                 $deviceProduct = Mousebungee::where('mousebungee_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->mousebungee_name = $request->input('mousebungeeName');
+                $deviceProduct->mousebungee_name = $request->input('deviceName');
                 $deviceProduct->save();
                 break;
             case 'mousepads':
                 $deviceProduct = Mousepad::where('mousepad_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->mousepad_name = $request->input('mousepadName');
+                $deviceProduct->mousepad_name = $request->input('deviceName');
                 $deviceProduct->save();
                 break;
             default:

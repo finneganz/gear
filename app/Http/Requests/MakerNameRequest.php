@@ -24,7 +24,7 @@ class MakerNameRequest extends FormRequest
     public function rules()
     {
         return [
-            'makerName' => 'required',
+            'makerName' => 'required|unique:makers,maker_name|not_regex:/\s/',
         ];
     }
 }

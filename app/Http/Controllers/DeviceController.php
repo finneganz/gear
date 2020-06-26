@@ -12,6 +12,7 @@ use App\Models\Devices\Mousebungee;
 use App\Models\Devices\Mousepad;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddDeviceRequest;
+use App\Http\Requests\EditDeviceRequest;
 use Illuminate\Routing\Router;
 
 class DeviceController extends Controller
@@ -194,7 +195,7 @@ class DeviceController extends Controller
     {
         return view('devices.edit');
     }
-    public function editDevice(Router $router, Request $request)
+    public function editDevice(Router $router, EditDeviceRequest $request)
     {
         $routeParams = $router->getCurrentRoute()->parameters();
         $deviceParam = $routeParams['device'];

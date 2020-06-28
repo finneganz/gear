@@ -201,8 +201,8 @@ class DeviceController extends Controller
         $deviceParam = $routeParams['device'];
         $makerParam = $routeParams['maker'];
         $productParam = $routeParams['product'];
-        // 編集前のメーカーid
         $makerId = Maker::where('maker_name', $makerParam)->first()->id;
+        
         switch ($deviceParam) {
             case 'headsets':
                 $deviceProduct = Headset::where('headset_name', $productParam)->where('maker_id', $makerId)->first();

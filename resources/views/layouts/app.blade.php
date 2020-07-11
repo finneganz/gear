@@ -8,7 +8,6 @@
 </head>
 <body>
   <div id="app">
-    <header-component></header-component>
     @yield('content')
   </div>
   @yield('script')

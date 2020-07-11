@@ -1,23 +1,32 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Device Add Component</div>
+  <v-app>
+    <header-component></header-component>
+    <v-content>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-8">
+                  <div class="card">
+                      <div class="card-header">Device Add Component</div>
 
-                    <div class="card-body">
-                        I'm a device add page component.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                      <div class="card-body">
+                          I'm a device add page component.
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+import Header from '../../components/Header'
+export default {
+  components: {
+    'header-component': Header
+  },
+  mounted() {
+    console.log('Component mounted.')
+  }
+}
 </script>

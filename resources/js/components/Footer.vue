@@ -25,7 +25,13 @@
       <v-spacer></v-spacer>
       <v-col cols="2">
         <v-card flat color="primary">
-          <v-card-title>icons</v-card-title>
+          <v-card-title>
+            <v-row justify="space-around">
+              <v-icon>mdi-home</v-icon>
+              <v-icon>mdi-home</v-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-row>
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>

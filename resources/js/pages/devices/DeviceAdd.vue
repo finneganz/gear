@@ -11,7 +11,7 @@
         <v-form
           method="POST"
           action="/device/add"
-          id="add-device"
+          id="deviceAdd"
         >
           <input type="hidden" name="_token" :value="csrf" />
           <v-select
@@ -68,7 +68,7 @@ export default {
     .getAttribute('content'),
     methods: {
       addDevice: function(){
-        document.querySelector('add-device').submit();
+        document.querySelector('deviceAdd').submit();
       },
     },
   })

@@ -11,7 +11,7 @@
         <v-form
           method="POST"
           action="/devices/headsets/steelseries/siberia_v2/edit"
-          id="edit-device"
+          id="deviceEdit"
         >
           <input type="hidden" name="_token" :value="csrf" />
           <v-text-field
@@ -51,7 +51,7 @@ export default {
     .getAttribute('content'),
     methods: {
       addDevice: function(){
-        document.querySelector('edit-device').submit();
+        document.querySelector('deviceEdit').submit();
       },
     },
   })

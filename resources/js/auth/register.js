@@ -8,6 +8,7 @@ Vue.use(Vuetify);
 
 new Vue({
   el: '#app',
+  vuetify: new Vuetify(),
   components: {
     'register-component': Register,
   }

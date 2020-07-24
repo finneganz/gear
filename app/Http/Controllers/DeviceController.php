@@ -17,7 +17,7 @@ use Illuminate\Routing\Router;
 
 class DeviceController extends Controller
 {
-    public function showDevicesList()
+    public function showDeviceList()
     {
         return view('devices.list');
     }

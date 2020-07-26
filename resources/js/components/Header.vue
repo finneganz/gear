@@ -1,16 +1,17 @@
 <template>
   <v-app-bar app dark color="primary">
-    <v-col cols="1"></v-col>
-    <v-card 
-      flat
-      :ripple="false"
-      color="primary"
-      href="/"
-      width="150"
-      class="text-center"
-    >
-      GearArchive
-    </v-card>
+    <v-card-title>
+      <v-card 
+        flat
+        :ripple="false"
+        color="primary"
+        href="/"
+        width="150"
+        class="text-center"
+      >
+        GearArchive
+      </v-card>
+    </v-card-title>
     <v-col cols="1"></v-col>
     <v-col cols="2">
       <v-card

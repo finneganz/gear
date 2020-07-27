@@ -8,29 +8,19 @@
       </v-card>
     </v-container>
     <v-container>
-      <v-row justify="space-around">
-        <v-col cols="3">
-          <v-card outlined>
+      <v-row>
+        <v-col
+          v-for="user in users"
+          :key="user.name"
+          :cols="user.flex"
+        >
+          <v-card 
+            outlined
+            v-bind:href="user.url"
+          >
             <v-card-text>img</v-card-text>
-            <v-card-title>PlayerName</v-card-title>
-            <v-card-subtitle>@twitter_id</v-card-subtitle>
-            <v-card-text>^^^^^^^^^</v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="3">
-          <v-card outlined>
-            <v-card-text>img</v-card-text>
-            <v-card-title>PlayerName</v-card-title>
-            <v-card-subtitle>@twitter_id</v-card-subtitle>
-            <v-card-text>^^^^^^^^^</v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="3">
-          <v-card outlined>
-            <v-card-text>img</v-card-text>
-            <v-card-title>PlayerName</v-card-title>
-            <v-card-subtitle>@twitter_id</v-card-subtitle>
-            <v-card-text>^^^^^^^^^</v-card-text>
+            <v-card-title v-text="user.name"></v-card-title>
+            <v-card-text v-text="user.twitter_id"></v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -44,8 +34,15 @@ export default {
   components: {
     'header-component': Header
   },
-  mounted() {
-    console.log('Component mounted.')
-  }
+  data: () => ({
+    users: [
+      // エラー出るが:keyが重複していなければ解消するので問題なし
+      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/1', flex: '3'},
+      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/2', flex: '3'},
+      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/3', flex: '3'},
+      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/4', flex: '3'},
+      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/5', flex: '3'},
+    ]
+  }),
 }
 </script>

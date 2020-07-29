@@ -1,21 +1,24 @@
 <template>
   <v-app>
     <header-component></header-component>
-    <v-content>
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-md-8">
-                  <div class="card">
-                      <div class="card-header">Device Genre Component</div>
-
-                      <div class="card-body">
-                          I'm a device genre page component.
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </v-content>
+    <v-container fluid class="py-12 mt-12">
+      <v-row>
+        <v-col
+          v-for="device in devices"
+          :key="device.id"
+          cols="3"
+        >
+          <v-card
+            outlined
+            v-bind:href="'/devices/' + genre + '/steelseries/' + device.headset_name.replace(' ', '_')"
+          >
+            <v-card-text>img</v-card-text>
+            <v-card-title v-text="device.headset_name"></v-card-title>
+            <v-card-text v-text="device.maker_id"></v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
@@ -25,8 +28,9 @@ export default {
   components: {
     'header-component': Header
   },
-  mounted() {
-    console.log('Component mounted.')
+  props: {
+    devices: Array,
+    genre: String,
   }
 }
 </script>

@@ -82,7 +82,7 @@ class DeviceController extends Controller
                 break;
         }
         
-        return view('devices.genre', compact('devices'));
+        return view('devices.genre', compact('devices','deviceGenreParam'));
     }
     public function showDeviceProduct(Router $router)
     {

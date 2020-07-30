@@ -90,7 +90,30 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        return view('users.user', compact('user', 'userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
+        // ユーザーのデバイス情報＆設定を連想配列=>JSONに
+        $userDevices = [
+            'headset' => $userHeadset,
+            'keyboard' => $userKeyboard,
+            'mic' => $userMic,
+            'monitor' => $userMonitor,
+            'mouse' => $userMouse,
+            'mousebungee' => $userMousebungee,
+            'mousepad' => $userMousepad,
+        ];
+        $userSettings = [
+            'config' => $userConfig,
+            'monitorSetting' => $userMonitorSetting,
+            'videoSetting' => $userVideoSetting,
+            'mouseSetting' => $userMouseSetting,
+            'resolution' => $userResolution,
+        ];
+        // nullを削除
+        $userDevices = array_filter($userDevices);
+        $userSettings = array_filter($userSettings);
+        $userDevices = json_encode($userDevices);
+        $userSettings = json_encode($userSettings);
+
+        return view('users.user', compact('user', 'userId', 'userSettings', 'userDevices'));
     }
     public function showUserEditPage(int $username)
     {

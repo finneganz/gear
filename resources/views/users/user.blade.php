@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <user-component></user-component>
+    <user-component
+        :devices="{{$userDevices}}"
+        :settings="{{$userSettings}}"
+    ></user-component>
 @endsection
 
 @section('script')

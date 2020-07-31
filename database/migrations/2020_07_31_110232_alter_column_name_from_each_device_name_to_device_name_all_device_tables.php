@@ -13,8 +13,26 @@ class AlterColumnNameFromEachDeviceNameToDeviceNameAllDeviceTables extends Migra
      */
     public function up()
     {
-        Schema::table('each_device_name_to_device_name_all_device_tables', function (Blueprint $table) {
-            //
+        Schema::table('mouses', function (Blueprint $table) {
+            $table->renameColumn('mouse_name', 'device_name');
+        });
+        Schema::table('mousepads', function (Blueprint $table) {
+            $table->renameColumn('mousepad_name', 'device_name');
+        });
+        Schema::table('mousebungees', function (Blueprint $table) {
+            $table->renameColumn('mousebungee_name', 'device_name');
+        });
+        Schema::table('keyboards', function (Blueprint $table) {
+            $table->renameColumn('keyboard_name', 'device_name');
+        });
+        Schema::table('headsets', function (Blueprint $table) {
+            $table->renameColumn('headset_name', 'device_name');
+        });
+        Schema::table('mics', function (Blueprint $table) {
+            $table->renameColumn('mic_name', 'device_name');
+        });
+        Schema::table('monitors', function (Blueprint $table) {
+            $table->renameColumn('monitor_name', 'device_name');
         });
     }
 
@@ -25,8 +43,26 @@ class AlterColumnNameFromEachDeviceNameToDeviceNameAllDeviceTables extends Migra
      */
     public function down()
     {
-        Schema::table('each_device_name_to_device_name_all_device_tables', function (Blueprint $table) {
-            //
+        Schema::table('mouses', function (Blueprint $table) {
+            $table->renameColumn('device_name', 'mouse_name');
+        });
+        Schema::table('mousepads', function (Blueprint $table) {
+            $table->renameColumn('device_name', 'mousepad_name');
+        });
+        Schema::table('mousebungees', function (Blueprint $table) {
+            $table->renameColumn('device_name', 'mousebungee_name');
+        });
+        Schema::table('keyboards', function (Blueprint $table) {
+            $table->renameColumn('device_name', 'keyboard_name');
+        });
+        Schema::table('headsets', function (Blueprint $table) {
+            $table->renameColumn('device_name', 'headset_name');
+        });
+        Schema::table('mics', function (Blueprint $table) {
+            $table->renameColumn('device_name', 'mic_name');
+        });
+        Schema::table('monitors', function (Blueprint $table) {
+            $table->renameColumn('device_name', 'monitor_name');
         });
     }
 }

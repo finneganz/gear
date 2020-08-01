@@ -17,31 +17,31 @@ class MousepadsTableSeeder extends Seeder
         $now = Carbon::now();
         DB::table('mousepads')->insert([
             [
-                'mousepad_name' => 'QCK_Heavy',
+                'device_name' => 'QCK_Heavy',
                 'maker_id' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mousepad_name' => 'POWERPLAY',
+                'device_name' => 'POWERPLAY',
                 'maker_id' => 2,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mousepad_name' => 'G-SR',
+                'device_name' => 'G-SR',
                 'maker_id' => 3,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mousepad_name' => 'Razer_Mamba_Hyperflux',
+                'device_name' => 'Razer_Mamba_Hyperflux',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mousepad_name' => 'NC01-1A',
+                'device_name' => 'NC01-1A',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

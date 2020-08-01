@@ -17,19 +17,19 @@ class MicsTableSeeder extends Seeder
         $now = Carbon::now();
         DB::table('mics')->insert([
             [
-                'mic_name' => 'Yeti',
+                'device_name' => 'Yeti',
                 'maker_id' => 2,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mic_name' => 'SEIREN_X',
+                'device_name' => 'SEIREN_X',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'mic_name' => 'Strix_Magnus',
+                'device_name' => 'Strix_Magnus',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

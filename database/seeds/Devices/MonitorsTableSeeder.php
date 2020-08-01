@@ -17,19 +17,19 @@ class MonitorsTableSeeder extends Seeder
         $now = Carbon::now();
         DB::table('monitors')->insert([
             [
-                'monitor_name' => 'XL2546',
+                'device_name' => 'XL2546',
                 'maker_id' => 3,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'monitor_name' => 'Razer_Raptop_27',
+                'device_name' => 'Razer_Raptop_27',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'monitor_name' => 'SWIFT_PG258Q',
+                'device_name' => 'SWIFT_PG258Q',
                 'maker_id' => 5,
                 'created_at' => $now,
                 'updated_at' => $now,

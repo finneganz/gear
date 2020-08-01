@@ -10,11 +10,11 @@
         >
           <v-card
             outlined
-            v-bind:href="'/devices/' + genre + '/steelseries/' + device.headset_name.replace(' ', '_')"
+            v-bind:href="'/devices/' + genre + '/' + device.maker_name + '/' + device.device_name.replace(/\s+/g, '_')"
           >
             <v-card-text>img</v-card-text>
-            <v-card-title v-text="device.headset_name"></v-card-title>
-            <v-card-text v-text="device.maker_id"></v-card-text>
+            <v-card-title v-text="device.device_name"></v-card-title>
+            <v-card-text v-text="device.maker_name"></v-card-text>
           </v-card>
         </v-col>
       </v-row>

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <devices-genre-component :devices="{{ $devices }}" genre="{{ $deviceGenreParam }}"></devices-genre-component>
+    <devices-genre-component 
+        :devices="{{ $devices }}"
+        genre="{{ $deviceGenreParam }}"
+    ></devices-genre-component>
 @endsection
 
 @section('script')

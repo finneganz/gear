@@ -9,6 +9,6 @@ class Mouse extends Model
     protected $table = 'mouses';
 
     protected $fillable = [
-        'mouse_name', 'maker_id',
+        'device_name', 'maker_id',
     ];
 }

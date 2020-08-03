@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users\User;
+use App\Models\Devices\Maker;
 use App\Models\GameSettings\Resolution;
 use App\Http\Requests\UserSettingRequest;
 use Illuminate\Http\Request;
@@ -107,9 +108,18 @@ class UserController extends Controller
             'mouseSetting' => $userMouseSetting,
             'resolution' => $userResolution,
         ];
+
         // nullを削除
         $userDevices = array_filter($userDevices);
         $userSettings = array_filter($userSettings);
+
+        foreach($userDevices as $genre => $userDevice)
+        {
+            $userDevice->device_name = str_replace('_', ' ', $userDevice->device_name);
+            $userDevice->genre = $genre . 's';
+            $userDevice->maker_name = Maker::where('id', $userDevice->maker_id)->first()->maker_name;
+        }
+
         $userDevices = json_encode($userDevices);
         $userSettings = json_encode($userSettings);
 

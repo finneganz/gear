@@ -7,8 +7,8 @@
           <v-card-text>img</v-card-text>
         </v-col>
         <v-card flat max-width="300">
-          <v-card-title>Device Name</v-card-title>
-          <v-card-text>Device's maker</v-card-text>
+          <v-card-title v-text="device.device_name"></v-card-title>
+          <v-card-text v-text="device.maker_name"></v-card-text>
           <v-btn outlined small color="primary" class="ml-4">Link</v-btn>
         </v-card>
       </v-row>
@@ -22,8 +22,8 @@ export default {
   components: {
     'header-component': Header
   },
-  mounted() {
-    console.log('Component mounted.')
-  }
+  props: [
+    'device',
+  ]
 }
 </script>

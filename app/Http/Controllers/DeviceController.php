@@ -100,39 +100,46 @@ class DeviceController extends Controller
         $makerId = Maker::where('maker_name', $makerParam)->first()->id;
         switch ($deviceParam) {
             case 'headsets':
-                $deviceProduct = Headset::where('device_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = str_replace('_', ' ', $deviceProduct->device_name);
+                $device = Headset::where('device_name', $productParam)->where('maker_id', $makerId)->first();
+                $device->device_name = str_replace('_', ' ', $device->device_name);
+                $device->maker_name = Headset::find($device->id)->getMaker->maker_name;
                 break;
             case 'keyboards':
-                $deviceProduct = Keyboard::where('device_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = str_replace('_', ' ', $deviceProduct->device_name);
+                $device = Keyboard::where('device_name', $productParam)->where('maker_id', $makerId)->first();
+                $device->device_name = str_replace('_', ' ', $device->device_name);
+                $device->maker_name = Keyboard::find($device->id)->getMaker->maker_name;
                 break;
             case 'mics':
-                $deviceProduct = Mic::where('device_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = str_replace('_', ' ', $deviceProduct->device_name);
+                $device = Mic::where('device_name', $productParam)->where('maker_id', $makerId)->first();
+                $device->device_name = str_replace('_', ' ', $device->device_name);
+                $device->maker_name = Mic::find($device->id)->getMaker->maker_name;
                 break;
             case 'monitors':
-                $deviceProduct = Monitor::where('device_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = str_replace('_', ' ', $deviceProduct->device_name);
+                $device = Monitor::where('device_name', $productParam)->where('maker_id', $makerId)->first();
+                $device->device_name = str_replace('_', ' ', $device->device_name);
+                $device->maker_name = Monitor::find($device->id)->getMaker->maker_name;
                 break;
             case 'mouses':
-                $deviceProduct = Mouse::where('device_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = str_replace('_', ' ', $deviceProduct->device_name);
+                $device = Mouse::where('device_name', $productParam)->where('maker_id', $makerId)->first();
+                $device->device_name = str_replace('_', ' ', $device->device_name);
+                $device->maker_name = Mouse::find($device->id)->getMaker->maker_name;
                 break;
             case 'mousebungees':
-                $deviceProduct = Mousebungee::where('device_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = str_replace('_', ' ', $deviceProduct->device_name);
+                $device = Mousebungee::where('device_name', $productParam)->where('maker_id', $makerId)->first();
+                $device->device_name = str_replace('_', ' ', $device->device_name);
+                $device->maker_name = Mousebungee::find($device->id)->getMaker->maker_name;
                 break;
             case 'mousepads':
-                $deviceProduct = Mousepad::where('device_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = str_replace('_', ' ', $deviceProduct->device_name);
+                $device = Mousepad::where('device_name', $productParam)->where('maker_id', $makerId)->first();
+                $device->device_name = str_replace('_', ' ', $device->device_name);
+                $device->maker_name = Mousepad::find($device->id)->getMaker->maker_name;
                 break;
             default:
                 //
                 break;
         }
 
-        return view('devices.product', compact('deviceProduct'));
+        return view('devices.product', compact('device'));
     }
 
     // 管理者用

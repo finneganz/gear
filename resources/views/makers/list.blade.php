@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <makers-component></makers-component>
+    <makers-component
+        :makers="{{ $makers }}"
+    ></makers-component>
 @endsection
 
 @section('script')

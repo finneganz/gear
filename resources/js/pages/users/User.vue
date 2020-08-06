@@ -47,70 +47,83 @@
     <v-container>
       <v-card flat>
         <v-card-title class="justify-center">Config</v-card-title>
-        <v-row justify="center">
-          <v-col cols="10">
-            <v-card>
-              <v-row justify="center">
-                <v-col cols="5">
-                  <v-card flat>
-                    <v-card-subtitle class="text-center">config</v-card-subtitle>
-                    <v-card-text>config-filepath : {{ settings.config.config_filepath }}</v-card-text>
-                    <v-card-text class="pt-0">autoexec-filepath : {{ settings.config.autoexec_filepath }}</v-card-text>
-                    <v-card-text class="pt-0">windows-sensitivity : {{ settings.config.windows_sensitivity }}</v-card-text>
-                    <v-card-text class="pt-0">inGame-sensitivity : {{ settings.config.ingame_sensitivity }}</v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="center">
-          <v-col cols="10">
-            <v-card>
-              <v-row justify="center">
-                <v-col cols="5">
-                  <v-card flat>
-                    <v-card-subtitle class="text-center">monitor setting</v-card-subtitle>
-                    <v-card-text>monitor-settings : {{ settings.monitorSetting.setting_params }}</v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="center">
-          <v-col cols="10">
-            <v-card>
-              <v-row justify="center">
-                <v-col cols="5">
-                  <v-card flat>
-                    <v-card-subtitle class="text-center">video setting</v-card-subtitle>
-                    <v-card-text>resolution : {{ settings.resolution.resolution }}</v-card-text>
-                    <v-card-text class="pt-0">aspect : {{ settings.resolution.aspect }}</v-card-text>
-                    <v-card-text class="pt-0">scalling mode : {{ settings.videoSetting.streach }}</v-card-text>
-                    <v-card-text class="pt-0">anti alias : {{ settings.videoSetting.anti_alias }}</v-card-text>
-                    <v-card-text class="pt-0">shadow quality : {{ settings.videoSetting.shadow_quality }}</v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="center">
-          <v-col cols="10">
-            <v-card>
-              <v-row justify="center">
-                <v-col cols="5">
-                  <v-card flat>
-                    <v-card-subtitle class="text-center">mouse setting</v-card-subtitle>
-                    <v-card-text>dpi : {{ settings.mouseSetting.dpi }}</v-card-text>
-                    <v-card-text class="pt-0">polling rate : {{ settings.mouseSetting.polling_rate }}</v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-card>
-          </v-col>
-        </v-row>
+        <v-carousel
+        height="300"
+        hide-delimiters
+        >
+          <v-carousel-item light>
+            <v-row justify="center">
+              <v-col cols="10">
+                <v-card light>
+                  <v-row justify="center">
+                    <v-col cols="8">
+                      <v-card flat height="250">
+                        <v-card-subtitle class="text-center">config</v-card-subtitle>
+                        <v-card-text>config-filepath : {{ settings.config.config_filepath }}</v-card-text>
+                        <v-card-text class="pt-0">autoexec-filepath : {{ settings.config.autoexec_filepath }}</v-card-text>
+                        <v-card-text class="pt-0">windows-sensitivity : {{ settings.config.windows_sensitivity }}</v-card-text>
+                        <v-card-text class="pt-0">inGame-sensitivity : {{ settings.config.ingame_sensitivity }}</v-card-text>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-carousel-item>
+          <v-carousel-item light>
+            <v-row justify="center">
+              <v-col cols="10">
+                <v-card light>
+                  <v-row justify="center">
+                    <v-col cols="8">
+                      <v-card flat height="250">
+                        <v-card-subtitle class="text-center">monitor setting</v-card-subtitle>
+                        <v-card-text>monitor-settings : {{ settings.monitorSetting.setting_params }}</v-card-text>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-carousel-item>
+          <v-carousel-item light>
+            <v-row justify="center">
+              <v-col cols="10">
+                <v-card light>
+                  <v-row justify="center">
+                    <v-col cols="8">
+                      <v-card flat height="250">
+                        <v-card-subtitle class="text-center">video setting</v-card-subtitle>
+                        <v-card-text>resolution : {{ settings.resolution.resolution }}</v-card-text>
+                        <v-card-text class="pt-0">aspect : {{ settings.resolution.aspect }}</v-card-text>
+                        <v-card-text class="pt-0">scalling mode : {{ settings.videoSetting.streach }}</v-card-text>
+                        <v-card-text class="pt-0">anti alias : {{ settings.videoSetting.anti_alias }}</v-card-text>
+                        <v-card-text class="pt-0">shadow quality : {{ settings.videoSetting.shadow_quality }}</v-card-text>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-carousel-item>
+          <v-carousel-item light>
+            <v-row justify="center">
+              <v-col cols="10">
+                <v-card light>
+                  <v-row justify="center">
+                    <v-col cols="8">
+                      <v-card flat height="250">
+                        <v-card-subtitle class="text-center">mouse setting</v-card-subtitle>
+                      <v-card-text>dpi : {{ settings.mouseSetting.dpi }}</v-card-text>
+                      <v-card-text class="pt-0">polling rate : {{ settings.mouseSetting.polling_rate }}</v-card-text>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-carousel-item>
+        </v-carousel>
       </v-card>
     </v-container>
   </v-app>

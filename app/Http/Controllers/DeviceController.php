@@ -3,13 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Devices\Maker;
-use App\Models\Devices\Headset;
-use App\Models\Devices\Keyboard;
-use App\Models\Devices\Mic;
-use App\Models\Devices\Monitor;
-use App\Models\Devices\Mouse;
-use App\Models\Devices\Mousebungee;
-use App\Models\Devices\Mousepad;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddDeviceRequest;
 use App\Http\Requests\EditDeviceRequest;
@@ -38,6 +31,8 @@ class DeviceController extends Controller
         $routeParams = $router->getCurrentRoute()->parameters();
         $deviceDomain = new DeviceDomain;
         $device = $deviceDomain->getProductOfDevice($routeParams);
+        $device->device_name = str_replace('_', ' ', $device->device_name);
+        $device->maker_name = Maker::find($device->id)->maker_name;
 
         return view('devices.product', compact('device'));
     }
@@ -59,58 +54,11 @@ class DeviceController extends Controller
     public function editDevice(Router $router, EditDeviceRequest $request)
     {
         $routeParams = $router->getCurrentRoute()->parameters();
-        $deviceParam = $routeParams['device'];
-        $makerParam = $routeParams['maker'];
-        $productParam = $routeParams['product'];
-        $makerId = Maker::where('maker_name', $makerParam)->first()->id;
-        
-        switch ($deviceParam) {
-            case 'headsets':
-                $deviceProduct = Headset::where('headset_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = $request->input('deviceName');
-                $deviceProduct->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-                $deviceProduct->save();
-                break;
-            case 'keyboards':
-                $deviceProduct = Keyboard::where('keyboard_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = $request->input('deviceName');
-                $deviceProduct->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-                $deviceProduct->save();
-                break;
-            case 'mics':
-                $deviceProduct = Mic::where('mic_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = $request->input('deviceName');
-                $deviceProduct->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-                $deviceProduct->save();
-                break;
-            case 'monitors':
-                $deviceProduct = Monitor::where('monitor_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = $request->input('deviceName');
-                $deviceProduct->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-                $deviceProduct->save();
-                break;
-            case 'mouses':
-                $deviceProduct = Mouse::where('mouse_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = $request->input('deviceName');
-                $deviceProduct->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-                $deviceProduct->save();
-                break;
-            case 'mousebungees':
-                $deviceProduct = Mousebungee::where('mousebungee_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = $request->input('deviceName');
-                $deviceProduct->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-                $deviceProduct->save();
-                break;
-            case 'mousepads':
-                $deviceProduct = Mousepad::where('mousepad_name', $productParam)->where('maker_id', $makerId)->first();
-                $deviceProduct->device_name = $request->input('deviceName');
-                $deviceProduct->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-                $deviceProduct->save();
-                break;
-            default:
-                //
-                break;
-        }
+        $deviceDomain = new DeviceDomain;
+        $device = $deviceDomain->getProductOfDevice($routeParams);
+        $device->device_name = $request->input('deviceName');
+        $device->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
+        $device->save();
 
         return view('devices.list');
     }

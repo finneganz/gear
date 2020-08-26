@@ -13,7 +13,7 @@ use App\Models\Devices\Mousepad;
 
 class DeviceDomain
 {
-    public function getDeviceOfGenre(String $deviceGenreParam)
+    public function getDeviceOfGenre(string $deviceGenreParam)
     {
         switch ($deviceGenreParam) {
             case 'headsets':
@@ -78,7 +78,7 @@ class DeviceDomain
         }
         return $devices;
     }
-    public function getProductOfDevice(Array $routeParams)
+    public function getProductOfDevice(array $routeParams)
     {
         $deviceParam = $routeParams['device'];
         $makerParam = $routeParams['maker'];
@@ -113,7 +113,7 @@ class DeviceDomain
         }
         return $device;
     }
-    public function addNewDevice(Object $request)
+    public function addNewDevice(object $request)
     {
         switch ($request->deviceType) {
             case 'headset':

@@ -32,7 +32,7 @@ class DeviceController extends Controller
         $deviceDomain = new DeviceDomain;
         $device = $deviceDomain->getProductOfDevice($routeParams);
         $device->device_name = str_replace('_', ' ', $device->device_name);
-        $device->maker_name = Maker::find($device->id)->maker_name;
+        $device->maker_name = $device->getMaker->maker_name;
 
         return view('devices.product', compact('device'));
     }

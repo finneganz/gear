@@ -58,7 +58,7 @@ class DeviceController extends Controller
         $device = $deviceDomain->getProductOfDevice($routeParams);
         $device->device_name = $request->input('deviceName');
         $device->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
-        $device->save();
+        $deviceDomain->save($device);
 
         return view('devices.list');
     }

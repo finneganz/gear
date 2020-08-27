@@ -116,4 +116,8 @@ class DeviceDomain
         $device->maker_id = $makerId;
         $device->save();
     }
+    public function save(object $modelInstance)
+    {
+        $modelInstance->save();
+    }
 }

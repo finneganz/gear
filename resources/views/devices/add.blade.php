@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <device-add-component></device-add-component>
+    <device-add-component
+        :errors="{{ $errors }}"
+    ></device-add-component>
 @endsection
 
 @section('script')

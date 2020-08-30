@@ -14,6 +14,15 @@
           id="deviceAdd"
         >
           <input type="hidden" name="_token" :value="csrf" />
+          <v-alert 
+            class="mb-0 mt-4"
+            v-if="errors.deviceType"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.deviceType }}
+          </v-alert>
           <v-select
             class="pt-3"
             :items="deviceTypes"
@@ -22,11 +31,29 @@
             id="deviceType"
             name="deviceType"
           ></v-select>
+          <v-alert 
+            class="mb-0 mt-4"
+            v-if="errors.deviceName"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.deviceName }}
+          </v-alert>
           <v-text-field
             label="device name"
             id="deviceName"
             name="deviceName"
           ></v-text-field>
+          <v-alert 
+            class="mb-0 mt-4"
+            v-if="errors.makerName"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.makerName }}
+          </v-alert>
           <v-text-field
             label="maker name"
             id="makerName"
@@ -51,8 +78,11 @@ export default {
     'header-component': Header
   },
   mounted() {
-    console.log('Component mounted.')
+    console.log(this.errors);
   },
+  props: [
+    'errors',
+  ],
   data: () => ({
     deviceTypes: [
         'headset',

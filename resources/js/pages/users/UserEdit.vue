@@ -21,11 +21,29 @@
               id="autoexecFilepath"
               name="autoexecFilepath"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.windowsSensitivity"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.windowsSensitivity[0] }}
+            </v-alert>
             <v-text-field
               label="windows sensitivity"
               id="configFilepath"
               name="configFilepath"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.inGameSensitivity"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.inGameSensitivity[0] }}
+            </v-alert>
             <v-text-field
               label="ingame sensitivity"
               id="inGameSensitivity"
@@ -83,11 +101,29 @@
         <v-row justify="center">
           <v-col cols="6">
             <v-card-subtitle>Mouse Setting</v-card-subtitle>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.windowsSensitivity"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.dpi[0] }}
+            </v-alert>
             <v-text-field
               label="dpi"
               id="dpi"
               name="dpi"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.windowsSensitivity"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.pollingRate[0] }}
+            </v-alert>
             <v-text-field
               label="polling rate"
               id="pollingRate"
@@ -117,6 +153,9 @@ export default {
   components: {
     'header-component': Header
   },
+  props: [
+    'errors',
+  ],
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

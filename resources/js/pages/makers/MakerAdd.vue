@@ -14,6 +14,15 @@
           id="makerAdd"
         >
           <input type="hidden" name="_token" :value="csrf" />
+          <v-alert
+            class="mb-0 mt-4"
+            v-if="errors.makerName"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.makerName[0] }}
+          </v-alert>
           <v-text-field
             label="maker name"
             id="makerName"
@@ -39,6 +48,9 @@ export default {
   mounted() {
     console.log('Component mounted.')
   },
+  props: [
+    'errors',
+  ],
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

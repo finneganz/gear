@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <user-edit-component></user-edit-component>
+    <user-edit-component
+        :errors="{{ $errors }}"
+    ></user-edit-component>
 @endsection
 
 @section('script')

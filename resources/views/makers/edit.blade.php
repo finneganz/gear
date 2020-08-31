@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <maker-edit-component></maker-edit-component>
+    <maker-edit-component
+        :errors="{{ $errors }}"
+    ></maker-edit-component>
 @endsection
 
 @section('script')

@@ -21,7 +21,7 @@
             dense
             outlined
           >
-            {{ errors.deviceType }}
+            {{ errors.deviceType[0] }}
           </v-alert>
           <v-select
             class="pt-3"
@@ -38,7 +38,7 @@
             dense
             outlined
           >
-            {{ errors.deviceName }}
+            {{ errors.deviceName[0] }}
           </v-alert>
           <v-text-field
             label="device name"
@@ -52,7 +52,7 @@
             dense
             outlined
           >
-            {{ errors.makerName }}
+            {{ errors.makerName[0] }}
           </v-alert>
           <v-text-field
             label="maker name"

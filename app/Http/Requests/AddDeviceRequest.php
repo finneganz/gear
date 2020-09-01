@@ -69,6 +69,8 @@ class AddDeviceRequest extends FormRequest
             default:
                 return [
                     'deviceType' => ['required', 'regex:/headset|keyboard|mic|monitor|mouse|mousebungee|mousepad|mousepad/'],
+                    'deviceName' => 'required',
+                    'makerName' => 'required|exists:App\Models\Devices\Maker,maker_name',
                 ];
                 break;
         }

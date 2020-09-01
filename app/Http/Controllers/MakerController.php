@@ -35,8 +35,6 @@ class MakerController extends Controller
     public function showMakerEditPage(string $makername)
     {
         $maker = Maker::where('maker_name', $makername)->first();
-        // 表示用に文字列を置き換え
-        $maker->maker_name = str_replace('_', ' ', $maker->maker_name);
         
         return view('makers.edit', compact('maker'));
     }

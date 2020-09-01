@@ -3,6 +3,8 @@
 @section('content')
     <user-edit-component
         :errors="{{ $errors }}"
+        :devices="{{ $userDevices }}"
+        :settings="{{ $userSettings }}"
     ></user-edit-component>
 @endsection
 

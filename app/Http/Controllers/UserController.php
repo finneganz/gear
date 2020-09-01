@@ -142,7 +142,29 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        return view('users.edit', compact('user', 'userId', 'userConfig', 'userMonitorSetting', 'userVideoSetting', 'userMouseSetting', 'userResolution', 'userHeadset', 'userKeyboard', 'userMic', 'userMonitor', 'userMousebungee', 'userMouse', 'userMousepad'));
+        $userDevices = [
+            'headset' => $userHeadset,
+            'keyboard' => $userKeyboard,
+            'mic' => $userMic,
+            'monitor' => $userMonitor,
+            'mouse' => $userMouse,
+            'mousebungee' => $userMousebungee,
+            'mousepad' => $userMousepad,
+        ];
+        $userSettings = [
+            'config' => $userConfig,
+            'monitorSetting' => $userMonitorSetting,
+            'videoSetting' => $userVideoSetting,
+            'mouseSetting' => $userMouseSetting,
+            'resolution' => $userResolution,
+        ];
+
+        $userDevices = array_filter($userDevices);
+        $userSettings = array_filter($userSettings);
+        $userDevices = json_encode($userDevices);
+        $userSettings = json_encode($userSettings);
+
+        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices'));
     }
     public function editUser(UserSettingRequest $request)
     {

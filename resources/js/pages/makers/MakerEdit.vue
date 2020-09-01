@@ -27,6 +27,7 @@
             label="maker name"
             id="makerName"
             name="makerName"
+            :value="maker.maker_name"
           ></v-text-field>
           <v-btn
             type="submit"
@@ -50,6 +51,7 @@ export default {
   },
   props: [
     'errors',
+    'maker',
   ],
   data: () => ({
     csrf: 

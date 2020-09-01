@@ -3,6 +3,7 @@
 @section('content')
     <maker-edit-component
         :errors="{{ $errors }}"
+        :maker="{{ $maker }}"
     ></maker-edit-component>
 @endsection
 

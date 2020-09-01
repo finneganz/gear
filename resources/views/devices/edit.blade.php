@@ -3,6 +3,7 @@
 @section('content')
     <device-edit-component
         :errors="{{ $errors }}"
+        :device="{{ $device }}"
     ></device-edit-component>
 @endsection
 

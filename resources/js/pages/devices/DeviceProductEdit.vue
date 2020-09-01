@@ -27,6 +27,7 @@
             label="device name"
             id="deviceName"
             name="deviceName"
+            :value="device.device_name"
           ></v-text-field>
           <v-alert 
             class="mb-0 mt-4"
@@ -41,6 +42,7 @@
             label="maker name"
             id="makerName"
             name="makerName"
+            :value="device.maker_name"
           >
           </v-text-field>
           <v-btn
@@ -65,6 +67,7 @@ export default {
   },
   props: [
     'errors',
+    'device',
   ],
   data: () => ({
     csrf: 

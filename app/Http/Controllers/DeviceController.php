@@ -47,9 +47,14 @@ class DeviceController extends Controller
         $deviceDomain = new DeviceDomain;
         $deviceDomain->addNewDevice($request);
     }
-    public function showDeviceEditPage()
+    public function showDeviceEditPage(Router $router)
     {
-        return view('devices.edit');
+        $routeParams = $router->getCurrentRoute()->parameters();
+        $deviceDomain = new DeviceDomain;
+        $device = $deviceDomain->getProductOfDevice($routeParams);
+        $device->maker_name = $device->getMaker->maker_name;
+
+        return view('devices.edit', compact('device'));
     }
     public function editDevice(Router $router, EditDeviceRequest $request)
     {

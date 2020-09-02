@@ -178,7 +178,7 @@ class UserController extends Controller
         $this->userMonitorSetting->setting_params = $request->input('monitorSetting');
 
         // ビデオ設定
-        $this->userVideoSetting->resolution_id = $request->resolution;
+        $this->userVideoSetting->resolution_id = Resolution::where('resolution', $request->resolution)->first()->id;
         $this->userVideoSetting->streatch = $request->streatch;
         $this->userVideoSetting->anti_alias = $request->antiAlias;
         $this->userVideoSetting->shadow_quality = $request->shadowQuality;
@@ -188,13 +188,13 @@ class UserController extends Controller
         $this->userMouseSetting->dpi = $request->input('pollingRate');
 
         // デバイス
-        $this->user->headset_id = $request->headset;
-        $this->user->keyboard_id = $request->keyboard;
-        $this->user->mic_id = $request->mic;
-        $this->user->monitor_id = $request->monitor;
-        $this->user->mouse_id = $request->mouse;
-        $this->user->mousebungee_id = $request->mousebungee;
-        $this->user->mousepad_id = $request->mousepad;
+        // $this->user->headset_id = $request->headset;
+        // $this->user->keyboard_id = $request->keyboard;
+        // $this->user->mic_id = $request->mic;
+        // $this->user->monitor_id = $request->monitor;
+        // $this->user->mouse_id = $request->mouse;
+        // $this->user->mousebungee_id = $request->mousebungee;
+        // $this->user->mousepad_id = $request->mousepad;
 
         $this->userConfig->save();
         $this->userMonitorSetting->save();
@@ -202,6 +202,8 @@ class UserController extends Controller
         $this->userMouseSetting->save();
         $this->user->save();
 
-        return view('users.user');
+        return redirect()->action(
+            'UserController@showUserPage', ['username' => $this->userId],
+        );
     }
 }

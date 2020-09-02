@@ -34,8 +34,8 @@
             </v-alert>
             <v-text-field
               label="windows sensitivity"
-              id="configFilepath"
-              name="configFilepath"
+              id="windowsSensitivity"
+              name="windowsSensitivity"
               :value="settings.config.windows_sensitivity"
             ></v-text-field>
             <v-alert

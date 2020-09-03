@@ -6,6 +6,7 @@ use App\Models\Users\User;
 use App\Models\Devices\Maker;
 use App\Models\GameSettings\Resolution;
 use App\Http\Requests\UserSettingRequest;
+use App\Domains\UserDomain;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Router;
@@ -91,23 +92,10 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        // ユーザーのデバイス情報＆設定を連想配列=>JSONに
-        $userDevices = [
-            'headset' => $userHeadset,
-            'keyboard' => $userKeyboard,
-            'mic' => $userMic,
-            'monitor' => $userMonitor,
-            'mouse' => $userMouse,
-            'mousebungee' => $userMousebungee,
-            'mousepad' => $userMousepad,
-        ];
-        $userSettings = [
-            'config' => $userConfig,
-            'monitorSetting' => $userMonitorSetting,
-            'videoSetting' => $userVideoSetting,
-            'mouseSetting' => $userMouseSetting,
-            'resolution' => $userResolution,
-        ];
+        // ユーザーのデバイス情報＆設定を連想配列に
+        $userDomain = new UserDomain;
+        $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor, $userMouse, $userMouse, $userMousebungee, $userMousepad);
+        $userSettings = $userDomain->userSettingsToAssociativeArray($userConfig, $userMonitorSetting, $userVideoSetting, $userMouseSetting, $userResolution);
 
         // nullを削除
         $userDevices = array_filter($userDevices);
@@ -142,22 +130,10 @@ class UserController extends Controller
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        $userDevices = [
-            'headset' => $userHeadset,
-            'keyboard' => $userKeyboard,
-            'mic' => $userMic,
-            'monitor' => $userMonitor,
-            'mouse' => $userMouse,
-            'mousebungee' => $userMousebungee,
-            'mousepad' => $userMousepad,
-        ];
-        $userSettings = [
-            'config' => $userConfig,
-            'monitorSetting' => $userMonitorSetting,
-            'videoSetting' => $userVideoSetting,
-            'mouseSetting' => $userMouseSetting,
-            'resolution' => $userResolution,
-        ];
+        // ユーザーのデバイス情報＆設定を連想配列に
+        $userDomain = new UserDomain;
+        $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor, $userMouse, $userMouse, $userMousebungee, $userMousepad);
+        $userSettings = $userDomain->userSettingsToAssociativeArray($userConfig, $userMonitorSetting, $userVideoSetting, $userMouseSetting, $userResolution);
 
         $userDevices = array_filter($userDevices);
         $userSettings = array_filter($userSettings);

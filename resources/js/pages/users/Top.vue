@@ -11,16 +11,16 @@
       <v-row>
         <v-col
           v-for="user in users"
-          :key="user.name"
-          :cols="user.flex"
+          :key="user.id"
+          :cols="3"
         >
           <v-card 
             outlined
-            v-bind:href="user.url"
+            v-bind:href="'/users/' + user.id"
           >
             <v-card-text>img</v-card-text>
-            <v-card-title v-text="user.name"></v-card-title>
-            <v-card-text v-text="user.twitter_id"></v-card-text>
+            <v-card-title v-text="user.id"></v-card-title>
+            <!-- <v-card-text v-text="user.twitter_id"></v-card-text> -->
           </v-card>
         </v-col>
       </v-row>
@@ -34,15 +34,10 @@ export default {
   components: {
     'header-component': Header
   },
+  props: [
+    'users',
+  ],
   data: () => ({
-    users: [
-      // エラー出るが:keyが重複していなければ解消するので問題なし
-      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/1', flex: '3'},
-      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/2', flex: '3'},
-      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/3', flex: '3'},
-      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/4', flex: '3'},
-      { name: 'Player Name', twitter_id: '@twitter_id', url: '/users/5', flex: '3'},
-    ]
   }),
 }
 </script>

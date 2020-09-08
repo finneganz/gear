@@ -71,9 +71,10 @@ class UserController extends Controller
         }
 
     }
-    public function showUserList()
+    public function showUserList(User $user)
     {
-        return view('users.list');
+        $users = $user->orderBy('id', 'ASC')->take(10)->get();
+        return view('users.list', compact('users'));
     }
     public function showUserPage(int $username)
     {

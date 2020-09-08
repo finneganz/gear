@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <top-component></top-component>
+    <top-component
+        :users="{{ $users }}"
+    ></top-component>
 @endsection
 
 @section('script')

@@ -5,13 +5,16 @@
       <v-row>
         <v-col
           v-for="device in devices"
-          :key="device.name"
-          :cols="device.flex"
+          :key="device.value"
+          :cols="3"
         >
-          <v-card outlined>
+          <v-card
+            outlined
+            :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
+          >
             <v-card-text>img</v-card-text>
-            <v-card-title v-text="device.name"></v-card-title>
-            <v-card-text v-text="device.maker"></v-card-text>
+            <v-card-text v-text="device.device_name"></v-card-text>
+            <v-card-text v-text="device.maker_name"></v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -25,14 +28,10 @@ export default {
   components: {
     'header-component': Header
   },
+  props: [
+    'devices',
+  ],
   data: () => ({
-    devices: [
-      { name: 'Rival 600', maker: 'SteelSeries', flex: '3' },
-      { name: 'G304', maker: 'Logicool', flex: '3' },
-      { name: 'ZA 13', maker: 'Zowie', flex: '3' },
-      { name: 'DeathAdder V2', maker: 'Razer', flex: '3' },
-      { name: 'ROG Gradius 1', maker: 'ASUS', flex: '3' },
-    ],
   }),
 }
 </script>

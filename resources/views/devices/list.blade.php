@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <devices-component></devices-component>
+    <devices-component
+        :devices = "{{ $devices }}"
+    ></devices-component>
 @endsection
 
 @section('script')

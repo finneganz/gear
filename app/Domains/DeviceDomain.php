@@ -13,6 +13,41 @@ use App\Models\Devices\Mousepad;
 
 class DeviceDomain
 {
+    public function getSomeDevices()
+    {
+        $headset = Headset::find(1)->first();
+        $keyboard = Keyboard::find(1)->first();
+        $mic = Mic::find(1)->first();
+        $monitor = Monitor::find(1)->first();
+        $mouse = Mouse::find(1)->first();
+        $mousebungee = Mousebungee::find(1)->first();
+        $mousepad = Mousepad::find(1)->first();
+
+        $headset->maker_name = $headset->getMaker->maker_name;
+        $keyboard->maker_name = $keyboard->getMaker->maker_name;
+        $mic->maker_name = $mic->getMaker->maker_name;
+        $monitor->maker_name = $monitor->getMaker->maker_name;
+        $mouse->maker_name = $mouse->getMaker->maker_name;
+        $mousebungee->maker_name = $mousebungee->getMaker->maker_name;
+        $mousepad->maker_name = $mousepad->getMaker->maker_name;
+
+        $headset->genre = 'headsets';
+        $keyboard->genre = 'keyboards';
+        $mic->genre = 'mics';
+        $monitor->genre = 'monitors';
+        $mouse->genre = 'mouses';
+        $mousebungee->genre = 'mousebungees';
+        $mousepad->genre = 'mousepads';
+
+        $devices = array($headset, $keyboard, $mic, $monitor, $mouse, $mousebungee, $mousepad);
+        foreach($devices as $device)
+        {
+            $device->device_name = str_replace('_', ' ', $device->device_name);
+            $device->maker_name = str_replace('_', ' ', $device->maker_name);
+        }
+
+        return $devices;
+    }
     public function getDeviceOfGenre(string $deviceGenreParam)
     {
         switch ($deviceGenreParam) {

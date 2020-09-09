@@ -13,7 +13,10 @@ class DeviceController extends Controller
 {
     public function showDeviceList()
     {
-        return view('devices.list');
+        $deviceDomain = new DeviceDomain;
+        $devices = $deviceDomain->getSomeDevices();
+        $devices = json_encode($devices);
+        return view('devices.list', compact('devices'));
     }
     public function showDeviceGenre(Router $router)
     {

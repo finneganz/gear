@@ -48,7 +48,10 @@ class DeviceController extends Controller
     public function addDevice(AddDeviceRequest $request)
     {
         $deviceDomain = new DeviceDomain;
-        $deviceDomain->addNewDevice($request);
+        $device = $deviceDomain->addNewDevice($request);
+        $deviceDomain->save($device);
+
+        return redirect()->action('DeviceController@showDeviceList');
     }
     public function showDeviceEditPage(Router $router)
     {

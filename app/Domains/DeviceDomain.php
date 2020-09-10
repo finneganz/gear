@@ -149,7 +149,8 @@ class DeviceDomain
         $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
         $device->device_name = $request->input('deviceName');
         $device->maker_id = $makerId;
-        $device->save();
+        
+        return $device;
     }
     public function save(object $modelInstance)
     {

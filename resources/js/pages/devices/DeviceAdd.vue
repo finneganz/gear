@@ -96,11 +96,6 @@ export default {
     csrf: 
     document.querySelector('meta[name="csrf-token"]')
     .getAttribute('content'),
-    methods: {
-      addDevice: function(){
-        document.querySelector('deviceAdd').submit();
-      },
-    },
   })
 }
 </script>

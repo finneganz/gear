@@ -49,11 +49,6 @@ export default {
     csrf: 
     document.querySelector('meta[name="csrf-token"]')
     .getAttribute('content'),
-    methods: {
-      login: function(){
-        document.querySelector('login').submit();
-      },
-    },
   })
 }
 </script>

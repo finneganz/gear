@@ -14,7 +14,7 @@
 // 1.1 Top（ユーザーリスト一覧）
 Route::get('/', 'UserController@showUserList');
 // 1.2 ユーザー登録
-Route::get('/register', 'Auth\RegisterController@showRegisterPage');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
 Route::post('/register', 'Auth\RegisterController@register');
 // 1.3 ログイン
 Route::get('/login', 'Auth\LoginController@showLoginForm');

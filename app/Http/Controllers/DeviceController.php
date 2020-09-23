@@ -71,6 +71,6 @@ class DeviceController extends Controller
         $device->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
         $deviceDomain->save($device);
 
-        return view('devices.list');
+        return redirect()->action('DeviceController@showDeviceList');
     }
 }

@@ -2,6 +2,7 @@
 
 @section('content')
     <device-add-component
+        :is-logged-in = "{{ $isLoggedIn }}"
         :errors="{{ $errors }}"
     ></device-add-component>
 @endsection

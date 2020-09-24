@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Devices\Maker;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddDeviceRequest;
 use App\Http\Requests\EditDeviceRequest;
@@ -11,12 +12,19 @@ use App\Domains\DeviceDomain;
 
 class DeviceController extends Controller
 {
+    private $isLoggedIn;
+
+    public function __construct()
+    {
+        $this->isLoggedIn = Auth::check() ? 'true' : 'false';
+    }
     public function showDeviceList()
     {
+        $isLoggedIn = $this->isLoggedIn;
         $deviceDomain = new DeviceDomain;
         $devices = $deviceDomain->getSomeDevices();
         $devices = json_encode($devices);
-        return view('devices.list', compact('devices'));
+        return view('devices.list', compact('devices', 'isLoggedIn'));
     }
     public function showDeviceGenre(Router $router)
     {
@@ -25,8 +33,9 @@ class DeviceController extends Controller
         $deviceGenreParam = $routeParam['device'];
         $deviceDomain = new DeviceDomain;
         $devices = $deviceDomain->getDeviceOfGenre($deviceGenreParam);
+        $isLoggedIn = $this->isLoggedIn;
         
-        return view('devices.genre', compact('devices','deviceGenreParam'));
+        return view('devices.genre', compact('devices','deviceGenreParam', 'isLoggedIn'));
     }
     public function showDeviceProduct(Router $router)
     {
@@ -36,14 +45,16 @@ class DeviceController extends Controller
         $device = $deviceDomain->getProductOfDevice($routeParams);
         $device->device_name = str_replace('_', ' ', $device->device_name);
         $device->maker_name = $device->getMaker->maker_name;
+        $isLoggedIn = $this->isLoggedIn;
 
-        return view('devices.product', compact('device'));
+        return view('devices.product', compact('device', 'isLoggedIn'));
     }
 
     // 管理者用
     public function showDeviceAddPage()
     {
-        return view('devices.add');
+        $isLoggedIn = $this->isLoggedIn;
+        return view('devices.add', compact('isLoggedIn'));
     }
     public function addDevice(AddDeviceRequest $request)
     {
@@ -59,8 +70,9 @@ class DeviceController extends Controller
         $deviceDomain = new DeviceDomain;
         $device = $deviceDomain->getProductOfDevice($routeParams);
         $device->maker_name = $device->getMaker->maker_name;
+        $isLoggedIn = $this->isLoggedIn;
 
-        return view('devices.edit', compact('device'));
+        return view('devices.edit', compact('device', 'isLoggedIn'));
     }
     public function editDevice(Router $router, EditDeviceRequest $request)
     {

@@ -49,19 +49,28 @@
     </v-col>
     <v-spacer></v-spacer>
     <v-btn
+      v-if="isLoggedIn===true"
+      cols="2"
+      color="light-blue"
+      href="/logout"
+    >
+      Logout
+    </v-btn>
+    <v-btn
+      v-else
       cols="2"
       color="light-blue"
       href="/login"
     >
-      login
+      Login
     </v-btn>
   </v-app-bar>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+  export default {
+    props: [
+      'isLoggedIn',
+    ],
+  }
 </script>

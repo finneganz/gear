@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <policy-component></policy-component>
+    <policy-component
+        :is-logged-in = "{{ $isLoggedIn }}"
+    ></policy-component>
 @endsection
 
 @section('script')

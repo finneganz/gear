@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <contact-component></contact-component>
+    <contact-component
+        :is-logged-in = "{{ $isLoggedIn }}"
+    ></contact-component>
 @endsection
 
 @section('script')

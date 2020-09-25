@@ -4,19 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StaticsController extends Controller
+class StaticsController extends BaseController
 {
     public function showAbout()
     {   
-        return view('statics.about');
+        $isLoggedIn = $this->authCheck();
+        return view('statics.about', compact('isLoggedIn'));
     }
     public function showPolicy()
     {   
-        return view('statics.policy');
+        $isLoggedIn = $this->authCheck();
+        return view('statics.policy', compact('isLoggedIn'));
     }
     public function showContact()
     {   
-        return view('statics.contact');
+        $isLoggedIn = $this->authCheck();
+        return view('statics.contact', compact('isLoggedIn'));
     }
     public function contact()
     {   

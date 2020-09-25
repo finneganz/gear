@@ -6,7 +6,7 @@ use App\Models\Devices\Maker;
 use App\Http\Requests\MakerNameRequest;
 use Illuminate\Http\Request;
 
-class MakerController extends Controller
+class MakerController extends BaseController
 {
     // 管理者用
     public function showMakersList()
@@ -17,12 +17,14 @@ class MakerController extends Controller
         {
             $maker->maker_name = str_replace('_', ' ', $maker->maker_name);
         }
+        $isLoggedIn = $this->authCheck();
 
-        return view('makers.list', compact('makers'));
+        return view('makers.list', compact('makers', 'isLoggedIn'));
     }
     public function showMakerAddPage()
     {
-        return view('makers.add');
+        $isLoggedIn = $this->authCheck();
+        return view('makers.add', compact('isLoggedIn'));
     }
     public function addMaker(MakerNameRequest $request)
     {
@@ -35,8 +37,8 @@ class MakerController extends Controller
     public function showMakerEditPage(string $makername)
     {
         $maker = Maker::where('maker_name', $makername)->first();
-        
-        return view('makers.edit', compact('maker'));
+        $isLoggedIn = $this->authCheck();
+        return view('makers.edit', compact('maker', 'isLoggedIn'));
     }
     public function editMaker(string $makername, MakerNameRequest $request)
     {

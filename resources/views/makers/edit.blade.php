@@ -2,8 +2,9 @@
 
 @section('content')
     <maker-edit-component
-        :errors="{{ $errors }}"
-        :maker="{{ $maker }}"
+        :is-logged-in = "{{ $isLoggedIn }}"
+        :errors = "{{ $errors }}"
+        :maker = "{{ $maker }}"
     ></maker-edit-component>
 @endsection
 

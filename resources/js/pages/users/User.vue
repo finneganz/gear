@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component></header-component>
+    <header-component :isLoggedIn="isLoggedIn"></header-component>
     <v-container class="pa-5 mt-12 pa-12">
       <v-card flat>
         <v-row>
@@ -138,6 +138,7 @@ export default {
   props: [
     'devices',
     'settings',
+    'isLoggedIn',
   ],
 }
 </script>

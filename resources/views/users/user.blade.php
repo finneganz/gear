@@ -2,8 +2,9 @@
 
 @section('content')
     <user-component
-        :devices="{{$userDevices}}"
-        :settings="{{$userSettings}}"
+        :is-logged-in = "{{ $isLoggedIn }}"
+        :devices = "{{ $userDevices }}"
+        :settings = "{{ $userSettings }}"
     ></user-component>
 @endsection
 

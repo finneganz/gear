@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Router;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
     private $user;
     private $userId;
@@ -74,7 +74,8 @@ class UserController extends Controller
     public function showUserList(User $user)
     {
         $users = $user->orderBy('id', 'ASC')->take(10)->get();
-        return view('users.list', compact('users'));
+        $isLoggedIn = $this->authCheck();
+        return view('users.list', compact('users', 'isLoggedIn'));
     }
     public function showUserPage(int $username)
     {
@@ -111,8 +112,9 @@ class UserController extends Controller
 
         $userDevices = json_encode($userDevices);
         $userSettings = json_encode($userSettings);
+        $isLoggedIn = $this->authCheck();
 
-        return view('users.user', compact('user', 'userId', 'userSettings', 'userDevices'));
+        return view('users.user', compact('user', 'userId', 'userSettings', 'userDevices', 'isLoggedIn'));
     }
     public function showUserEditPage(int $username)
     {
@@ -140,8 +142,9 @@ class UserController extends Controller
         $userSettings = array_filter($userSettings);
         $userDevices = json_encode($userDevices);
         $userSettings = json_encode($userSettings);
+        $isLoggedIn = $this->authCheck();
 
-        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices'));
+        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices', 'isLoggedIn'));
     }
     public function editUser(UserSettingRequest $request)
     {

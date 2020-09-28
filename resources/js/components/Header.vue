@@ -37,12 +37,13 @@
     </v-col>
     <v-col cols="2">
       <v-card
-        flat
+        v-show="isLoggedIn===true"
         :ripple="false"
         color="primary"  
         href="/users/1"
         class="text-center"
         max-width="100"
+        flat
       >
         設定
       </v-card>

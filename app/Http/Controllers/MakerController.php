@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Devices\Maker;
 use App\Http\Requests\MakerNameRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MakerController extends BaseController
 {
@@ -23,8 +24,15 @@ class MakerController extends BaseController
     }
     public function showMakerAddPage()
     {
-        $isLoggedIn = $this->authCheck();
-        return view('makers.add', compact('isLoggedIn'));
+        if(Auth::id() === 1 || Auth::id() === 2)
+        {
+            $isLoggedIn = $this->authCheck();
+            return view('makers.add', compact('isLoggedIn'));
+        }
+        else
+        {
+            return redirect()->action('UserController@showUserList');
+        }
     }
     public function addMaker(MakerNameRequest $request)
     {

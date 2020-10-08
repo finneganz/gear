@@ -23,13 +23,25 @@ class MousebungeesTableSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'device_name' => 'ZOWIE_CAMADE',
+                'device_name' => 'CAMADE',
                 'maker_id' => 3,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'device_name' => 'Mouse_Bungee_V2',
+                'device_name' => 'CAMADE2',
+                'maker_id' => 3,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'device_name' => 'MOUSE_BUNGEE_V2',
+                'maker_id' => 4,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'device_name' => 'MOUSE_BUNGEE',
                 'maker_id' => 4,
                 'created_at' => $now,
                 'updated_at' => $now,

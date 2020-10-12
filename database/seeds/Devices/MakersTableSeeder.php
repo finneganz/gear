@@ -41,6 +41,56 @@ class MakersTableSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
+            [
+                'maker_name' => 'COUGAR',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'msi',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'BenQ',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'Corsair',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'ROCCAT',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'Sennheiser',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'HyperX',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'Xtrfy',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'Acer',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'maker_name' => 'Artisan',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
         ]);
     }
 }

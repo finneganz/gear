@@ -9,7 +9,7 @@
           :cols="2"
         >
           <v-card outlined>
-            <v-card-text v-text="maker.maker_name"></v-card-text>
+            <v-card-text v-text="maker.maker_name" class="font-weight-bold"></v-card-text>
           </v-card>
         </v-col>
       </v-row>

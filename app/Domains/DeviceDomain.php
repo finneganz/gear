@@ -52,25 +52,25 @@ class DeviceDomain
     {
         switch ($deviceGenreParam) {
             case 'headsets':
-                $devices = Headset::orderBy('id', 'ASC')->take(10)->get();
+                $devices = Headset::inRandomOrder()->take(100)->get();
                 break;
             case 'keyboards':
-                $devices = Keyboard::orderBy('id', 'ASC')->take(10)->get();
+                $devices = Keyboard::inRandomOrder()->take(100)->get();
                 break;
             case 'mics':
-                $devices = Mic::orderBy('id', 'ASC')->take(10)->get();
+                $devices = Mic::inRandomOrder()->take(100)->get();
                 break;
             case 'monitors':
-                $devices = Monitor::orderBy('id', 'ASC')->take(10)->get();
+                $devices = Monitor::inRandomOrder()->take(100)->get();
                 break;
             case 'mouses':
-                $device = Mouse::orderBy('id', 'ASC')->take(10)->get();
+                $device = Mouse::inRandomOrder()->take(100)->get();
                 break;
             case 'mousebungees':
-                $devices = Mousebungee::orderBy('id', 'ASC')->take(10)->get();
+                $devices = Mousebungee::inRandomOrder()->take(100)->get();
                 break;
             case 'mousepads':
-                $devices = Mousepad::orderBy('id', 'ASC')->take(10)->get();
+                $devices = Mousepad::inRandomOrder()->take(100)->get();
                 break;
             default:
                 //

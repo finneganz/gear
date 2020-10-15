@@ -10,19 +10,43 @@
       <v-card flat max-width="500" class="mx-auto">
         <v-form
           method="POST"
-          action="/login"
+          action="/register"
           id="makerAdd"
         >
           <input type="hidden" name="_token" :value="csrf" />
+          <v-alert 
+            class="mb-0 mt-4"
+            v-if="errors.email"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.email[0] }}
+          </v-alert>
           <v-text-field
-            label="twitter id"
-            id="twitterId"
-            name="twitterId"
+            label="e-mail"
+            id="email"
+            name="email"
           ></v-text-field>
+          <v-alert 
+            class="mb-0 mt-4"
+            v-if="errors.password"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.password[0] }}
+          </v-alert>
           <v-text-field
             label="password"
             id="password"
             name="password"
+            type="password"
+          ></v-text-field>
+          <v-text-field
+            label="confirm password"
+            id="password_confirmation"
+            name="password_confirmation"
             type="password"
           ></v-text-field>
           <v-btn
@@ -43,8 +67,11 @@ export default {
     'header-component': Header
   },
   mounted() {
-    console.log('Component mounted.')
+    console.log(this.errors);
   },
+  props: [
+    'errors',
+  ],
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -17,7 +17,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'mouse_id', 'mousepad_id', 'mousebungee_id', 'keyboard_id',
-        'headset_id', 'mic_id', 'monitor_id',
+        'headset_id', 'mic_id', 'monitor_id', 'email', 'password',
+    ];
+    
+    protected $hidden = [
+        'password',
     ];
 
     public function getUserConfig()

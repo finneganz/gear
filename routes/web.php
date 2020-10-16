@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
+
 // 1. ユーザー利用画面
 // 1.1 Top（ユーザーリスト一覧）
 Route::get('/', 'UserController@showUserList');

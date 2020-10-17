@@ -19,7 +19,7 @@
             v-bind:href="'/users/' + user.id"
           >
             <v-card-text>img</v-card-text>
-            <v-card-text v-text="user.id" class="font-weight-bold"></v-card-text>
+            <v-card-text v-text="user.username" class="font-weight-bold"></v-card-text>
             <!-- <v-card-text v-text="user.twitter_id"></v-card-text> -->
           </v-card>
         </v-col>

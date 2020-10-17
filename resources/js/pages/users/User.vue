@@ -9,7 +9,7 @@
             <v-card-text class="pt-5">img</v-card-text>
           </v-col>
           <v-col cols="7">
-            <v-card-title>PLAYER NAME</v-card-title>
+            <v-card-title>{{ user.username }}</v-card-title>
             <v-card-text>@twitter_id</v-card-text>
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
@@ -136,9 +136,13 @@ export default {
     'header-component': Header
   },
   props: [
+    'user',
     'devices',
     'settings',
     'isLoggedIn',
   ],
+  mounted() {
+    console.log(this.user);
+  },
 }
 </script>

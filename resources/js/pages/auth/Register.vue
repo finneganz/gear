@@ -30,6 +30,20 @@
           ></v-text-field>
           <v-alert 
             class="mb-0 mt-4"
+            v-if="errors.username"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.username[0] }}
+          </v-alert>
+          <v-text-field
+            label="user name"
+            id="username"
+            name="username"
+          ></v-text-field>
+          <v-alert 
+            class="mb-0 mt-4"
             v-if="errors.password"
             type="error"
             dense

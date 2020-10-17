@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'mouse_id', 'mousepad_id', 'mousebungee_id', 'keyboard_id',
-        'headset_id', 'mic_id', 'monitor_id', 'email', 'password',
+        'headset_id', 'mic_id', 'monitor_id', 'email', 'password', 'username',
     ];
     
     protected $hidden = [

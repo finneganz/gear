@@ -80,12 +80,12 @@
             ></v-select>
             <v-select
               class="py-3"
-              :items="streatches"
+              :items="stretches"
               label="scaling mode"
               dense
-              id="streatch"
-              name="streatch"
-              :value="settings.resolution.streach"
+              id="stretch"
+              name="stretch"
+              :value="settings.resolution.stretch"
             ></v-select>
             <v-select
               class="py-3"
@@ -182,8 +182,8 @@ export default {
       '1600x900',
       '1920x1080',
     ],
-    streatches: [
-      'streatched',
+    stretches: [
+      'stretched',
       'black bar',
     ],
     antiAliases: [

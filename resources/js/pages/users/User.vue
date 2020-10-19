@@ -96,7 +96,7 @@
                         <v-card-subtitle class="text-center">video setting</v-card-subtitle>
                         <v-card-text>resolution : {{ settings.resolution.resolution }}</v-card-text>
                         <v-card-text class="pt-0">aspect : {{ settings.resolution.aspect }}</v-card-text>
-                        <v-card-text class="pt-0">scalling mode : {{ settings.videoSetting.streach }}</v-card-text>
+                        <v-card-text class="pt-0">scalling mode : {{ settings.videoSetting.stretch }}</v-card-text>
                         <v-card-text class="pt-0">anti alias : {{ settings.videoSetting.anti_alias }}</v-card-text>
                         <v-card-text class="pt-0">shadow quality : {{ settings.videoSetting.shadow_quality }}</v-card-text>
                       </v-card>

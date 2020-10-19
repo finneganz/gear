@@ -160,7 +160,7 @@ class UserController extends BaseController
 
         // ビデオ設定
         $this->userVideoSetting->resolution_id = Resolution::where('resolution', $request->resolution)->first()->id;
-        $this->userVideoSetting->streatch = $userDomain->isStretch($request->stretch);
+        $this->userVideoSetting->stretch = $userDomain->isStretch($request->stretch);
         $this->userVideoSetting->anti_alias = $userDomain->antiAlias($request->antiAlias);
         $this->userVideoSetting->shadow_quality = $userDomain->shadowQuality($request->shadowQuality);
 

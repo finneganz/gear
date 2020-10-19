@@ -148,6 +148,7 @@ class UserController extends BaseController
     }
     public function editUser(UserSettingRequest $request)
     {
+        $userDomain = new UserDomain;
         // Config
         $this->userConfig->config_filepath = $request->input('configFilepath');
         $this->userConfig->autoexec_filepath = $request->input('autoexecFilepath');
@@ -159,9 +160,9 @@ class UserController extends BaseController
 
         // ビデオ設定
         $this->userVideoSetting->resolution_id = Resolution::where('resolution', $request->resolution)->first()->id;
-        $this->userVideoSetting->streatch = $request->streatch;
-        $this->userVideoSetting->anti_alias = $request->antiAlias;
-        $this->userVideoSetting->shadow_quality = $request->shadowQuality;
+        $this->userVideoSetting->streatch = $userDomain->isStretch($request->stretch);
+        $this->userVideoSetting->anti_alias = $userDomain->antiAlias($request->antiAlias);
+        $this->userVideoSetting->shadow_quality = $userDomain->shadowQuality($request->shadowQuality);
 
         // マウス設定
         $this->userMouseSetting->polling_rate = $request->input('dpi');

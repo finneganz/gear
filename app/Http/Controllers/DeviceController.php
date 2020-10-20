@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Devices\Maker;
-use Illuminate\Http\Request;
 use App\Http\Requests\AddDeviceRequest;
 use App\Http\Requests\EditDeviceRequest;
-use Illuminate\Routing\Router;
 use App\Domains\DeviceDomain;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Router;
 
 class DeviceController extends BaseController
 {

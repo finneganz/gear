@@ -2,7 +2,7 @@
 
 @section('content')
     <user-edit-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :errors = "{{ $errors }}"
         :devices = "{{ $userDevices }}"
         :settings = "{{ $userSettings }}"

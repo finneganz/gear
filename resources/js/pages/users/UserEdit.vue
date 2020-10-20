@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :isLoggedIn="isLoggedIn"></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container fluid class="mt-12 pt-12">
       <v-form
         method="POST"
@@ -165,10 +165,10 @@ export default {
     'header-component': Header
   },
   props: [
+    'auth',
     'errors',
     'devices',
     'settings',
-    'isLoggedIn',
   ],
   data: () => ({
     csrf: 

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :isLoggedIn="isLoggedIn"></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container class="pa-5 mt-12 pa-12">
       <v-card flat>
         <v-row>
@@ -139,10 +139,10 @@ export default {
     'user',
     'devices',
     'settings',
-    'isLoggedIn',
+    'auth',
   ],
   mounted() {
-    console.log(this.user);
+    console.log(this.auth);
   },
 }
 </script>

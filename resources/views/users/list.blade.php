@@ -2,7 +2,7 @@
 
 @section('content')
     <top-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :users = "{{ $users }}"
     ></top-component>
 @endsection

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :isLoggedIn="isLoggedIn"></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container fluid class="px-0">
       <v-card flat tile width="auto" color="blue-grey lighten-4" class="py-12 mt-11">
         <v-card-title class="justify-center">GearArchive</v-card-title>
@@ -36,7 +36,7 @@ export default {
   },
   props: [
     'users',
-    'isLoggedIn',
+    'auth',
   ],
   data: () => ({
   }),

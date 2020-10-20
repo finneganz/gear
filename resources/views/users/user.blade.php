@@ -3,7 +3,7 @@
 @section('content')
     <user-component
         :user = "{{ $user }}"
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :devices = "{{ $userDevices }}"
         :settings = "{{ $userSettings }}"
     ></user-component>

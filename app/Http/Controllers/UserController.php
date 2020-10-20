@@ -74,8 +74,8 @@ class UserController extends BaseController
     public function showUserList(User $user)
     {
         $users = $user->orderBy('id', 'ASC')->take(10)->get();
-        $isLoggedIn = $this->authCheck();
-        return view('users.list', compact('users', 'isLoggedIn'));
+        $auth = $this->getAuthUser();
+        return view('users.list', compact('users', 'auth'));
     }
     public function showUserPage(int $username)
     {
@@ -112,9 +112,9 @@ class UserController extends BaseController
 
         $userDevices = json_encode($userDevices);
         $userSettings = json_encode($userSettings);
-        $isLoggedIn = $this->authCheck();
+        $auth = $this->getAuthUser();
 
-        return view('users.user', compact('user', 'userId', 'userSettings', 'userDevices', 'isLoggedIn'));
+        return view('users.user', compact('user', 'userId', 'userSettings', 'userDevices', 'auth'));
     }
     public function showUserEditPage(int $username)
     {
@@ -142,9 +142,9 @@ class UserController extends BaseController
         $userSettings = array_filter($userSettings);
         $userDevices = json_encode($userDevices);
         $userSettings = json_encode($userSettings);
-        $isLoggedIn = $this->authCheck();
+        $auth = $this->getAuthUser();
 
-        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices', 'isLoggedIn'));
+        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices', 'auth'));
     }
     public function editUser(UserSettingRequest $request)
     {

@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 class BaseController extends Controller
 {
-    protected function authCheck()
+    protected function getAuthUser()
     {
-        $isLoggedIn = Auth::check() ? 'true' : 'false';
-        return $isLoggedIn; 
+        $auth = Auth::user() ? Auth::user() : 'false';
+        return $auth;
     }
 }

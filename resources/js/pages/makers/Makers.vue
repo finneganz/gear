@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :isLoggedIn="isLoggedIn"></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container fluid class="py-12 mt-12">
       <v-row>
         <v-col
@@ -25,7 +25,7 @@ export default {
   },
   props: [
     'makers',
-    'isLoggedIn',
+    'auth',
   ],
 }
 </script>

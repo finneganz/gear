@@ -2,7 +2,7 @@
 
 @section('content')
     <maker-edit-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :errors = "{{ $errors }}"
         :maker = "{{ $maker }}"
     ></maker-edit-component>

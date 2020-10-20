@@ -20,8 +20,8 @@ class MakerController extends BaseController
             {
                 $maker->maker_name = str_replace('_', ' ', $maker->maker_name);
             }
-            $isLoggedIn = $this->authCheck();
-            return view('makers.list', compact('makers', 'isLoggedIn'));
+            $auth = $this->getAuthUser();
+            return view('makers.list', compact('makers', 'auth'));
         }
         else
         {
@@ -32,8 +32,8 @@ class MakerController extends BaseController
     {
         if(Auth::id() === 1 || Auth::id() === 2)
         {
-            $isLoggedIn = $this->authCheck();
-            return view('makers.add', compact('isLoggedIn'));
+            $auth = $this->getAuthUser();
+            return view('makers.add', compact('auth'));
         }
         else
         {
@@ -60,8 +60,8 @@ class MakerController extends BaseController
         if(Auth::id() === 1 || Auth::id() === 2)
         {
             $maker = Maker::where('maker_name', $makername)->first();
-            $isLoggedIn = $this->authCheck();
-            return view('makers.edit', compact('maker', 'isLoggedIn'));
+            $auth = $this->getAuthUser();
+            return view('makers.edit', compact('maker', 'auth'));
         }
         else
         {

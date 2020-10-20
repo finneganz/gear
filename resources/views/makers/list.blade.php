@@ -2,7 +2,7 @@
 
 @section('content')
     <makers-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :makers = "{{ $makers }}"
     ></makers-component>
 @endsection

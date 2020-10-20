@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :isLoggedIn="isLoggedIn"></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container fluid class="px-0">
       <v-card flat tile width="auto" color="blue-grey lighten-4" class="mt-11">
         <v-card-title class="justify-center">add gear page</v-card-title>
@@ -82,7 +82,7 @@ export default {
   },
   props: [
     'errors',
-    'isLoggedIn',
+    'auth',
   ],
   data: () => ({
     deviceTypes: [

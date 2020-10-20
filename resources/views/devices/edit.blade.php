@@ -2,7 +2,7 @@
 
 @section('content')
     <device-edit-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :errors="{{ $errors }}"
         :device="{{ $device }}"
     ></device-edit-component>

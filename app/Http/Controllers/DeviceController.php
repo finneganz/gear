@@ -13,11 +13,11 @@ class DeviceController extends BaseController
 {
     public function showDeviceList()
     {
-        $isLoggedIn = $this->authCheck();
+        $auth = $this->getAuthUser();
         $deviceDomain = new DeviceDomain;
         $devices = $deviceDomain->getSomeDevices();
         $devices = json_encode($devices);
-        return view('devices.list', compact('devices', 'isLoggedIn'));
+        return view('devices.list', compact('devices', 'auth'));
     }
     public function showDeviceGenre(Router $router)
     {
@@ -26,9 +26,9 @@ class DeviceController extends BaseController
         $deviceGenreParam = $routeParam['device'];
         $deviceDomain = new DeviceDomain;
         $devices = $deviceDomain->getDeviceOfGenre($deviceGenreParam);
-        $isLoggedIn = $this->authCheck();
+        $auth = $this->getAuthUser();
         
-        return view('devices.genre', compact('devices','deviceGenreParam', 'isLoggedIn'));
+        return view('devices.genre', compact('devices','deviceGenreParam', 'auth'));
     }
     public function showDeviceProduct(Router $router)
     {
@@ -38,9 +38,9 @@ class DeviceController extends BaseController
         $device = $deviceDomain->getProductOfDevice($routeParams);
         $device->device_name = str_replace('_', ' ', $device->device_name);
         $device->maker_name = $device->getMaker->maker_name;
-        $isLoggedIn = $this->authCheck();
+        $auth = $this->getAuthUser();
 
-        return view('devices.product', compact('device', 'isLoggedIn'));
+        return view('devices.product', compact('device', 'auth'));
     }
 
     // 管理者用
@@ -48,8 +48,8 @@ class DeviceController extends BaseController
     {
         if(Auth::id() === 1 || Auth::id() === 2)
         {
-            $isLoggedIn = $this->authCheck();
-            return view('devices.add', compact('isLoggedIn'));
+            $auth = $this->getAuthUser();
+            return view('devices.add', compact('auth'));
         }
         else
         {
@@ -79,9 +79,9 @@ class DeviceController extends BaseController
             $deviceDomain = new DeviceDomain;
             $device = $deviceDomain->getProductOfDevice($routeParams);
             $device->maker_name = $device->getMaker->maker_name;
-            $isLoggedIn = $this->authCheck();
+            $auth = $this->getAuthUser();
     
-            return view('devices.edit', compact('device', 'isLoggedIn'));
+            return view('devices.edit', compact('device', 'auth'));
         }
         else
         {

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :isLoggedIn="isLoggedIn"></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container fluid class="py-12 mt-12">
       <v-row>
         <v-col
@@ -28,10 +28,10 @@ export default {
   components: {
     'header-component': Header
   },
-  props: {
-    devices: Array,
-    genre: String,
-    isLoggedIn: Boolean,
-  }
+  props: [
+    'device',
+    'genre',
+    'auth',
+  ],
 }
 </script>

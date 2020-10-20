@@ -2,7 +2,7 @@
 
 @section('content')
     <devices-genre-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :devices="{{ $devices }}"
         genre="{{ $deviceGenreParam }}"
     ></devices-genre-component>

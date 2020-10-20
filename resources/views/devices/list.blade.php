@@ -2,7 +2,7 @@
 
 @section('content')
     <devices-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
         :devices = "{{ $devices }}"
     ></devices-component>
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
     <about-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
     ></about-component>
 @endsection
 

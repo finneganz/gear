@@ -8,18 +8,18 @@ class StaticsController extends BaseController
 {
     public function showAbout()
     {   
-        $isLoggedIn = $this->authCheck();
-        return view('statics.about', compact('isLoggedIn'));
+        $auth = $this->getAuthUser();
+        return view('statics.about', compact('auth'));
     }
     public function showPolicy()
     {   
-        $isLoggedIn = $this->authCheck();
-        return view('statics.policy', compact('isLoggedIn'));
+        $auth = $this->getAuthUser();
+        return view('statics.policy', compact('auth'));
     }
     public function showContact()
     {   
-        $isLoggedIn = $this->authCheck();
-        return view('statics.contact', compact('isLoggedIn'));
+        $auth = $this->getAuthUser();
+        return view('statics.contact', compact('auth'));
     }
     public function contact()
     {   

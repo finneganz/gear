@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :isLoggedIn="isLoggedIn"></header-component>
+    <header-component :auth="auth"></header-component>
     <v-content>
       <div class="container">
           <div class="row justify-content-center">
@@ -26,7 +26,7 @@ export default {
     'header-component': Header
   },
   props: [
-    'isLoggedIn',
+    'auth',
   ],
   mounted() {
     console.log('Component mounted.')

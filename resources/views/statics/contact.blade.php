@@ -2,7 +2,7 @@
 
 @section('content')
     <contact-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
     ></contact-component>
 @endsection
 

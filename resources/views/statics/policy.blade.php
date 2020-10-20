@@ -2,7 +2,7 @@
 
 @section('content')
     <policy-component
-        :is-logged-in = "{{ $isLoggedIn }}"
+        :auth = "{{ $auth }}"
     ></policy-component>
 @endsection
 

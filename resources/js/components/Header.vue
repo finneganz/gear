@@ -37,7 +37,7 @@
     </v-col>
     <v-col cols="2">
       <v-card
-        v-show="isLoggedIn===true"
+        v-show="auth"
         :ripple="false"
         color="primary"  
         href="/users/1"
@@ -50,7 +50,7 @@
     </v-col>
     <v-spacer></v-spacer>
     <v-btn
-      v-if="isLoggedIn===true"
+      v-if="auth"
       cols="2"
       color="light-blue"
       href="/logout"
@@ -71,7 +71,7 @@
 <script>
   export default {
     props: [
-      'isLoggedIn',
+      'auth',
     ],
   }
 </script>

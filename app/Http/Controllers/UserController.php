@@ -31,16 +31,13 @@ class UserController extends BaseController
     public function __construct(Router $router)
     {
         // ルートパラメータを取得
-        $routeParam = $router->getCurrentRoute()->parameters(); 
+        $routeParam = $router->getCurrentRoute();
         if($routeParam)
         {
-            // twitterAPI関係がはっきりしたら、上のint => string と $user_idを入れ替えること
-            // $user_id = User::where('username', $username)->first()->id;
-            
-            $userName = $routeParam['username'];
-            
+            // ルートパラメータからusernameを取得
+            $userName = $routeParam->parameters['username'];   
             // ユーザーを取得
-            $this->user = User::where('id', $userName)->first();
+            $this->user = User::where('username', $userName)->first();
             // ユーザーidを取得
             $this->userId = $this->user->id;
             // ユーザーconfig情報を取得
@@ -77,7 +74,7 @@ class UserController extends BaseController
         $auth = $this->getAuthUser();
         return view('users.list', compact('users', 'auth'));
     }
-    public function showUserPage(int $username)
+    public function showUserPage(string $userName)
     {
         $user = $this->user;
         $userId = $this->userId;
@@ -116,7 +113,7 @@ class UserController extends BaseController
 
         return view('users.user', compact('user', 'userId', 'userSettings', 'userDevices', 'auth'));
     }
-    public function showUserEditPage(int $username)
+    public function showUserEditPage(string $userName)
     {
         $user = $this->user;
         $userId = $this->userId;

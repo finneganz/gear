@@ -49,6 +49,7 @@
       </v-card>
     </v-col>
     <v-spacer></v-spacer>
+    <v-card v-show="auth" :ripple="false" color="primary" flat class="mr-3">{{ auth.username }}</v-card>
     <v-btn
       v-if="auth"
       cols="2"

@@ -30,12 +30,10 @@ class UserController extends BaseController
 
     public function __construct(Router $router)
     {
-        // ルートパラメータを取得
-        $routeParam = $router->getCurrentRoute();
-        if($routeParam)
+        if(url()->full() !== 'http://gear-archive')
         {
             // ルートパラメータからusernameを取得
-            $userName = $routeParam->parameters['username'];   
+            $userName = $router->getCurrentRoute()->parameters['username'];   
             // ユーザーを取得
             $this->user = User::where('username', $userName)->first();
             // ユーザーidを取得

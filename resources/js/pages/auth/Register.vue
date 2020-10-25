@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container fluid class="px-0">
       <v-card flat tile width="auto" color="blue-grey lighten-4" class="mt-11">
         <v-card-title class="justify-center">register page</v-card-title>
@@ -84,6 +84,7 @@ export default {
     console.log(this.errors);
   },
   props: [
+    'auth',
     'errors',
   ],
   data: () => ({

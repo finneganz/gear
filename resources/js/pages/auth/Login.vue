@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component></header-component>
+    <header-component :auth="auth"></header-component>
     <v-container fluid class="px-0">
       <v-card flat tile width="auto" color="blue-grey lighten-4" class="mt-11">
         <v-card-title class="justify-center">login page</v-card-title>
@@ -45,6 +45,9 @@ export default {
   mounted() {
     console.log('Component mounted.')
   },
+  props: [
+    'auth',
+  ],
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

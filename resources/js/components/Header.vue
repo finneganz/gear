@@ -49,15 +49,30 @@
       </v-card>
     </v-col>
     <v-spacer></v-spacer>
-    <v-card v-show="auth" :ripple="false" color="primary" flat class="mr-3">{{ auth.username }}</v-card>
-    <v-btn
-      v-if="auth"
-      cols="2"
-      color="light-blue"
-      href="/logout"
+    <v-card
+      v-show="auth"
+      :ripple="false"
+      color="primary"
+      class="mr-3"
+      flat
     >
-      Logout
-    </v-btn>
+      {{ auth.username }}
+    </v-card>
+    <form
+      method="POST"
+      action="/logout"
+      id="logout-form"
+      v-if="auth"
+    >
+      <input type="hidden" name="_token" :value="csrf" />
+      <v-btn
+        cols="2"
+        color="light-blue"
+        type="submit"
+      >
+        Logout
+      </v-btn>
+    </form>
     <v-btn
       v-else
       cols="2"
@@ -72,6 +87,7 @@
 <script>
   export default {
     props: [
+      'csrf',
       'auth',
     ],
   }

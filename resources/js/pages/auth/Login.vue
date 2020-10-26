@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :auth="auth"></header-component>
+    <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container fluid class="px-0">
       <v-card flat tile width="auto" color="blue-grey lighten-4" class="mt-11">
         <v-card-title class="justify-center">login page</v-card-title>

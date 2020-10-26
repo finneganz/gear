@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :auth="auth"></header-component>
+    <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container fluid class="py-12 mt-12">
       <v-row>
         <v-col
@@ -33,6 +33,9 @@ export default {
     'auth',
   ],
   data: () => ({
+    csrf: 
+    document.querySelector('meta[name="csrf-token"]')
+    .getAttribute('content'),
   }),
 }
 </script>

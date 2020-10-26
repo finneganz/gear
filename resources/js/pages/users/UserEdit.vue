@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :auth="auth"></header-component>
+    <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container fluid class="mt-12 pt-12">
       <v-form
         method="POST"

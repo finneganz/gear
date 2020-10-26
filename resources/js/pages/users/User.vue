@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :auth="auth"></header-component>
+    <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container class="pa-5 mt-12 pa-12">
       <v-card flat>
         <v-row>
@@ -141,8 +141,10 @@ export default {
     'settings',
     'auth',
   ],
-  mounted() {
-    console.log(this.auth);
-  },
+  data: () => ({
+    csrf: 
+    document.querySelector('meta[name="csrf-token"]')
+    .getAttribute('content'),
+  }),
 }
 </script>

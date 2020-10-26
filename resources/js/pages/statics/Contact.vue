@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header-component :auth="auth"></header-component>
+    <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-content>
       <div class="container">
           <div class="row justify-content-center">
@@ -28,8 +28,10 @@ export default {
   props: [
     'auth',
   ],
-  mounted() {
-    console.log('Component mounted.')
-  }
+  data: () => ({
+    csrf: 
+    document.querySelector('meta[name="csrf-token"]')
+    .getAttribute('content'),
+  }),
 }
 </script>

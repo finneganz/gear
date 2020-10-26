@@ -11,14 +11,32 @@
         <v-form
           method="POST"
           action="/login"
-          id="makerAdd"
+          id="login"
         >
           <input type="hidden" name="_token" :value="csrf" />
+          <v-alert 
+            class="mb-0 mt-4"
+            v-if="errors.username"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.username[0] }}
+          </v-alert>
           <v-text-field
-            label="twitter id"
-            id="twitterId"
-            name="twitterId"
+            label="user name"
+            id="username"
+            name="username"
           ></v-text-field>
+          <v-alert 
+            class="mb-0 mt-4"
+            v-if="errors.password"
+            type="error"
+            dense
+            outlined
+          >
+            {{ errors.password[0] }}
+          </v-alert>
           <v-text-field
             label="password"
             id="password"
@@ -42,11 +60,9 @@ export default {
   components: {
     'header-component': Header
   },
-  mounted() {
-    console.log('Component mounted.')
-  },
   props: [
     'auth',
+    'errors',
   ],
   data: () => ({
     csrf: 

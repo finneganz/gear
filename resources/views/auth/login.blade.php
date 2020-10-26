@@ -3,6 +3,7 @@
 @section('content')
     <login-component
         :auth = "{{ Auth::check() ? Auth::user() : 'false' }}"
+        :errors = "{{ $errors }}"
     ></login-component>
 @endsection
 

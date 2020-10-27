@@ -40,7 +40,7 @@
         v-show="auth"
         :ripple="false"
         color="primary"  
-        href="/users/1"
+        :href="'/users/' + auth.username"
         class="text-center"
         max-width="100"
         flat

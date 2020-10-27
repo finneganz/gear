@@ -69,6 +69,8 @@
         cols="2"
         color="light-blue"
         type="submit"
+        class="text-lowercase"
+        small
       >
         Logout
       </v-btn>
@@ -78,6 +80,8 @@
       cols="2"
       color="light-blue"
       href="/login"
+      class="text-lowercase"
+      small
     >
       Login
     </v-btn>

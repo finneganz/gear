@@ -13,8 +13,14 @@
             <v-card-text>@twitter_id</v-card-text>
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
-            <v-btn rounded>button</v-btn>
-            <v-btn rounded>button</v-btn>
+            <v-btn
+              rounded
+              small
+              class="ml-3 text-lowercase"
+              :href="'/users/' + user.username + '/edit'"
+            >
+              edit
+            </v-btn>
           </v-col>
         </v-row>
       </v-card>

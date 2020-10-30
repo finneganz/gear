@@ -74,4 +74,49 @@ class UserDomain
                 break;
         }   
     }
+    public function convertStretchForDisplay(int $stretch)
+    {
+        if($stretch === 1)
+        {
+            return 'stretched';
+        }
+        else
+        {
+            return 'black bar';
+        }
+    }
+    public function convertAntiAliasForDisplay(int $antiAlias)
+    {
+        switch ($antiAlias) {
+            case 0:
+                return 'NONE';
+                break;
+            case 1:
+                return '2x MSAA';
+                break;
+            case 2:
+                return '4x MSAA';
+                break;
+            case 3:
+                return '8x MSAA';
+                break;
+        }
+    }
+    public function convertShadowqualityForDisplay(int $shadowQuality)
+    {
+        switch ($shadowQuality) {
+            case 0:
+                return 'very low';
+                break;
+            case 1:
+                return 'low';
+                break;
+            case 2:
+                return 'middle';
+                break;
+            case 3:
+                return 'high';
+                break;
+        }
+    }
 }

@@ -85,7 +85,7 @@
               dense
               id="stretch"
               name="stretch"
-              :value="settings.resolution.stretch"
+              :value="settings.videoSetting.stretch"
             ></v-select>
             <v-select
               class="py-3"

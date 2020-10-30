@@ -128,8 +128,12 @@ class UserController extends BaseController
         $userMousebungee = $this->userMousebungee;
         $userMousepad = $this->userMousepad;
 
-        // ユーザーのデバイス情報＆設定を連想配列に
         $userDomain = new UserDomain;
+        $userVideoSetting->stretch = $userDomain->convertStretchForDisplay($userVideoSetting->stretch);
+        $userVideoSetting->anti_alias = $userDomain->convertAntialiasForDisplay($userVideoSetting->anti_alias);
+        $userVideoSetting->shadow_quality = $userDomain->convertShadowqualityForDisplay($userVideoSetting->shadow_quality);
+
+        // ユーザーのデバイス情報＆設定を連想配列に
         $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor, $userMouse, $userMouse, $userMousebungee, $userMousepad);
         $userSettings = $userDomain->userSettingsToAssociativeArray($userConfig, $userMonitorSetting, $userVideoSetting, $userMouseSetting, $userResolution);
 

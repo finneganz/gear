@@ -4,7 +4,7 @@
     <v-container fluid class="mt-12 pt-12">
       <v-form
         method="POST"
-        action="/users/1/edit"
+        :action="'/users/' + auth.username + '/edit'"
         id="makerAdd"
       >
         <input type="hidden" name="_token" :value="csrf" />

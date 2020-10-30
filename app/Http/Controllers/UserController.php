@@ -183,7 +183,7 @@ class UserController extends BaseController
         $this->user->save();
 
         return redirect()->action(
-            'UserController@showUserPage', ['username' => $this->userId],
+            'UserController@showUserPage', ['username' => $this->user->username],
         );
     }
 }

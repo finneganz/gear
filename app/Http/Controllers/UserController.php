@@ -113,6 +113,11 @@ class UserController extends BaseController
     }
     public function showUserEditPage(string $userName)
     {
+        if(Auth::user()->username !== $this->user->username)
+        {
+            return redirect()->action('Auth\LoginController@showLoginForm');
+        }
+
         $user = $this->user;
         $userId = $this->userId;
         $userConfig = $this->userConfig;

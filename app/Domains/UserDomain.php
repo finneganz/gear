@@ -29,7 +29,7 @@ class UserDomain
         return $userSettings;
     }
     // 入力値からDB保存用に変換
-    public function isStretch($request)
+    public function convertStretchForDB($request)
     {
         if($request === 'stretched')
         {
@@ -40,7 +40,7 @@ class UserDomain
             return 0;
         }
     }
-    public function antiAlias($request)
+    public function convertAntiAliasForDB($request)
     {
         switch ($request) {
             case 'None':
@@ -57,7 +57,7 @@ class UserDomain
                 break;
         }
     }
-    public function shadowQuality($request)
+    public function convertShadowQualityForDB($request)
     {
         switch ($request) {
             case 'very low':

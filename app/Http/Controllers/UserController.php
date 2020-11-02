@@ -164,9 +164,9 @@ class UserController extends BaseController
 
         // ビデオ設定
         $this->userVideoSetting->resolution_id = Resolution::where('resolution', $request->resolution)->first()->id;
-        $this->userVideoSetting->stretch = $userDomain->isStretch($request->stretch);
-        $this->userVideoSetting->anti_alias = $userDomain->antiAlias($request->antiAlias);
-        $this->userVideoSetting->shadow_quality = $userDomain->shadowQuality($request->shadowQuality);
+        $this->userVideoSetting->stretch = $userDomain->convertStretchForDB($request->stretch);
+        $this->userVideoSetting->anti_alias = $userDomain->convertAntiAliasForDB($request->antiAlias);
+        $this->userVideoSetting->shadow_quality = $userDomain->convertShadowQualityForDB($request->shadowQuality);
 
         // マウス設定
         $this->userMouseSetting->polling_rate = $request->input('dpi');

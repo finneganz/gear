@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <header-component :auth="auth" :csrf="csrf"></header-component>
-    <v-container fluid class="mt-12">
+    <v-container fluid class="my-12 py-12">
       <v-row justify="center" class="pt-8">
         <v-col cols="1">
           <v-card-text>img</v-card-text>
@@ -13,6 +13,34 @@
         </v-card>
       </v-row>
     </v-container>
+    <v-divider></v-divider>
+    <v-container>
+      <v-card flat>
+        <v-card-title class="justify-center">関連デバイス</v-card-title>
+        <v-row>
+          <v-col
+            v-for="subDevice in subDevices"
+            :key="subDevice.value"
+            :cols="3"
+          >
+            <v-card 
+              outlined
+              height="150"
+              :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + subDevice.device_name.replace(/\s+/g, '_')"
+            >
+              <v-card-text 
+                v-text="subDevice.device_name"
+                class="font-weight-bold text-center pt-8"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container>
   </v-app>
 </template>
 
@@ -23,9 +51,13 @@ export default {
     'header-component': Header
   },
   props: [
-    'device',
     'auth',
+    'device',
+    'subDevices',
   ],
+  mounted(){
+    console.log(this.subDevices);
+  },
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

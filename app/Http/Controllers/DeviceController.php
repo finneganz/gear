@@ -36,12 +36,19 @@ class DeviceController extends BaseController
         // ルートパラメータを取得
         $routeParams = $router->getCurrentRoute()->parameters();
         $deviceDomain = new DeviceDomain;
+        // メインデバイス
         $device = $deviceDomain->getProductOfDevice($routeParams);
         $device->device_name = str_replace('_', ' ', $device->device_name);
         $device->maker_name = $device->getMaker->maker_name;
+        // 関連デバイス(メーカー&ジャンル一致)
+        $subDevices = $deviceDomain->getSubDevices($routeParams);
+        foreach($subDevices as $subDevice)
+        {
+            $subDevice->device_name = str_replace('_', ' ', $subDevice->device_name);
+        }
         $auth = $this->getAuthUser();
-
-        return view('devices.product', compact('device', 'auth'));
+        
+        return view('devices.product', compact('device', 'auth', 'subDevices'));
     }
 
     // 管理者用

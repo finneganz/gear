@@ -3,7 +3,8 @@
 @section('content')
     <device-product-component 
         :auth = "{{ $auth }}"
-        :device="{{ $device }}"
+        :device = "{{ $device }}"
+        :sub-devices = "{{ $subDevices }}"
     ></device-product-component>
 @endsection
 

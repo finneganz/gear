@@ -118,6 +118,40 @@ class DeviceDomain
         }
         return $device;
     }
+    public function getSubDevices(array $routeParams)
+    {
+        $genreParam = $routeParams['device'];
+        $makerParam = $routeParams['maker'];
+        $makerId = Maker::where('maker_name', $makerParam)->first()->id;
+
+        switch ($genreParam) {
+            case 'headsets':
+                $subDevices = Headset::where('maker_id', $makerId)->inRandomOrder()->take(10)->get();
+                break;
+            case 'keyboards':
+            $subDevices = Keyboard::where('maker_id', $makerId)->inRandomOrder()->take(10)->get();
+                break;
+            case 'mics':
+            $subDevices = Mic::where('maker_id', $makerId)->inRandomOrder()->take(10)->get();
+                break;
+            case 'monitors':
+            $subDevices = Monitor::where('maker_id', $makerId)->inRandomOrder()->take(10)->get();
+                break;
+            case 'mouses':
+            $subDevices = Mouse::where('maker_id', $makerId)->inRandomOrder()->take(10)->get();
+                break;
+            case 'mousebungees':
+            $subDevices = Mousebungee::where('maker_id', $makerId)->inRandomOrder()->take(10)->get();
+                break;
+            case 'mousepads':
+            $subDevices = Mousepad::where('maker_id', $makerId)->inRandomOrder()->take(10)->get();
+                break;
+            default:
+                //
+                break;
+        }
+        return $subDevices;
+    }
     public function addNewDevice(object $request)
     {
         switch ($request->deviceType) {

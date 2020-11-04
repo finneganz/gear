@@ -14,6 +14,7 @@
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
             <v-btn
+              v-show="auth.username === user.username"
               outlined
               small
               color="primary"

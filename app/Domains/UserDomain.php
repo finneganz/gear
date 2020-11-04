@@ -74,6 +74,7 @@ class UserDomain
                 break;
         }   
     }
+    // DB保存値から表示用に変換
     public function convertStretchForDisplay(int $stretch)
     {
         if($stretch === 1)
@@ -116,6 +117,20 @@ class UserDomain
                 break;
             case 3:
                 return 'high';
+                break;
+        }
+    }
+    public function convertAspectForDisplay(int $aspect)
+    {
+        switch ($aspect) {
+            case 0:
+                return '4:3';
+                break;
+            case 1:
+                return '16:9';
+                break;
+            case 2:
+                return '16:10';
                 break;
         }
     }

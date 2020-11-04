@@ -14,8 +14,9 @@
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
             <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
             <v-btn
-              rounded
+              outlined
               small
+              color="primary"
               class="ml-3 text-lowercase"
               :href="'/users/' + user.username + '/edit'"
             >

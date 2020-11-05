@@ -31,6 +31,7 @@
               <v-card-text 
                 v-text="subDevice.device_name"
                 class="font-weight-bold text-center pt-8"
+                style="height: 60%"
               ></v-card-text>
               <v-card-text
                 v-text="device.maker_name"

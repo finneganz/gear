@@ -29,7 +29,7 @@ export default {
     'header-component': Header
   },
   props: [
-    'device',
+    'devices',
     'genre',
     'auth',
   ],

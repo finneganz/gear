@@ -60,36 +60,99 @@
         <v-row justify="center">
           <v-col cols="6">
             <v-card-subtitle>Devices</v-card-subtitle>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.headset"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.headset[0] }}
+            </v-alert>
             <v-text-field
               label="headset"
               id="headset"
               name="headset"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.keyboard"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.keyboard[0] }}
+            </v-alert>
             <v-text-field
               label="keyboard"
               id="keyboard"
               name="keyboard"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.mic"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.mic[0] }}
+            </v-alert>
             <v-text-field
               label="mic"
               id="mic"
               name="mic"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.monitor"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.monitor[0] }}
+            </v-alert>
             <v-text-field
               label="monitor"
               id="monitor"
               name="monitor"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.mouse"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.mouse[0] }}
+            </v-alert>
             <v-text-field
               label="mouse"
               id="mouse"
               name="mouse"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.mousebungee"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.mousebungee[0] }}
+            </v-alert>
             <v-text-field
               label="mousebungee"
               id="mousebungee"
               name="mousebungee"
             ></v-text-field>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.mousepad"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.mousepad[0] }}
+            </v-alert>
             <v-text-field
               label="mousepad"
               id="mousepad"

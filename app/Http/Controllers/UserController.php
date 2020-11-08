@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Users\User;
 use App\Models\Devices\Maker;
+use App\Models\Devices\Headset;
+use App\Models\Devices\Keyboard;
+use App\Models\Devices\Mic;
+use App\Models\Devices\Monitor;
+use App\Models\Devices\Mouse;
+use App\Models\Devices\Mousebungee;
+use App\Models\Devices\Mousepad;
 use App\Models\GameSettings\Resolution;
 use App\Http\Requests\UserSettingRequest;
 use App\Domains\UserDomain;
@@ -177,14 +184,14 @@ class UserController extends BaseController
         $this->userMouseSetting->polling_rate = $request->input('dpi');
         $this->userMouseSetting->dpi = $request->input('pollingRate');
 
-        // デバイス
-        // $this->user->headset_id = $request->headset;
-        // $this->user->keyboard_id = $request->keyboard;
-        // $this->user->mic_id = $request->mic;
-        // $this->user->monitor_id = $request->monitor;
-        // $this->user->mouse_id = $request->mouse;
-        // $this->user->mousebungee_id = $request->mousebungee;
-        // $this->user->mousepad_id = $request->mousepad;
+        // デバイス設定
+        $this->user->headset_id = $request->filled('headset') ? Headset::where('device_name', $request->headset)->first()->id : null ;
+        $this->user->keyboard_id = $request->filled('keyboard') ? Keyboard::where('device_name', $request->headset)->first()->id : null ;
+        $this->user->mic_id = $request->filled('mic') ? Mic::where('device_name', $request->headset)->first()->id : null ;
+        $this->user->monitor_id = $request->filled('monitor') ? Monitor::where('device_name', $request->headset)->first()->id : null ;
+        $this->user->mouse_id = $request->filled('mouse') ? Mouse::where('device_name', $request->headset)->first()->id : null ;
+        $this->user->mousebungee_id = $request->filled('mousebungee') ? Mousebungee::where('device_name', $request->headset)->first()->id : null ;
+        $this->user->mousepad_id = $request->filled('mousepad') ? Mousepad::where('device_name', $request->headset)->first()->id : null ;
 
         $this->userConfig->save();
         $this->userMonitorSetting->save();

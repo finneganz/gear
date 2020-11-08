@@ -8,6 +8,7 @@
         id="makerAdd"
       >
         <input type="hidden" name="_token" :value="csrf" />
+        <!-- Config -->
         <v-row justify="center">
           <v-col cols="6">
           <v-card-subtitle>Config</v-card-subtitle>
@@ -55,6 +56,48 @@
             ></v-text-field>
           </v-col>
         </v-row>
+        <!-- Device -->
+        <v-row justify="center">
+          <v-col cols="6">
+            <v-card-subtitle>Devices</v-card-subtitle>
+            <v-text-field
+              label="headset"
+              id="headset"
+              name="headset"
+            ></v-text-field>
+            <v-text-field
+              label="keyboard"
+              id="keyboard"
+              name="keyboard"
+            ></v-text-field>
+            <v-text-field
+              label="mic"
+              id="mic"
+              name="mic"
+            ></v-text-field>
+            <v-text-field
+              label="monitor"
+              id="monitor"
+              name="monitor"
+            ></v-text-field>
+            <v-text-field
+              label="mouse"
+              id="mouse"
+              name="mouse"
+            ></v-text-field>
+            <v-text-field
+              label="mousebungee"
+              id="mousebungee"
+              name="mousebungee"
+            ></v-text-field>
+            <v-text-field
+              label="mousepad"
+              id="mousepad"
+              name="mousepad"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <!-- Monitor Setting -->
         <v-row justify="center">
           <v-col cols="6">
             <v-card-subtitle>Monitor Setting</v-card-subtitle>
@@ -66,6 +109,7 @@
             ></v-text-field>
           </v-col>
         </v-row>
+        <!-- Video Setting -->
         <v-row justify="center">
           <v-col cols="6">
             <v-card-subtitle>Video Settings</v-card-subtitle>
@@ -107,6 +151,7 @@
             ></v-select>
           </v-col>
         </v-row>
+        <!-- Mouse Setting -->
         <v-row justify="center">
           <v-col cols="6">
             <v-card-subtitle>Mouse Setting</v-card-subtitle>

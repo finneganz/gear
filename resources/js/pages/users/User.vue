@@ -31,6 +31,18 @@
     <v-container class="pa-12">
       <v-card flat>
         <v-card-title class="justify-center">Devices</v-card-title>
+        <v-row justify="center">
+          <v-col>
+            <v-card flat>
+              <v-card-text
+                class="text-center"
+                v-show="devices.length === 0"
+              >
+                デバイスは登録されていません
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col
             v-for="device in devices"
@@ -149,6 +161,9 @@ export default {
     'settings',
     'auth',
   ],
+  mounted(){
+    console.log(this.devices);
+  },
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

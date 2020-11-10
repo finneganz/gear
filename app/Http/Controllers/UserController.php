@@ -160,7 +160,13 @@ class UserController extends BaseController
         $userSettings = json_encode($userSettings);
         $auth = $this->getAuthUser();
 
-        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices', 'auth'));
+        $testDevices = Headset::orderBy('id', 'desc')->take(10)->get();
+        foreach($testDevices as $testDevice)
+        {
+            $testDevice->device_name = str_replace('_', ' ', $testDevice->device_name);
+        }
+
+        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices', 'auth', 'testDevices'));
     }
     public function editUser(UserSettingRequest $request)
     {

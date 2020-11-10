@@ -6,6 +6,7 @@
         :errors = "{{ $errors }}"
         :devices = "{{ $userDevices }}"
         :settings = "{{ $userSettings }}"
+        :test-devices = "{{ $testDevices }}"
     ></user-edit-component>
 @endsection
 

@@ -1,5 +1,10 @@
 <template>
   <v-app>
+    <select-device-modal
+      v-show="openedModal"
+      v-on:close-modal="closeModal"
+      :testDevices="testDevices"
+    ></select-device-modal>
     <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container fluid class="mt-12 pt-12">
       <v-form
@@ -70,6 +75,7 @@
               {{ errors.headset[0] }}
             </v-alert>
             <v-text-field
+              v-on:click="openModal"
               label="headset"
               id="headset"
               name="headset"
@@ -268,17 +274,29 @@
 
 <script>
 import Header from '../../components/Header'
+import SelectDeviceModal from '../../components/SelectDeviceModal'
 export default {
   components: {
-    'header-component': Header
+    'header-component': Header,
+    'select-device-modal': SelectDeviceModal
   },
   props: [
     'auth',
     'errors',
     'devices',
     'settings',
+    'testDevices',
   ],
+  methods: {
+    openModal: function(){
+      this.openedModal = true
+    },
+    closeModal: function(){
+      this.openedModal = false
+    },
+  },
   data: () => ({
+    openedModal: true,
     csrf: 
     document.querySelector('meta[name="csrf-token"]')
     .getAttribute('content'),
@@ -305,7 +323,7 @@ export default {
       'low',
       'middle',
       'high',
-    ]
+    ],
   })
 }
 </script>

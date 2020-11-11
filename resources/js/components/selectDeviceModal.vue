@@ -6,21 +6,18 @@
   >
     <v-row class="pt-12">
       <v-col
-        v-for="testDevice in testDevices"
-        :key="testDevice.value"
-        :cols="3"
+        v-for="selectedDevice in selectedDevices"
+        :key="selectedDevice.value"
+        :cols="4"
       >
-        <v-card
-          height="60"
-          outlined
+        <v-btn
+          cols="12"
+          v-text="selectedDevice.device_name"
+          v-on:click="setDevice(selectedDevice.device_name)"
+          class="font-weight-solid pa-2 text-center"
+          style="display: flex; width: 100%; justify-content: center; align-items: center;"
         >
-          <v-card-text
-            cols="12"
-            v-text="testDevice.device_name"
-            class="font-weight-solid pa-2 text-center"
-            style="display: flex; height:100%; justify-content: center; align-items: center;"
-          ></v-card-text>
-        </v-card>
+        </v-btn>
       </v-col>
     </v-row>
   <v-row justify="center">
@@ -37,10 +34,14 @@
 <script>
   export default {
     props: [
-      'testDevices',
+      'selectedDevices',
     ],
     methods: {
-      closeModal: function(){
+      setDevice: function(selectedDevice){
+        this.$emit('set-device', selectedDevice)
+      },
+      closeModal: function()
+      {
         this.$emit('close-modal')
       }
     },

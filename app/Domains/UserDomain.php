@@ -134,4 +134,25 @@ class UserDomain
                 break;
         }
     }
+    public function devicesStrReplaceForDisplay($devices)
+    {
+        foreach($devices as $device)
+        {
+            $device->device_name = str_replace('_', ' ', $device->device_name);
+        }
+        return $devices;
+    }
+    public function selectDevicesToAssociativeArray($headset, $keyboard, $mic, $monitor, $mouse, $mousebungee, $mousepad)
+    {
+        $selectDevices = [
+            'headset' => $headset,
+            'keyboard' => $keyboard,
+            'mic' => $mic,
+            'monitor' => $monitor,
+            'mouse' => $mouse,
+            'mousebungee' => $mousebungee,
+            'mousepad' => $mousepad,
+        ];
+        return $selectDevices;
+    }
 }

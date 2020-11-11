@@ -160,13 +160,28 @@ class UserController extends BaseController
         $userSettings = json_encode($userSettings);
         $auth = $this->getAuthUser();
 
-        $testDevices = Headset::orderBy('id', 'desc')->take(10)->get();
-        foreach($testDevices as $testDevice)
-        {
-            $testDevice->device_name = str_replace('_', ' ', $testDevice->device_name);
-        }
+        // 選択用のデバイスを取得
+        $selectHeadsets = Headset::orderBy('id', 'desc')->take(21)->get();
+        $selectKeyboards = Keyboard::orderBy('id', 'desc')->take(21)->get();
+        $selectMics = Mic::orderBy('id', 'desc')->take(21)->get();
+        $selectMonitors = Monitor::orderBy('id', 'desc')->take(21)->get();
+        $selectMouses = Mouse::orderBy('id', 'desc')->take(21)->get();
+        $selectMousebungees = Mousebungee::orderBy('id', 'desc')->take(21)->get();
+        $selectMousepads = Mousepad::orderBy('id', 'desc')->take(21)->get();
 
-        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices', 'auth', 'testDevices'));
+        $selectHeadsets = $userDomain->devicesStrReplaceForDisplay($selectHeadsets);
+        $selectKeyboards = $userDomain->devicesStrReplaceForDisplay($selectKeyboards);
+        $selectMics = $userDomain->devicesStrReplaceForDisplay($selectMics);
+        $selectMonitors = $userDomain->devicesStrReplaceForDisplay($selectMonitors);
+        $selectMouses = $userDomain->devicesStrReplaceForDisplay($selectMouses);
+        $selectMousebungees = $userDomain->devicesStrReplaceForDisplay($selectMousebungees);
+        $selectMousepads = $userDomain->devicesStrReplaceForDisplay($selectMousepads);
+
+        $selectDevices = $userDomain->selectDevicesToAssociativeArray($selectHeadsets, $selectKeyboards, $selectMics, $selectMouses, $selectMonitors, $selectMousebungees, $selectMousepads);
+
+        $selectDevices = json_encode($selectDevices);
+
+        return view('users.edit', compact('user', 'userId', 'userSettings', 'userDevices', 'auth', 'selectDevices'));
     }
     public function editUser(UserSettingRequest $request)
     {

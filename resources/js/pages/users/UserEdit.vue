@@ -2,8 +2,9 @@
   <v-app>
     <select-device-modal
       v-show="openedModal"
+      v-on:set-device="setDevice"
       v-on:close-modal="closeModal"
-      :testDevices="testDevices"
+      :selected-devices="selectedDevices"
     ></select-device-modal>
     <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container fluid class="mt-12 pt-12">
@@ -75,7 +76,7 @@
               {{ errors.headset[0] }}
             </v-alert>
             <v-text-field
-              v-on:click="openModal"
+              v-on:click="selectHeadset"
               label="headset"
               id="headset"
               name="headset"
@@ -90,6 +91,7 @@
               {{ errors.keyboard[0] }}
             </v-alert>
             <v-text-field
+              v-on:click="selectKeyboard"
               label="keyboard"
               id="keyboard"
               name="keyboard"
@@ -104,6 +106,7 @@
               {{ errors.mic[0] }}
             </v-alert>
             <v-text-field
+              v-on:click="selectMic"
               label="mic"
               id="mic"
               name="mic"
@@ -118,6 +121,7 @@
               {{ errors.monitor[0] }}
             </v-alert>
             <v-text-field
+              v-on:click="selectMonitor"
               label="monitor"
               id="monitor"
               name="monitor"
@@ -132,6 +136,7 @@
               {{ errors.mouse[0] }}
             </v-alert>
             <v-text-field
+              v-on:click="selectMouse"
               label="mouse"
               id="mouse"
               name="mouse"
@@ -146,6 +151,7 @@
               {{ errors.mousebungee[0] }}
             </v-alert>
             <v-text-field
+              v-on:click="selectMousebungee"
               label="mousebungee"
               id="mousebungee"
               name="mousebungee"
@@ -160,6 +166,7 @@
               {{ errors.mousepad[0] }}
             </v-alert>
             <v-text-field
+              v-on:click="selectMousepad"
               label="mousepad"
               id="mousepad"
               name="mousepad"
@@ -285,18 +292,83 @@ export default {
     'errors',
     'devices',
     'settings',
-    'testDevices',
+    'selectDevices'
   ],
   methods: {
-    openModal: function(){
+    selectHeadset: function(){
       this.openedModal = true
+      this.selectedDevices = this.selectDevices.headset
+      this.deviceGenre = 'headset'
+    },
+    selectKeyboard: function(){
+      this.openedModal = true
+      this.selectedDevices = this.selectDevices.keyboard
+      this.deviceGenre = 'keyboard'
+    },
+    selectMic: function(){
+      this.openedModal = true
+      this.selectedDevices = this.selectDevices.mic
+      this.deviceGenre = 'mic'
+    },
+    selectMonitor: function(){
+      this.openedModal = true
+      this.selectedDevices = this.selectDevices.monitor
+      this.deviceGenre = 'monitor'
+    },
+    selectMouse: function(){
+      this.openedModal = true
+      this.selectedDevices = this.selectDevices.mouse
+      this.deviceGenre = 'mouse'
+    },
+    selectMousebungee: function(){
+      this.openedModal = true
+      this.selectedDevices = this.selectDevices.mousebungee
+      this.deviceGenre = 'mousebungee'
+    },
+    selectMousepad: function(){
+      this.openedModal = true
+      this.selectedDevices = this.selectDevices.mousepad
+      this.deviceGenre = 'mousepad'
+    },
+    setDevice: function(selectedDevice){
+      this.openedModal = false
+      switch (this.deviceGenre) {
+        case 'headset':
+          document.getElementById("headset").value = selectedDevice
+          break;
+        case 'keyboard':
+          document.getElementById("keyboard").value = selectedDevice
+          break;
+        case 'mic':
+          document.getElementById("mic").value = selectedDevice
+          break;
+        case 'monitor':
+          document.getElementById("monitor").value = selectedDevice
+          break;
+        case 'mouse':
+          document.getElementById("mouse").value = selectedDevice
+          break;
+        case 'mousebungee':
+          document.getElementById("mousebungee").value = selectedDevice
+          break;
+        case 'mousepad':
+          document.getElementById("mousepad").value = selectedDevice
+          break;
+        default:
+          document.getElementById("mousepad").value = ""
+          console.log(document.getElementById("mousepad").value)
+          break;
+      }
     },
     closeModal: function(){
       this.openedModal = false
-    },
+    }
   },
   data: () => ({
-    openedModal: true,
+    openedModal: false,
+    selectedDevices: "",
+    selectedDevice: "",
+    deviceGenre: "",
     csrf: 
     document.querySelector('meta[name="csrf-token"]')
     .getAttribute('content'),

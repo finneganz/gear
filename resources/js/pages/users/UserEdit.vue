@@ -77,6 +77,7 @@
             </v-alert>
             <v-text-field
               v-on:click="selectHeadset"
+              v-model="selectedHeadset"
               label="headset"
               id="headset"
               name="headset"
@@ -92,6 +93,7 @@
             </v-alert>
             <v-text-field
               v-on:click="selectKeyboard"
+              v-model="selectedKeyboard"
               label="keyboard"
               id="keyboard"
               name="keyboard"
@@ -107,6 +109,7 @@
             </v-alert>
             <v-text-field
               v-on:click="selectMic"
+              v-model="selectedMic"
               label="mic"
               id="mic"
               name="mic"
@@ -122,6 +125,7 @@
             </v-alert>
             <v-text-field
               v-on:click="selectMonitor"
+              v-model="selectedMonitor"
               label="monitor"
               id="monitor"
               name="monitor"
@@ -137,6 +141,7 @@
             </v-alert>
             <v-text-field
               v-on:click="selectMouse"
+              v-model="selectedMouse"
               label="mouse"
               id="mouse"
               name="mouse"
@@ -152,6 +157,7 @@
             </v-alert>
             <v-text-field
               v-on:click="selectMousebungee"
+              v-model="selectedMousebungee"
               label="mousebungee"
               id="mousebungee"
               name="mousebungee"
@@ -167,6 +173,7 @@
             </v-alert>
             <v-text-field
               v-on:click="selectMousepad"
+              v-model="selectedMousepad"
               label="mousepad"
               id="mousepad"
               name="mousepad"
@@ -334,29 +341,27 @@ export default {
       this.openedModal = false
       switch (this.deviceGenre) {
         case 'headset':
-          document.getElementById("headset").value = selectedDevice
+          this.selectedHeadset = selectedDevice
           break;
         case 'keyboard':
-          document.getElementById("keyboard").value = selectedDevice
+          this.selectedKeyboard = selectedDevice
           break;
         case 'mic':
-          document.getElementById("mic").value = selectedDevice
+          this.selectedMic = selectedDevice
           break;
         case 'monitor':
-          document.getElementById("monitor").value = selectedDevice
+          this.selectedMonitor = selectedDevice
           break;
         case 'mouse':
-          document.getElementById("mouse").value = selectedDevice
+          this.selectedMouse = selectedDevice
           break;
         case 'mousebungee':
-          document.getElementById("mousebungee").value = selectedDevice
+          this.selectedMousebungee = selectedDevice
           break;
         case 'mousepad':
-          document.getElementById("mousepad").value = selectedDevice
+          this.selectedMousepad = selectedDevice
           break;
         default:
-          document.getElementById("mousepad").value = ""
-          console.log(document.getElementById("mousepad").value)
           break;
       }
     },
@@ -365,6 +370,13 @@ export default {
     }
   },
   data: () => ({
+    selectedHeadset: "",
+    selectedKeyboard: "",
+    selectedMic: "",
+    selectedMonitor: "",
+    selectedMouse: "",
+    selectedMousebungee: "",
+    selectedMousepad: "",
     openedModal: false,
     selectedDevices: "",
     selectedDevice: "",

@@ -34,13 +34,13 @@ class UserSettingRequest extends FormRequest
             'pollingRate' => ['nullable', 'regex:/[1-9]|[1-9][0-9]{1,3}/'],
 
             // デバイス
-            'headset' => ['nullable', 'exists:App\Models\Devices\Headset,device_name'],
-            'keyboard' => ['nullable', 'exists:App\Models\Devices\Keyboard,device_name'],
-            'mic' => ['nullable', 'exists:App\Models\Devices\Mic,device_name'],
-            'monitor' => ['nullable', 'exists:App\Models\Devices\Monitor,device_name'],
-            'mouse' => ['nullable', 'exists:App\Models\Devices\Mouse,device_name'],
-            'mousebungee' => ['nullable', 'exists:App\Models\Devices\Mousebungee,device_name'],
-            'mousepad' => ['nullable', 'exists:App\Models\Devices\Mousepad,device_name'],
+            // 'headset' => ['nullable', 'exists:App\Models\Devices\Headset,device_name'],
+            // 'keyboard' => ['nullable', 'exists:App\Models\Devices\Keyboard,device_name'],
+            // 'mic' => ['nullable', 'exists:App\Models\Devices\Mic,device_name'],
+            // 'monitor' => ['nullable', 'exists:App\Models\Devices\Monitor,device_name'],
+            // 'mouse' => ['nullable', 'exists:App\Models\Devices\Mouse,device_name'],
+            // 'mousebungee' => ['nullable', 'exists:App\Models\Devices\Mousebungee,device_name'],
+            // 'mousepad' => ['nullable', 'exists:App\Models\Devices\Mousepad,device_name'],
         ];
     }
 }

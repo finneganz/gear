@@ -168,7 +168,7 @@ class UserController extends BaseController
         $selectMouses = Mouse::orderBy('id', 'desc')->take(21)->get();
         $selectMousebungees = Mousebungee::orderBy('id', 'desc')->take(21)->get();
         $selectMousepads = Mousepad::orderBy('id', 'desc')->take(21)->get();
-
+        
         $selectHeadsets = $userDomain->devicesStrReplaceForDisplay($selectHeadsets);
         $selectKeyboards = $userDomain->devicesStrReplaceForDisplay($selectKeyboards);
         $selectMics = $userDomain->devicesStrReplaceForDisplay($selectMics);
@@ -177,7 +177,7 @@ class UserController extends BaseController
         $selectMousebungees = $userDomain->devicesStrReplaceForDisplay($selectMousebungees);
         $selectMousepads = $userDomain->devicesStrReplaceForDisplay($selectMousepads);
 
-        $selectDevices = $userDomain->selectDevicesToAssociativeArray($selectHeadsets, $selectKeyboards, $selectMics, $selectMouses, $selectMonitors, $selectMousebungees, $selectMousepads);
+        $selectDevices = $userDomain->selectDevicesToAssociativeArray($selectHeadsets, $selectKeyboards, $selectMics, $selectMonitors, $selectMouses, $selectMousebungees, $selectMousepads);
 
         $selectDevices = json_encode($selectDevices);
 
@@ -206,13 +206,13 @@ class UserController extends BaseController
         $this->userMouseSetting->dpi = $request->input('pollingRate');
 
         // デバイス設定
-        $this->user->headset_id = $request->filled('headset') ? Headset::where('device_name', $request->headset)->first()->id : null ;
-        $this->user->keyboard_id = $request->filled('keyboard') ? Keyboard::where('device_name', $request->headset)->first()->id : null ;
-        $this->user->mic_id = $request->filled('mic') ? Mic::where('device_name', $request->headset)->first()->id : null ;
-        $this->user->monitor_id = $request->filled('monitor') ? Monitor::where('device_name', $request->headset)->first()->id : null ;
-        $this->user->mouse_id = $request->filled('mouse') ? Mouse::where('device_name', $request->headset)->first()->id : null ;
-        $this->user->mousebungee_id = $request->filled('mousebungee') ? Mousebungee::where('device_name', $request->headset)->first()->id : null ;
-        $this->user->mousepad_id = $request->filled('mousepad') ? Mousepad::where('device_name', $request->headset)->first()->id : null ;
+        $this->user->headset_id = $request->filled('headset') ? Headset::where('device_name', $userDomain->deviceStrReplaceForDB($request->headset))->first()->id : null ;
+        $this->user->keyboard_id = $request->filled('keyboard') ? Keyboard::where('device_name', $userDomain->deviceStrReplaceForDB($request->keyboard))->first()->id : null ;
+        $this->user->mic_id = $request->filled('mic') ? Mic::where('device_name', $userDomain->deviceStrReplaceForDB($request->mic))->first()->id : null ;
+        $this->user->monitor_id = $request->filled('monitor') ? Monitor::where('device_name', $userDomain->deviceStrReplaceForDB($request->monitor))->first()->id : null ;
+        $this->user->mouse_id = $request->filled('mouse') ? Mouse::where('device_name', $userDomain->deviceStrReplaceForDB($request->mouse))->first()->id : null ;
+        $this->user->mousebungee_id = $request->filled('mousebungee') ? Mousebungee::where('device_name', $userDomain->deviceStrReplaceForDB($request->mousebungee))->first()->id : null ;
+        $this->user->mousepad_id = $request->filled('mousepad') ? Mousepad::where('device_name', $userDomain->deviceStrReplaceForDB($request->mousepad))->first()->id : null ;
 
         $this->userConfig->save();
         $this->userMonitorSetting->save();

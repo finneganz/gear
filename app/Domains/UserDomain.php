@@ -142,6 +142,11 @@ class UserDomain
         }
         return $devices;
     }
+    public function deviceStrReplaceForDB($deviceName)
+    {
+        $deviceName = str_replace(' ', '_', $deviceName);
+        return $deviceName;
+    }
     public function selectDevicesToAssociativeArray($headset, $keyboard, $mic, $monitor, $mouse, $mousebungee, $mousepad)
     {
         $selectDevices = [

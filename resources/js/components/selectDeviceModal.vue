@@ -8,20 +8,19 @@
       <v-col
         v-for="selectedDevice in selectedDevices"
         :key="selectedDevice.value"
-        :cols="4"
+        :cols="6"
       >
         <v-btn
-          cols="12"
+          width="100%"
           v-text="selectedDevice.device_name"
           v-on:click="setDevice(selectedDevice.device_name)"
-          class="font-weight-solid pa-2 text-center"
-          style="display: flex; width: 100%; justify-content: center; align-items: center;"
+          class="font-weight-solid pa-2"
         >
         </v-btn>
       </v-col>
     </v-row>
   <v-row justify="center">
-    <v-btn 
+    <v-btn
       v-on:click="closeModal"
       class="text-lowercase mt-5"
       small

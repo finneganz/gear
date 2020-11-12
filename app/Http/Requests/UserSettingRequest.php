@@ -34,13 +34,33 @@ class UserSettingRequest extends FormRequest
             'pollingRate' => ['nullable', 'regex:/[1-9]|[1-9][0-9]{1,3}/'],
 
             // デバイス
-            // 'headset' => ['nullable', 'exists:App\Models\Devices\Headset,device_name'],
-            // 'keyboard' => ['nullable', 'exists:App\Models\Devices\Keyboard,device_name'],
-            // 'mic' => ['nullable', 'exists:App\Models\Devices\Mic,device_name'],
-            // 'monitor' => ['nullable', 'exists:App\Models\Devices\Monitor,device_name'],
-            // 'mouse' => ['nullable', 'exists:App\Models\Devices\Mouse,device_name'],
-            // 'mousebungee' => ['nullable', 'exists:App\Models\Devices\Mousebungee,device_name'],
-            // 'mousepad' => ['nullable', 'exists:App\Models\Devices\Mousepad,device_name'],
+            'headset' => ['nullable', 'exists:App\Models\Devices\Headset,device_name'],
+            'keyboard' => ['nullable', 'exists:App\Models\Devices\Keyboard,device_name'],
+            'mic' => ['nullable', 'exists:App\Models\Devices\Mic,device_name'],
+            'monitor' => ['nullable', 'exists:App\Models\Devices\Monitor,device_name'],
+            'mouse' => ['nullable', 'exists:App\Models\Devices\Mouse,device_name'],
+            'mousebungee' => ['nullable', 'exists:App\Models\Devices\Mousebungee,device_name'],
+            'mousepad' => ['nullable', 'exists:App\Models\Devices\Mousepad,device_name'],
         ];
+    }
+    protected function prepareForValidation()
+    {
+        $headset = ($this->filled('headset')) ? (str_replace(' ', '_', $this->headset)) : '';
+        $keyboard = ($this->filled('keyboard')) ? (str_replace(' ', '_', $this->keyboard)) : '';
+        $mic = ($this->filled('mic')) ? (str_replace(' ', '_', $this->mic)) : '';
+        $monitor = ($this->filled('monitor')) ? (str_replace(' ', '_', $this->monitor)) : '';
+        $mouse = ($this->filled('mouse')) ? (str_replace(' ', '_', $this->mouse)) : '';
+        $mousebungee = ($this->filled('mousebungee')) ? (str_replace(' ', '_', $this->mousebungee)) : '';
+        $mousepad = ($this->filled('mousepad')) ? (str_replace(' ', '_', $this->mousepad)) : '';
+
+        $this->merge([
+            'headset' => $headset,
+            'keyboard' => $keyboard,
+            'mic' => $mic,
+            'monitor' => $monitor,
+            'mouse' => $mouse,
+            'mousebungee' => $mousebungee,
+            'mousepad' => $mousepad,
+        ]);
     }
 }

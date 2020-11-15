@@ -180,9 +180,8 @@ class DeviceDomain
                 //
                 break;
         }
-        $makerId = Maker::where('maker_name', $request->makerName)->first()->id;
         $device->device_name = $request->input('deviceName');
-        $device->maker_id = $makerId;
+        $device->maker_id = Maker::where('maker_name', $request->makerName)->first()->id;
         
         return $device;
     }

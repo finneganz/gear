@@ -114,7 +114,7 @@ class UserController extends BaseController
         {
             $userDevice->device_name = str_replace('_', ' ', $userDevice->device_name);
             $userDevice->genre = $genre . 's';
-            $userDevice->maker_name = Maker::where('id', $userDevice->maker_id)->first()->maker_name;
+            $userDevice->maker_name = $userDevice->getMaker->maker_name;
         }
 
         $userDevices = json_encode($userDevices);

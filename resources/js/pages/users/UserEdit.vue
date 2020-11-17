@@ -5,6 +5,8 @@
       v-on:set-device="setDevice"
       v-on:close-modal="closeModal"
       :selected-devices="selectedDevices"
+      :initial-display-devices="initialDisplayDevices"
+      :page-count="pageCount"
     ></select-device-modal>
     <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container fluid class="mt-12 pt-12">
@@ -305,36 +307,50 @@ export default {
     selectHeadset: function(){
       this.openedModal = true
       this.selectedDevices = this.selectDevices.headset
+      this.pageCount = this.selectedDevices.length / 12
+      this.initialDisplayDevices = this.selectedDevices.slice(0,12)
       this.deviceGenre = 'headset'
     },
     selectKeyboard: function(){
       this.openedModal = true
       this.selectedDevices = this.selectDevices.keyboard
+      this.pageCount = this.selectedDevices.length / 12
+      this.initialDisplayDevices = this.selectedDevices.slice(0,12)
       this.deviceGenre = 'keyboard'
     },
     selectMic: function(){
       this.openedModal = true
       this.selectedDevices = this.selectDevices.mic
+      this.pageCount = this.selectedDevices.length / 12
+      this.initialDisplayDevices = this.selectedDevices.slice(0,12)
       this.deviceGenre = 'mic'
     },
     selectMonitor: function(){
       this.openedModal = true
       this.selectedDevices = this.selectDevices.monitor
+      this.pageCount = this.selectedDevices.length / 12
+      this.initialDisplayDevices = this.selectedDevices.slice(0,12)
       this.deviceGenre = 'monitor'
     },
     selectMouse: function(){
       this.openedModal = true
       this.selectedDevices = this.selectDevices.mouse
+      this.pageCount = this.selectedDevices.length / 12
+      this.initialDisplayDevices = this.selectedDevices.slice(0,12)
       this.deviceGenre = 'mouse'
     },
     selectMousebungee: function(){
       this.openedModal = true
       this.selectedDevices = this.selectDevices.mousebungee
+      this.pageCount = this.selectedDevices.length / 12
+      this.initialDisplayDevices = this.selectedDevices.slice(0,12)
       this.deviceGenre = 'mousebungee'
     },
     selectMousepad: function(){
       this.openedModal = true
       this.selectedDevices = this.selectDevices.mousepad
+      this.pageCount = this.selectedDevices.length / 12
+      this.initialDisplayDevices = this.selectedDevices.slice(0,12)
       this.deviceGenre = 'mousepad'
     },
     setDevice: function(selectedDevice){
@@ -378,9 +394,11 @@ export default {
     selectedMousebungee: "",
     selectedMousepad: "",
     openedModal: false,
+    initialDisplayDevices: "",
     selectedDevices: "",
     selectedDevice: "",
     deviceGenre: "",
+    pageCount: "",
     csrf: 
     document.querySelector('meta[name="csrf-token"]')
     .getAttribute('content'),

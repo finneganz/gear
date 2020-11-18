@@ -103,7 +103,7 @@ class UserController extends BaseController
         $userResolution->aspect = $userDomain->convertAspectForDisplay($userResolution->aspect);
 
         // ユーザーのデバイス情報＆設定を連想配列に
-        $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor, $userMouse, $userMouse, $userMousebungee, $userMousepad);
+        $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor,$userMouse, $userMousebungee, $userMousepad);
         $userSettings = $userDomain->userSettingsToAssociativeArray($userConfig, $userMonitorSetting, $userVideoSetting, $userMouseSetting, $userResolution);
 
         // nullを削除
@@ -151,7 +151,7 @@ class UserController extends BaseController
         $userVideoSetting->shadow_quality = $userDomain->convertShadowqualityForDisplay($userVideoSetting->shadow_quality);
 
         // ユーザーのデバイス情報＆設定を連想配列に
-        $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor, $userMouse, $userMouse, $userMousebungee, $userMousepad);
+        $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor, $userMouse, $userMousebungee, $userMousepad);
         $userSettings = $userDomain->userSettingsToAssociativeArray($userConfig, $userMonitorSetting, $userVideoSetting, $userMouseSetting, $userResolution);
 
         $userDevices = array_filter($userDevices);

@@ -303,6 +303,15 @@ export default {
     'settings',
     'selectDevices'
   ],
+  mounted(){
+    this.selectedHeadset = (this.devices.headset) ? (this.devices.headset.device_name) : ""
+    this.selectedKeyboard = (this.devices.keyboard) ? (this.devices.keyboard.device_name) : ""
+    this.selectedMic = (this.devices.mic) ? (this.devices.mic.device_name) : ""
+    this.selectedMonitor = (this.devices.monitor) ? (this.devices.monitor.device_name) : ""
+    this.selectedMouse = (this.devices.mouse) ? (this.devices.mouse.device_name) : ""
+    this.selectedMousebungee = (this.devices.mousebungee) ? (this.devices.mousebungee.device_name) : ""
+    this.selectedMousepad = (this.devices.mousepad) ? (this.devices.mousepad.device_name) : ""
+  },
   methods: {
     selectHeadset: function(){
       this.openedModal = true

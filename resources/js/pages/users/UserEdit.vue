@@ -24,13 +24,13 @@
               label="config filepath"
               id="configFilepath"
               name="configFilepath"
-              :value="settings.config.config_filepath"
+              v-model="settings.config.config_filepath"
             ></v-text-field>
             <v-text-field
               label="autoexec filepath"
               id="autoexecFilepath"
               name="autoexecFilepath"
-              :value="settings.config.autoexec_filepath"
+              v-model="settings.config.autoexec_filepath"
             ></v-text-field>
             <v-alert
               class="mb-0 mt-4"
@@ -45,7 +45,7 @@
               label="windows sensitivity"
               id="windowsSensitivity"
               name="windowsSensitivity"
-              :value="settings.config.windows_sensitivity"
+              v-model="settings.config.windows_sensitivity"
             ></v-text-field>
             <v-alert
               class="mb-0 mt-4"
@@ -60,7 +60,7 @@
               label="ingame sensitivity"
               id="inGameSensitivity"
               name="inGameSensitivity"
-              :value="settings.config.ingame_sensitivity"
+              v-model="settings.config.ingame_sensitivity"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -190,7 +190,7 @@
               label="monitor setting"
               id="monitorSetting"
               name="monitorSetting"
-              :value="settings.monitorSetting.setting_params"
+              v-model="settings.monitorSetting.setting_params"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -205,7 +205,7 @@
               dense
               id="resolution"
               name="resolution"
-              :value="settings.resolution.resolution"
+              v-model="settings.resolution.resolution"
             ></v-select>
             <v-select
               class="py-3"
@@ -214,7 +214,7 @@
               dense
               id="stretch"
               name="stretch"
-              :value="settings.videoSetting.stretch"
+              v-model="settings.videoSetting.stretch"
             ></v-select>
             <v-select
               class="py-3"
@@ -223,7 +223,7 @@
               dense
               id="antiAlias"
               name="antiAlias"
-              :value="settings.videoSetting.anti_alias"
+              v-model="settings.videoSetting.anti_alias"
             ></v-select>
             <v-select
               class="py-3"
@@ -232,7 +232,7 @@
               dense
               id="shadowQuality"
               name="shadowQuality"
-              :value="settings.videoSetting.shadow_quality"
+              v-model="settings.videoSetting.shadow_quality"
             ></v-select>
           </v-col>
         </v-row>
@@ -253,7 +253,7 @@
               label="dpi"
               id="dpi"
               name="dpi"
-              :value="settings.mouseSetting.dpi"
+              v-model="settings.mouseSetting.dpi"
             ></v-text-field>
             <v-alert
               class="mb-0 mt-4"
@@ -268,7 +268,7 @@
               label="polling rate"
               id="pollingRate"
               name="pollingRate"
-              :value="settings.mouseSetting.polling_rate"
+              v-model="settings.mouseSetting.polling_rate"
             ></v-text-field>
           </v-col>
         </v-row>

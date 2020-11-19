@@ -27,13 +27,15 @@
             label="maker name"
             id="makerName"
             name="makerName"
-            :value="maker.maker_name"
+            v-model="maker.maker_name"
           ></v-text-field>
           <v-btn
             type="submit"
             color="primary"
             class="text-capitalize"
-          >submit</v-btn>
+          >
+            submit
+          </v-btn>
         </v-form>
       </v-card>
     </v-container>

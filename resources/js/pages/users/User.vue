@@ -161,9 +161,6 @@ export default {
     'settings',
     'auth',
   ],
-  mounted(){
-    console.log(this.devices);
-  },
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

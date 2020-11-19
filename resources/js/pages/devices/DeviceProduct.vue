@@ -56,9 +56,6 @@ export default {
     'device',
     'subDevices',
   ],
-  mounted(){
-    console.log(this.subDevices);
-  },
   data: () => ({
     csrf: 
     document.querySelector('meta[name="csrf-token"]')

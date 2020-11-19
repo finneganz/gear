@@ -80,9 +80,6 @@ export default {
   components: {
     'header-component': Header
   },
-  mounted() {
-    console.log(this.errors);
-  },
   props: [
     'auth',
     'errors',

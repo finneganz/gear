@@ -64,9 +64,6 @@ export default {
   components: {
     'header-component': Header
   },
-  mounted() {
-    console.log('Component mounted.')
-  },
   props: [
     'errors',
     'device',

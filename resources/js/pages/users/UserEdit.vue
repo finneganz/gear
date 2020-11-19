@@ -41,12 +41,15 @@
             >
               {{ errors.windowsSensitivity[0] }}
             </v-alert>
-            <v-text-field
+            <v-select
+              :items="windowsSensitivities"
+              v-model="settings.config.windows_sensitivity"
+              dense
               label="windows sensitivity"
               id="windowsSensitivity"
               name="windowsSensitivity"
-              v-model="settings.config.windows_sensitivity"
-            ></v-text-field>
+              class="pt-3"
+            ></v-select>
             <v-alert
               class="mb-0 mt-4"
               v-if="errors.inGameSensitivity"
@@ -434,6 +437,19 @@ export default {
       'low',
       'middle',
       'high',
+    ],
+    windowsSensitivities: [
+      '1/11',
+      '2/11',
+      '3/11',
+      '4/11',
+      '5/11',
+      '6/11',
+      '7/11',
+      '8/11',
+      '9/11',
+      '10/11',
+      '11/11',
     ],
   })
 }

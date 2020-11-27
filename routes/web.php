@@ -22,10 +22,12 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
-// 1.4 ユーザー情報表示・編集
+// 1.4 ユーザー情報表示・編集・ダウンロード
 Route::get('/users/{username}', 'UserController@showUserPage');
 Route::get('/users/{username}/edit', 'UserController@showUserEditPage')->middleware('auth');
 Route::post('/users/{username}/edit', 'UserController@editUser');
+Route::get('/users/{username}/config/download', 'UserController@downloadConfig');
+Route::get('/users/{username}/autoexec/download', 'UserController@downloadAutoexec');
 // 1.5 デバイス一覧
 Route::get('/devices', 'DeviceController@showDeviceList');
 Route::get('/devices/{device}', 'DeviceController@showDeviceGenre');

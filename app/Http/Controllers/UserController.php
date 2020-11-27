@@ -187,7 +187,7 @@ class UserController extends BaseController
     {
         $userDomain = new UserDomain;
         // Config
-        $this->userConfig->config_filepath = $request->input('configFilepath');
+        $this->userConfig->config_filepath = base64_encode(file_get_contents($request->configFilepath));
         $this->userConfig->autoexec_filepath = $request->input('autoexecFilepath');
         $this->userConfig->windows_sensitivity = $request->input('windowsSensitivity');
         $this->userConfig->ingame_sensitivity = $request->input('inGameSensitivity');
@@ -223,5 +223,17 @@ class UserController extends BaseController
         return redirect()->action(
             'UserController@showUserPage', ['username' => $this->user->username],
         );
+    }
+    public function downloadConfig()
+    {
+        $userConfig = '.cfg';
+        file_put_contents($userConfig , base64_decode($this->userConfig->config_filepath));
+        return response()->download($userConfig, 'config.cfg');
+    }
+    public function downloadAutoexec()
+    {
+        $userAutoexec = '.cfg';
+        file_put_contents($userAutoexec , base64_decode($this->userConfig->autoexec_filepath));
+        return response()->download($userAutoexec, 'autoexec.cfg');
     }
 }

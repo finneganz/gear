@@ -79,8 +79,26 @@
                     <v-col cols="8">
                       <v-card flat height="250">
                         <v-card-subtitle class="text-center">config</v-card-subtitle>
-                        <v-card-text>config-filepath : {{ settings.config.config_filepath }}</v-card-text>
-                        <v-card-text class="pt-0">autoexec-filepath : {{ settings.config.autoexec_filepath }}</v-card-text>
+                        <v-card-text>config-filepath : 
+                          <v-btn 
+                            :href="'/users/' + user.username + '/config/download'"
+                            small
+                            outlined
+                            color="primary"
+                          >
+                            ダウンロード
+                          </v-btn>
+                        </v-card-text>
+                        <v-card-text class="pt-0">autoexec-filepath : 
+                          <v-btn 
+                            :href="'/users/' + user.username + '/autoexec/download'"
+                            small
+                            outlined
+                            color="primary"
+                          >
+                            ダウンロード
+                          </v-btn>
+                        </v-card-text>
                         <v-card-text class="pt-0">windows-sensitivity : {{ settings.config.windows_sensitivity }}</v-card-text>
                         <v-card-text class="pt-0">inGame-sensitivity : {{ settings.config.ingame_sensitivity }}</v-card-text>
                       </v-card>

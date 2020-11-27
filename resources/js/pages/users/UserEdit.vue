@@ -14,24 +14,23 @@
         method="POST"
         :action="'/users/' + auth.username + '/edit'"
         id="makerAdd"
+        enctype="multipart/form-data"
       >
         <input type="hidden" name="_token" :value="csrf" />
         <!-- Config -->
         <v-row justify="center">
           <v-col cols="6">
           <v-card-subtitle>Config</v-card-subtitle>
-            <v-text-field
+            <v-file-input
               label="config filepath"
               id="configFilepath"
               name="configFilepath"
-              v-model="settings.config.config_filepath"
-            ></v-text-field>
-            <v-text-field
+            ></v-file-input>
+            <v-file-input
               label="autoexec filepath"
               id="autoexecFilepath"
               name="autoexecFilepath"
-              v-model="settings.config.autoexec_filepath"
-            ></v-text-field>
+            ></v-file-input>
             <v-alert
               class="mb-0 mt-4"
               v-if="errors.windowsSensitivity"

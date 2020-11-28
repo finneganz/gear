@@ -80,7 +80,8 @@
                       <v-card flat height="250">
                         <v-card-subtitle class="text-center">config</v-card-subtitle>
                         <v-card-text>config-filepath : 
-                          <v-btn 
+                          <v-btn
+                            v-show="settings.config.config_filepath"
                             :href="'/users/' + user.username + '/config/download'"
                             small
                             outlined
@@ -90,7 +91,8 @@
                           </v-btn>
                         </v-card-text>
                         <v-card-text class="pt-0">autoexec-filepath : 
-                          <v-btn 
+                          <v-btn
+                            v-show="settings.config.autoexec_filepath"
                             :href="'/users/' + user.username + '/autoexec/download'"
                             small
                             outlined
@@ -184,5 +186,8 @@ export default {
     document.querySelector('meta[name="csrf-token"]')
     .getAttribute('content'),
   }),
+  mounted(){
+    console.log(this.settings.config)
+  }
 }
 </script>

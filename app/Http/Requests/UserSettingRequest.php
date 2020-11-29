@@ -24,6 +24,7 @@ class UserSettingRequest extends FormRequest
     public function rules()
     {
         return [
+            'configFilepath' => ['nullable', 'cfg_file'],
             // 1~11の整数のみ
             'windowsSensitivity' => ['nullable', 'regex:/[1-9]|1[0-1]/'],
             // 整数or少数

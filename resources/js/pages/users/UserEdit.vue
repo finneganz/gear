@@ -23,31 +23,31 @@
           <v-card-subtitle>Config</v-card-subtitle>
             <v-alert
               class="mb-0 mt-4"
-              v-if="errors.configFilepath"
+              v-if="errors.config"
               type="error"
               dense
               outlined
             >
-              {{ errors.configFilepath[0] }}
+              {{ errors.config[0] }}
             </v-alert>
             <v-file-input
-              label="config filepath"
-              id="configFilepath"
-              name="configFilepath"
+              label="config"
+              id="config"
+              name="config"
             ></v-file-input>
             <v-alert
               class="mb-0 mt-4"
-              v-if="errors.autoexecFilepath"
+              v-if="errors.autoexec"
               type="error"
               dense
               outlined
             >
-              {{ errors.autoexecFilepath[0] }}
+              {{ errors.autoexec[0] }}
             </v-alert>
             <v-file-input
-              label="autoexec filepath"
-              id="autoexecFilepath"
-              name="autoexecFilepath"
+              label="autoexec"
+              id="autoexec"
+              name="autoexec"
             ></v-file-input>
             <v-alert
               class="mb-0 mt-4"

@@ -79,9 +79,9 @@
                     <v-col cols="8">
                       <v-card flat height="250">
                         <v-card-subtitle class="text-center">config</v-card-subtitle>
-                        <v-card-text>config-filepath : 
+                        <v-card-text>config : 
                           <v-btn
-                            v-show="settings.config.config_filepath"
+                            v-show="settings.config.config"
                             :href="'/users/' + user.username + '/config/download'"
                             small
                             outlined
@@ -90,9 +90,9 @@
                             ダウンロード
                           </v-btn>
                         </v-card-text>
-                        <v-card-text class="pt-0">autoexec-filepath : 
+                        <v-card-text class="pt-0">autoexec : 
                           <v-btn
-                            v-show="settings.config.autoexec_filepath"
+                            v-show="settings.config.autoexec"
                             :href="'/users/' + user.username + '/autoexec/download'"
                             small
                             outlined

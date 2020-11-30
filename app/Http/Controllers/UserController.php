@@ -187,8 +187,8 @@ class UserController extends BaseController
     {
         $userDomain = new UserDomain;
         // Config
-        $this->userConfig->config_filepath = $request->filled('configFilepath') ? base64_encode(file_get_contents($request->configFilepath)) : '';
-        $this->userConfig->autoexec_filepath = $request->filled('autoexecFilepath') ? base64_encode(file_get_contents($request->autoexecFilepath)) : '';
+        $this->userConfig->config = $request->filled('config') ? base64_encode(file_get_contents($request->config)) : '';
+        $this->userConfig->autoexec = $request->filled('autoexec') ? base64_encode(file_get_contents($request->autoexec)) : '';
         $this->userConfig->windows_sensitivity = $request->input('windowsSensitivity');
         $this->userConfig->ingame_sensitivity = $request->input('inGameSensitivity');
         
@@ -227,13 +227,13 @@ class UserController extends BaseController
     public function downloadConfig()
     {
         $userConfig = '.cfg';
-        file_put_contents($userConfig , base64_decode($this->userConfig->config_filepath));
+        file_put_contents($userConfig , base64_decode($this->userConfig->config));
         return response()->download($userConfig, 'config.cfg');
     }
     public function downloadAutoexec()
     {
         $userAutoexec = '.cfg';
-        file_put_contents($userAutoexec , base64_decode($this->userConfig->autoexec_filepath));
+        file_put_contents($userAutoexec , base64_decode($this->userConfig->autoexec));
         return response()->download($userAutoexec, 'autoexec.cfg');
     }
 }

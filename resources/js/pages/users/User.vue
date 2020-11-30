@@ -186,8 +186,5 @@ export default {
     document.querySelector('meta[name="csrf-token"]')
     .getAttribute('content'),
   }),
-  mounted(){
-    console.log(this.settings.config)
-  }
 }
 </script>

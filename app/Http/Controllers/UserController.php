@@ -187,8 +187,8 @@ class UserController extends BaseController
     {
         $userDomain = new UserDomain;
         // Config
-        $this->userConfig->config_filepath = base64_encode(file_get_contents($request->configFilepath));
-        $this->userConfig->autoexec_filepath = $request->input('autoexecFilepath');
+        $this->userConfig->config_filepath = $request->filled('configFilepath') ? base64_encode(file_get_contents($request->configFilepath)) : '';
+        $this->userConfig->autoexec_filepath = $request->filled('autoexecFilepath') ? base64_encode(file_get_contents($request->autoexecFilepath)) : '';
         $this->userConfig->windows_sensitivity = $request->input('windowsSensitivity');
         $this->userConfig->ingame_sensitivity = $request->input('inGameSensitivity');
         

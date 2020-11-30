@@ -21,11 +21,29 @@
         <v-row justify="center">
           <v-col cols="6">
           <v-card-subtitle>Config</v-card-subtitle>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.configFilepath"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.configFilepath[0] }}
+            </v-alert>
             <v-file-input
               label="config filepath"
               id="configFilepath"
               name="configFilepath"
             ></v-file-input>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.autoexecFilepath"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.autoexecFilepath[0] }}
+            </v-alert>
             <v-file-input
               label="autoexec filepath"
               id="autoexecFilepath"

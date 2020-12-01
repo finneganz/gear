@@ -1,31 +1,40 @@
 <template>
   <v-app>
     <header-component :auth="auth" :csrf="csrf"></header-component>
-    <v-container class="pa-5 mt-12 pa-12">
-      <v-card flat>
-        <v-row>
-          <v-col cols="3"></v-col>
-          <v-col cols="2">
-            <v-card-text class="pt-5">img</v-card-text>
-          </v-col>
-          <v-col cols="7">
-            <v-card-title>{{ user.username }}</v-card-title>
-            <v-card-text>@twitter_id</v-card-text>
-            <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
-            <v-card-text class="pt-0">^^^^^^^^^^^</v-card-text>
-            <v-btn
-              v-show="auth.username === user.username"
-              outlined
-              small
-              color="primary"
-              class="ml-3 text-lowercase"
-              :href="'/users/' + user.username + '/edit'"
-            >
-              edit
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-card>
+    <v-container class="pt-12 px-12 mt-12">
+      <v-row justify="center">
+        <v-col>
+          <v-card flat>
+            <v-card-title
+              v-text="user.username"
+              class="justify-center pb-0"
+            ></v-card-title>
+            <v-row justify="center">
+              <v-btn
+                v-show="user.twitter_id"
+                :href="'https://twitter.com/' + user.twitter_id"
+                target="_blank"
+                text
+                rel="noopener noreferrer"
+                class="text-lowercase"
+                v-text="'@twitter: ' + user.twitter_id"
+              ></v-btn>
+            </v-row>
+            <v-row justify="center" class="pt-10">
+              <v-btn
+                v-show="auth.username === user.username"
+                outlined
+                small
+                color="primary"
+                class="text-lowercase"
+                :href="'/users/' + user.username + '/edit'"
+              >
+                edit
+              </v-btn>
+            </v-row>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
     <v-divider></v-divider>
     <v-container class="pa-12">

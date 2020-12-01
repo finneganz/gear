@@ -12,12 +12,12 @@
             <v-row justify="center">
               <v-btn
                 v-show="user.twitter_id"
-                :href="'https://twitter.com/' + user.twitter_id"
+                :href="'https://twitter.com/' + user.twitterid"
                 target="_blank"
                 text
                 rel="noopener noreferrer"
                 class="text-lowercase"
-                v-text="'@twitter: ' + user.twitter_id"
+                v-text="'@twitter: ' + user.twitterid"
               ></v-btn>
             </v-row>
             <v-row justify="center" class="pt-10">

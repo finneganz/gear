@@ -98,8 +98,8 @@ class UserController extends BaseController
 
         $userDomain = new UserDomain;
         $userVideoSetting->stretch = $userDomain->convertStretchForDisplay($userVideoSetting->stretch);
-        $userVideoSetting->anti_alias = $userDomain->convertAntialiasForDisplay($userVideoSetting->anti_alias);
-        $userVideoSetting->shadow_quality = $userDomain->convertShadowqualityForDisplay($userVideoSetting->shadow_quality);
+        $userVideoSetting->anti_alias = $userVideoSetting->anti_alias ? $userDomain->convertAntialiasForDisplay($userVideoSetting->anti_alias) : '';
+        $userVideoSetting->shadow_quality = $userVideoSetting->shadow_quality ? $userDomain->convertShadowqualityForDisplay($userVideoSetting->shadow_quality) : '';
         $userResolution->aspect = $userDomain->convertAspectForDisplay($userResolution->aspect);
 
         // ユーザーのデバイス情報＆設定を連想配列に
@@ -147,8 +147,8 @@ class UserController extends BaseController
 
         $userDomain = new UserDomain;
         $userVideoSetting->stretch = $userDomain->convertStretchForDisplay($userVideoSetting->stretch);
-        $userVideoSetting->anti_alias = $userDomain->convertAntialiasForDisplay($userVideoSetting->anti_alias);
-        $userVideoSetting->shadow_quality = $userDomain->convertShadowqualityForDisplay($userVideoSetting->shadow_quality);
+        $userVideoSetting->anti_alias = $userVideoSetting->anti_alias ? $userDomain->convertAntialiasForDisplay($userVideoSetting->anti_alias) : '';
+        $userVideoSetting->shadow_quality = $userVideoSetting->shadow_quality ? $userDomain->convertShadowqualityForDisplay($userVideoSetting->shadow_quality) : '';
 
         // ユーザーのデバイス情報＆設定を連想配列に
         $userDevices = $userDomain->userDevicesToAssociativeArray($userHeadset, $userKeyboard, $userMic, $userMonitor, $userMouse, $userMousebungee, $userMousepad);

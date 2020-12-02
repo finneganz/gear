@@ -17,6 +17,26 @@
         enctype="multipart/form-data"
       >
         <input type="hidden" name="_token" :value="csrf" />
+        <v-row justify="center">
+          <v-col cols="6">
+            <v-card-subtitle>twitter id</v-card-subtitle>
+            <v-alert
+              class="mb-0 mt-4"
+              v-if="errors.twitterid"
+              type="error"
+              dense
+              outlined
+            >
+              {{ errors.twitterid[0] }}
+            </v-alert>
+            <v-text-field
+              label="twitter ID"
+              id="twitterid"
+              name="twitterid"
+              v-model="auth.twitterid"
+            ></v-text-field>
+          </v-col>
+        </v-row>
         <!-- Config -->
         <v-row justify="center">
           <v-col cols="6">

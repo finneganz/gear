@@ -185,6 +185,7 @@ class UserController extends BaseController
     }
     public function editUser(UserSettingRequest $request)
     {
+        $this->user->twitterid = $request->input('twitterid');
         $userDomain = new UserDomain;
         // Config
         $this->userConfig->config = $request->filled('config') ? base64_encode(file_get_contents($request->config)) : '';

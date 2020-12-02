@@ -18,13 +18,13 @@ class AdminsTableSeeder extends Seeder
         DB::table('admins')->insert([
             [
                 // yasuha
-                'user_id' => 1,
+                'username' => 'yasuha',
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
                 // finnegantz
-                'user_id' => 2,
+                'username' => 'finnegantz',
                 'created_at' => $now,
                 'updated_at' => $now,
             ],

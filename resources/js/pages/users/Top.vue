@@ -17,9 +17,10 @@
           <v-card 
             outlined
             v-bind:href="'/users/' + user.username"
+            height="130"
           >
-            <v-card-text>img</v-card-text>
-            <v-card-text v-text="user.username" class="font-weight-bold"></v-card-text>
+            <v-card-text v-text="user.username" class="font-weight-bold pt-8 text-center"></v-card-text>
+            <v-card-text v-text="'@' + user.twitterid" class="text-center pt-0"></v-card-text>
           </v-card>
         </v-col>
       </v-row>

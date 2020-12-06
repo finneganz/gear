@@ -11,7 +11,7 @@
             ></v-card-title>
             <v-row justify="center">
               <v-btn
-                v-show="user.twitter_id"
+                v-show="user.twitterid"
                 :href="'https://twitter.com/' + user.twitterid"
                 target="_blank"
                 text

@@ -67,24 +67,41 @@
       <input type="hidden" name="_token" :value="csrf" />
       <v-btn
         cols="2"
-        color="light-blue"
         type="submit"
-        class="text-lowercase"
+        class="text-lowercase font-weight-bold"
         small
+        text
       >
-        Logout
+        Sign Out
       </v-btn>
     </form>
-    <v-btn
+    <v-card
       v-else
-      cols="2"
-      color="light-blue"
-      href="/login"
-      class="text-lowercase"
-      small
+      color="primary"
+      outlined
     >
-      Login
-    </v-btn>
+      <v-row>
+        <v-btn
+          cols="2"
+          href="/register"
+          class="text-lowercase px-1 font-weight-bold"
+          small
+          text
+        >
+          Sign Up
+        </v-btn>
+        <span> / </span>
+        <v-btn
+          cols="2"
+          href="/login"
+          class="text-lowercase px-1 font-weight-bold"
+          small
+          text
+        >
+          Sign In
+        </v-btn>
+      </v-row>
+    </v-card>
   </v-app-bar>
 </template>
 

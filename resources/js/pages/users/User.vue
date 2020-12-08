@@ -81,15 +81,15 @@
       <v-card flat>
         <v-card-title class="justify-center">Config</v-card-title>
         <v-carousel
-        height="300"
-        hide-delimiters
+          height="300"
+          hide-delimiters
         >
           <v-carousel-item light>
             <v-row justify="center">
               <v-col cols="10">
                 <v-card light>
                   <v-row justify="center">
-                    <v-col cols="8">
+                    <v-col cols="6">
                       <v-card flat height="250">
                         <v-card-subtitle class="text-center">config</v-card-subtitle>
                         <v-card-text>config : 
@@ -128,7 +128,7 @@
               <v-col cols="10">
                 <v-card light>
                   <v-row justify="center">
-                    <v-col cols="8">
+                    <v-col cols="6">
                       <v-card flat height="250">
                         <v-card-subtitle class="text-center">monitor setting</v-card-subtitle>
                         <v-card-text>monitor-settings : {{ settings.monitorSetting.setting_params }}</v-card-text>
@@ -144,7 +144,7 @@
               <v-col cols="10">
                 <v-card light>
                   <v-row justify="center">
-                    <v-col cols="8">
+                    <v-col cols="6">
                       <v-card flat height="250">
                         <v-card-subtitle class="text-center">video setting</v-card-subtitle>
                         <v-card-text>resolution : {{ settings.resolution.resolution }}</v-card-text>
@@ -164,7 +164,7 @@
               <v-col cols="10">
                 <v-card light>
                   <v-row justify="center">
-                    <v-col cols="8">
+                    <v-col cols="6">
                       <v-card flat height="250">
                         <v-card-subtitle class="text-center">mouse setting</v-card-subtitle>
                       <v-card-text>dpi : {{ settings.mouseSetting.dpi }}</v-card-text>

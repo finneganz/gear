@@ -59,14 +59,18 @@
             cols="3"
           >
             <v-card
+              height="150"
               :href="'/devices/' + device.genre + '/' + device.maker_name + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text class="text-center">img</v-card-text>
               <v-card-text
-                class="text-center"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
                 v-text="device.device_name"
               ></v-card-text>
-              <v-card-text class="text-center">^^^^^^^^^^</v-card-text>
+              <v-card-text 
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>

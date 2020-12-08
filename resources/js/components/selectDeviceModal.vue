@@ -68,16 +68,17 @@
     methods: {
       setDevice: function(selectedDevice){
         this.$emit('set-device', selectedDevice)
+        this.initializedModal = true
       },
       closeModal: function(n)
       {
         this.$emit('close-modal')
+        this.initializedModal = true
       },
       transPage: function(n)
       {
         this.currentPageNum = n
         this.initializedModal = false
-        console.log(this.initializedModal)
         this.displayDevices = this.selectedDevices.slice((this.currentPageNum - 1) * 12, (this.currentPageNum - 1) * 12 + 12)
       }
     },

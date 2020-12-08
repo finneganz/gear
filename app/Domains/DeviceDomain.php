@@ -64,7 +64,7 @@ class DeviceDomain
                 $devices = Monitor::inRandomOrder()->take(100)->get();
                 break;
             case 'mouses':
-                $device = Mouse::inRandomOrder()->take(100)->get();
+                $devices = Mouse::inRandomOrder()->take(100)->get();
                 break;
             case 'mousebungees':
                 $devices = Mousebungee::inRandomOrder()->take(100)->get();

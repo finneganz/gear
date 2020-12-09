@@ -60,7 +60,7 @@
           >
             <v-card
               height="150"
-              :href="'/devices/' + device.genre + '/' + device.maker_name + '/' + device.device_name.replace(/\s+/g, '_')"
+              :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
               <v-card-text
                 class="font-weight-bold text-center pt-8"

@@ -161,13 +161,13 @@ class UserController extends BaseController
         $auth = $this->getAuthUser();
 
         // 選択用のデバイスを取得
-        $selectHeadsets = Headset::orderBy('id', 'desc')->take(21)->get();
-        $selectKeyboards = Keyboard::orderBy('id', 'desc')->take(21)->get();
-        $selectMics = Mic::orderBy('id', 'desc')->take(21)->get();
-        $selectMonitors = Monitor::orderBy('id', 'desc')->take(21)->get();
-        $selectMouses = Mouse::orderBy('id', 'desc')->take(21)->get();
-        $selectMousebungees = Mousebungee::orderBy('id', 'desc')->take(21)->get();
-        $selectMousepads = Mousepad::orderBy('id', 'desc')->take(21)->get();
+        $selectHeadsets = Headset::get();
+        $selectKeyboards = Keyboard::get();
+        $selectMics = Mic::get();
+        $selectMonitors = Monitor::get();
+        $selectMouses = Mouse::get();
+        $selectMousebungees = Mousebungee::get();
+        $selectMousepads = Mousepad::get();
         
         $selectHeadsets = $userDomain->devicesStrReplaceForDisplay($selectHeadsets);
         $selectKeyboards = $userDomain->devicesStrReplaceForDisplay($selectKeyboards);

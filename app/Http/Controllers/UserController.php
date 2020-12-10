@@ -188,8 +188,8 @@ class UserController extends BaseController
         $this->user->twitterid = $request->input('twitterid');
         $userDomain = new UserDomain;
         // Config
-        $this->userConfig->config = $request->filled('config') ? base64_encode(file_get_contents($request->config)) : '';
-        $this->userConfig->autoexec = $request->filled('autoexec') ? base64_encode(file_get_contents($request->autoexec)) : '';
+        $this->userConfig->config = $request->hasFile('config') ? base64_encode(file_get_contents($request->config)) : '';
+        $this->userConfig->autoexec = $request->hasFile('autoexec') ? base64_encode(file_get_contents($request->autoexec)) : '';
         $this->userConfig->windows_sensitivity = $request->input('windowsSensitivity');
         $this->userConfig->ingame_sensitivity = $request->input('inGameSensitivity');
         

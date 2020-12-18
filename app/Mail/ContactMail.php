@@ -11,14 +11,17 @@ class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $_subject;
+    private $_main;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($request)
     {
-        //
+        $this->_subject = $request->subject;
+        $this->_main = $request->main;
     }
 
     /**
@@ -28,6 +31,10 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this
+            ->from('example@example.com')
+            ->subject($this->_subject)
+            ->with('main', $this->_main)
+            ->view('emails.contact');
     }
 }

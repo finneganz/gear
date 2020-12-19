@@ -13,14 +13,24 @@
         >
           <input type="hidden" name="_token" :value="csrf" />
           <v-text-field
+            id="username"
+            name="username"
+            placeholder="お名前(ペンネーム可)"
+          ></v-text-field>
+          <v-text-field
+            id="email"
+            name="email"
+            placeholder="メールアドレス"
+          ></v-text-field>
+          <v-text-field
             id="subject"
             name="subject"
-            placeholder="件名"
+            placeholder="件名(20文字以内)"
           ></v-text-field>
           <v-textarea
             id="main"
             name="main"
-            placeholder="お問い合わせ内容を入力してください。"
+            placeholder="お問い合わせ内容を入力してください。(400文字以内)"
           ></v-textarea>
           <v-btn
             type="submit"

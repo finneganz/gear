@@ -27,5 +27,7 @@ class StaticsController extends BaseController
     {   
         Mail::to('example@example.com')
             ->send(new ContactMail($request));
+            
+        return redirect()->action('UserController@showUserList');
     }
 }

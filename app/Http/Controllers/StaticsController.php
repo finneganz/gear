@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Mail;
 
 class StaticsController extends BaseController
@@ -23,7 +23,7 @@ class StaticsController extends BaseController
         $auth = $this->getAuthUser();
         return view('statics.contact', compact('auth'));
     }
-    public function contact(Request $request)
+    public function contact(ContactRequest $request)
     {   
         Mail::to('example@example.com')
             ->send(new ContactMail($request));

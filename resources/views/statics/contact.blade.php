@@ -2,6 +2,7 @@
 
 @section('content')
     <contact-component
+        :errors = "{{ $errors }}"
         :auth = "{{ $auth }}"
     ></contact-component>
 @endsection

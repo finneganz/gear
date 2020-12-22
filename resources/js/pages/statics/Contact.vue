@@ -78,14 +78,18 @@
         </v-form>
       </v-card>
     </v-container>
+    <footer-component></footer-component>
   </v-app>
 </template>
 
 <script>
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+
 export default {
   components: {
-    'header-component': Header
+    'header-component': Header,
+    'footer-component': Footer,
   },
   props: [
     'auth',

@@ -325,16 +325,20 @@
         </v-row>
       </v-form>
     </v-container>
+    <footer-component></footer-component>
   </v-app>
 </template>
 
 <script>
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import SelectDeviceModal from '../../components/SelectDeviceModal'
+
 export default {
   components: {
     'header-component': Header,
-    'select-device-modal': SelectDeviceModal
+    'footer-component': Footer,
+    'select-device-modal': SelectDeviceModal,
   },
   props: [
     'auth',

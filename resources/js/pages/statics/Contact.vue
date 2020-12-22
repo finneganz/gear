@@ -3,7 +3,7 @@
     <header-component :auth="auth" :csrf="csrf"></header-component>
     <v-container
       fluid
-      class="mt-12"
+      class="pb-12 my-12"
     >
       <v-card flat max-width="500" class="mx-auto mt-12">
         <v-form

@@ -7,7 +7,7 @@
         <v-card-subtitle class="text-center">gamer's device sharing for gamers by gamers</v-card-subtitle>
       </v-card>
     </v-container>
-    <v-container>
+    <v-container class="pb-12 mb-12">
       <v-row>
         <v-col
           v-for="user in users"

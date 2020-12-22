@@ -14,7 +14,7 @@
       </v-row>
     </v-container>
     <v-divider></v-divider>
-    <v-container>
+    <v-container class="pb-12 mb-12">
       <v-card flat>
         <v-card-title class="justify-center">関連デバイス</v-card-title>
         <v-row>

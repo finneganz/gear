@@ -6,7 +6,10 @@
         <v-card-title class="justify-center">register page</v-card-title>
       </v-card>
     </v-container>
-    <v-container fluid>
+    <v-container
+      class="mb-12"
+      fluid
+    >
       <v-card flat max-width="500" class="mx-auto">
         <v-form
           method="POST"

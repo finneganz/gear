@@ -9,7 +9,7 @@
       :page-count="pageCount"
     ></select-device-modal>
     <header-component :auth="auth" :csrf="csrf"></header-component>
-    <v-container fluid class="mt-12 pt-12">
+    <v-container fluid class="mb-12 py-12">
       <v-form
         method="POST"
         :action="'/users/' + auth.username + '/edit'"

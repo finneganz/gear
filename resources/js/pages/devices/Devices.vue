@@ -27,8 +27,15 @@
               height=150
               :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text v-text="device.device_name" class="font-weight-bold"></v-card-text>
-              <v-card-text v-text="device.maker_name"></v-card-text>
+              <v-card-text
+                v-text="device.device_name"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -59,8 +66,15 @@
               height=150
               :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text v-text="device.device_name" class="font-weight-bold"></v-card-text>
-              <v-card-text v-text="device.maker_name"></v-card-text>
+              <v-card-text
+                v-text="device.device_name"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -91,8 +105,15 @@
               height=150
               :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text v-text="device.device_name" class="font-weight-bold"></v-card-text>
-              <v-card-text v-text="device.maker_name"></v-card-text>
+              <v-card-text
+                v-text="device.device_name"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -123,8 +144,15 @@
               height=150
               :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text v-text="device.device_name" class="font-weight-bold"></v-card-text>
-              <v-card-text v-text="device.maker_name"></v-card-text>
+              <v-card-text
+                v-text="device.device_name"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -155,8 +183,15 @@
               height=150
               :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text v-text="device.device_name" class="font-weight-bold"></v-card-text>
-              <v-card-text v-text="device.maker_name"></v-card-text>
+              <v-card-text
+                v-text="device.device_name"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -187,8 +222,15 @@
               height=150
               :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text v-text="device.device_name" class="font-weight-bold"></v-card-text>
-              <v-card-text v-text="device.maker_name"></v-card-text>
+              <v-card-text
+                v-text="device.device_name"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -219,8 +261,15 @@
               height=150
               :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
             >
-              <v-card-text v-text="device.device_name" class="font-weight-bold"></v-card-text>
-              <v-card-text v-text="device.maker_name"></v-card-text>
+              <v-card-text
+                v-text="device.device_name"
+                class="font-weight-bold text-center pt-8"
+                style="height: 60%"
+              ></v-card-text>
+              <v-card-text
+                v-text="device.maker_name"
+                class="text-center"
+              ></v-card-text>
             </v-card>
           </v-col>
         </v-row>

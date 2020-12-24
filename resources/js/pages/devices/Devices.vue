@@ -12,7 +12,6 @@
             outlined
             :href="'/devices/' + device.genre + '/' + device.maker_name.replace(/\s+/g, '_') + '/' + device.device_name.replace(/\s+/g, '_')"
           >
-            <!-- <v-card-text>{{isLoggedIn}}</v-card-text> -->
             <v-card-text v-text="device.device_name"  class="font-weight-bold"></v-card-text>
             <v-card-text v-text="device.maker_name"></v-card-text>
           </v-card>

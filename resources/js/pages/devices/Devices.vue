@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <header-component :auth="auth" :csrf="csrf"></header-component>
-    <v-container fluid class="py-12 mb-12">
+    <v-container fluid class="py-12 my-12">
       <v-row>
         <v-col
           v-for="device in devices"

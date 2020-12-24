@@ -15,36 +15,72 @@ class DeviceDomain
 {
     public function getSomeDevices()
     {
-        $headset = Headset::find(1)->first();
-        $keyboard = Keyboard::find(1)->first();
-        $mic = Mic::find(1)->first();
-        $monitor = Monitor::find(1)->first();
-        $mouse = Mouse::find(1)->first();
-        $mousebungee = Mousebungee::find(1)->first();
-        $mousepad = Mousepad::find(1)->first();
+        $headsets = Headset::get();
+        $keyboards = Keyboard::get();
+        $mics = Mic::get();
+        $monitors = Monitor::get();
+        $mouses = Mouse::get();
+        $mousebungees = Mousebungee::get();
+        $mousepads = Mousepad::get();
 
-        $headset->maker_name = $headset->getMaker->maker_name;
-        $keyboard->maker_name = $keyboard->getMaker->maker_name;
-        $mic->maker_name = $mic->getMaker->maker_name;
-        $monitor->maker_name = $monitor->getMaker->maker_name;
-        $mouse->maker_name = $mouse->getMaker->maker_name;
-        $mousebungee->maker_name = $mousebungee->getMaker->maker_name;
-        $mousepad->maker_name = $mousepad->getMaker->maker_name;
-
-        $headset->genre = 'headsets';
-        $keyboard->genre = 'keyboards';
-        $mic->genre = 'mics';
-        $monitor->genre = 'monitors';
-        $mouse->genre = 'mouses';
-        $mousebungee->genre = 'mousebungees';
-        $mousepad->genre = 'mousepads';
-
-        $devices = array($headset, $keyboard, $mic, $monitor, $mouse, $mousebungee, $mousepad);
-        foreach($devices as $device)
+        foreach($headsets as $headset)
         {
-            $device->device_name = str_replace('_', ' ', $device->device_name);
-            $device->maker_name = str_replace('_', ' ', $device->maker_name);
+            $headset->device_name = str_replace('_', ' ', $headset->device_name);
+            $headset->maker_name = $headset->getMaker->maker_name;
+            $headset->maker_name = str_replace('_', ' ', $headset->maker_name);
+            $headset->genre = 'headsets';
         }
+        foreach($keyboards as $keyboard)
+        {
+            $keyboard->device_name = str_replace('_', ' ', $keyboard->device_name);
+            $keyboard->maker_name = $keyboard->getMaker->maker_name;
+            $keyboard->maker_name = str_replace('_', ' ', $keyboard->maker_name);
+            $keyboard->genre = 'keyboards';
+        }
+        foreach($mics as $mic)
+        {
+            $mic->device_name = str_replace('_', ' ', $mic->device_name);
+            $mic->maker_name = $mic->getMaker->maker_name;
+            $mic->maker_name = str_replace('_', ' ', $mic->maker_name);
+            $mic->genre = 'mics';
+        }
+        foreach($monitors as $monitor)
+        {
+            $monitor->device_name = str_replace('_', ' ', $monitor->device_name);
+            $monitor->maker_name = $monitor->getMaker->maker_name;
+            $monitor->maker_name = str_replace('_', ' ', $monitor->maker_name);
+            $monitor->genre = 'monitors';
+        }
+        foreach($mouses as $mouse)
+        {
+            $mouse->device_name = str_replace('_', ' ', $mouse->device_name);
+            $mouse->maker_name = $mouse->getMaker->maker_name;
+            $mouse->maker_name = str_replace('_', ' ', $mouse->maker_name);
+            $mouse->genre = 'mouses';
+        }
+        foreach($mousebungees as $mousebungee)
+        {
+            $mousebungee->device_name = str_replace('_', ' ', $mousebungee->device_name);
+            $mousebungee->maker_name = $mousebungee->getMaker->maker_name;
+            $mousebungee->maker_name = str_replace('_', ' ', $mousebungee->maker_name);
+            $mousebungee->genre = 'mousebungees';
+        }
+        foreach($mousepads as $mousepad)
+        {
+            $mousepad->device_name = str_replace('_', ' ', $mousepad->device_name);
+            $mousepad->maker_name = $mousepad->getMaker->maker_name;
+            $mousepad->maker_name = str_replace('_', ' ', $mousepad->maker_name);
+            $mousepad->genre = 'mousepads';
+        }
+        $devices = [
+            'headset' => $headsets,
+            'keyboard' => $keyboards,
+            'mic' => $mics,
+            'monitor' => $monitors,
+            'mouse' => $mouses,
+            'mousebungee' => $mousebungees,
+            'mousepad' => $mousepads,
+        ];
 
         return $devices;
     }

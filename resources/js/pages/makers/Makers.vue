@@ -1,23 +1,36 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Makers Component</div>
-
-                    <div class="card-body">
-                        I'm a makers page component.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <v-app>
+    <header-component :auth="auth" :csrf="csrf"></header-component>
+    <v-container fluid class="py-12 mt-12">
+      <v-row>
+        <v-col
+          v-for="maker in makers"
+          :key="maker.id"
+          :cols="2"
+        >
+          <v-card outlined>
+            <v-card-text v-text="maker.maker_name" class="font-weight-bold"></v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+import Header from '../../components/Header'
+export default {
+  components: {
+    'header-component': Header
+  },
+  props: [
+    'makers',
+    'auth',
+  ],
+  data: () => ({
+    csrf: 
+    document.querySelector('meta[name="csrf-token"]')
+    .getAttribute('content'),
+  }),
+}
 </script>

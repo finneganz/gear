@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <register-component></register-component>
+    <register-component
+        :auth = "{{ Auth::check() ? Auth::user() : 'false' }}"
+        :errors = "{{ $errors }}"    
+    ></register-component>
 @endsection
 
 @section('script')

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <contact-component></contact-component>
+    <contact-component
+        :errors = "{{ $errors }}"
+        :auth = "{{ $auth }}"
+    ></contact-component>
 @endsection
 
 @section('script')

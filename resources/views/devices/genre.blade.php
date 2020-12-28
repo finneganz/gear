@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <device-genre-component></device-genre-component>
+    <devices-genre-component
+        :auth = "{{ $auth }}"
+        :devices="{{ $devices }}"
+        genre="{{ $deviceGenreParam }}"
+    ></devices-genre-component>
 @endsection
 
 @section('script')

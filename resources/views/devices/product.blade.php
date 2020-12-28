@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <device-product-component></device-product-component>
+    <device-product-component 
+        :auth = "{{ $auth }}"
+        :device = "{{ $device }}"
+        :sub-devices = "{{ $subDevices }}"
+    ></device-product-component>
 @endsection
 
 @section('script')

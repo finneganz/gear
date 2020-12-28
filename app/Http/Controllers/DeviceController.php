@@ -2,34 +2,116 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Devices\Maker;
+use App\Http\Requests\AddDeviceRequest;
+use App\Http\Requests\EditDeviceRequest;
+use App\Domains\DeviceDomain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Router;
 
-class DeviceController extends Controller
+class DeviceController extends BaseController
 {
-    public function showDevicesList()
+    public function showDeviceList()
     {
-        return view('devices.list');
+        $auth = $this->getAuthUser();
+        $deviceDomain = new DeviceDomain;
+        $devices = $deviceDomain->getSomeDevices();
+        $devices = json_encode($devices);
+        return view('devices.list', compact('devices', 'auth'));
     }
-    public function showDeviceProduct()
+    public function showDeviceGenre(Router $router)
     {
-        return view('devices.product');
+        // ルートパラメータを取得
+        $routeParam = $router->getCurrentRoute()->parameters();
+        $deviceGenreParam = $routeParam['device'];
+        $deviceDomain = new DeviceDomain;
+        $devices = $deviceDomain->getDeviceOfGenre($deviceGenreParam);
+        $auth = $this->getAuthUser();
+        
+        return view('devices.genre', compact('devices','deviceGenreParam', 'auth'));
+    }
+    public function showDeviceProduct(Router $router)
+    {
+        // ルートパラメータを取得
+        $routeParams = $router->getCurrentRoute()->parameters();
+        $deviceDomain = new DeviceDomain;
+        // メインデバイス
+        $device = $deviceDomain->getProductOfDevice($routeParams);
+        $device->device_name = str_replace('_', ' ', $device->device_name);
+        $device->maker_name = $device->getMaker->maker_name;
+        // 関連デバイス(メーカー&ジャンル一致)
+        $subDevices = $deviceDomain->getSubDevices($routeParams);
+        foreach($subDevices as $subDevice)
+        {
+            $subDevice->device_name = str_replace('_', ' ', $subDevice->device_name);
+        }
+        $auth = $this->getAuthUser();
+        
+        return view('devices.product', compact('device', 'auth', 'subDevices'));
     }
 
     // 管理者用
     public function showDeviceAddPage()
     {
-        return view('devices.add');
+        if(Auth::id() === 1 || Auth::id() === 2)
+        {
+            $auth = $this->getAuthUser();
+            return view('devices.add', compact('auth'));
+        }
+        else
+        {
+            return redirect()->action('UserController@showUserList');
+        }
     }
-    public function addDevice()
+    public function addDevice(AddDeviceRequest $request)
     {
-        //
+        if(Auth::id() === 1 || Auth::id() === 2)
+        {
+            $deviceDomain = new DeviceDomain;
+            $device = $deviceDomain->addNewDevice($request);
+            $deviceDomain->save($device);
+    
+            return redirect()->action('DeviceController@showDeviceList');
+        }
+        else
+        {
+            return redirect()->action('UserController@showUserList');
+        }
     }
-    public function showDeviceEditPage()
+    public function showDeviceEditPage(Router $router)
     {
-        return view('devices.edit');
+        if(Auth::id() === 1 || Auth::id() === 2)
+        {
+            $routeParams = $router->getCurrentRoute()->parameters();
+            $deviceDomain = new DeviceDomain;
+            $device = $deviceDomain->getProductOfDevice($routeParams);
+            $device->maker_name = $device->getMaker->maker_name;
+            $auth = $this->getAuthUser();
+    
+            return view('devices.edit', compact('device', 'auth'));
+        }
+        else
+        {
+            return redirect()->action('UserController@showUserList');
+        }
     }
-    public function editDevice()
+    public function editDevice(Router $router, EditDeviceRequest $request)
     {
-        //
+        if(Auth::id() === 1 || Auth::id() === 2)
+        {
+            $routeParams = $router->getCurrentRoute()->parameters();
+            $deviceDomain = new DeviceDomain;
+            $device = $deviceDomain->getProductOfDevice($routeParams);
+            $device->device_name = $request->input('deviceName');
+            $device->maker_id = Maker::where('maker_name', $request->input('makerName'))->first()->id;
+            $deviceDomain->save($device);
+    
+            return redirect()->action('DeviceController@showDeviceList');
+        }
+        else
+        {
+            return redirect()->action('UserController@showUserList');
+        }
     }
 }

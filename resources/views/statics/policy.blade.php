@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <policy-component></policy-component>
+    <policy-component
+        :auth = "{{ $auth }}"
+    ></policy-component>
 @endsection
 
 @section('script')

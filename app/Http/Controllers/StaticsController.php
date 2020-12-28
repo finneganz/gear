@@ -2,24 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Mail\ContactMail;
+use App\Http\Requests\ContactRequest;
+use Illuminate\Support\Facades\Mail;
 
-class StaticsController extends Controller
+class StaticsController extends BaseController
 {
     public function showAbout()
     {   
-        return view('statics.about');
+        $auth = $this->getAuthUser();
+        return view('statics.about', compact('auth'));
     }
     public function showPolicy()
     {   
-        return view('statics.policy');
+        $auth = $this->getAuthUser();
+        return view('statics.policy', compact('auth'));
     }
     public function showContact()
     {   
-        return view('statics.contact');
+        $auth = $this->getAuthUser();
+        return view('statics.contact', compact('auth'));
     }
-    public function contact()
+    public function contact(ContactRequest $request)
     {   
-        //
+        Mail::to('example@example.com')
+            ->send(new ContactMail($request));
+            
+        return redirect()->action('UserController@showUserList');
     }
 }

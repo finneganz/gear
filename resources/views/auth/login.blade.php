@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <login-component></login-component>
+    <login-component
+        :auth = "{{ Auth::check() ? Auth::user() : 'false' }}"
+        :errors = "{{ $errors }}"
+    ></login-component>
 @endsection
 
 @section('script')

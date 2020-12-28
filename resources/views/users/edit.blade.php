@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <user-edit-component></user-edit-component>
+    <user-edit-component
+        :auth = "{{ $auth }}"
+        :errors = "{{ $errors }}"
+        :devices = "{{ $userDevices }}"
+        :settings = "{{ $userSettings }}"
+        :select-devices = "{{ $selectDevices }}"
+    ></user-edit-component>
 @endsection
 
 @section('script')

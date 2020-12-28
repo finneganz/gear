@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Keyboard extends Model
 {
     protected $fillable = [
-		'keyboard_name', 'maker_id',
-	];
+		'device_name', 'maker_id',
+    ];
+    
+    public function getMaker()
+    {
+        return $this->belongsTo('App\Models\Devices\Maker', 'maker_id');
+    }
 }

@@ -25,7 +25,7 @@ class StaticsController extends BaseController
     }
     public function contact(ContactRequest $request)
     {   
-        Mail::to('example@example.com')
+        Mail::to('gear.archiveApp@gmail.com')
             ->send(new ContactMail($request));
             
         return redirect()->action('UserController@showUserList');

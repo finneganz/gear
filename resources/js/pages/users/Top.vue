@@ -20,7 +20,7 @@
             height="130"
           >
             <v-card-text v-text="user.username" class="font-weight-bold pt-8 text-center"></v-card-text>
-            <v-card-text v-text="'@' + user.twitterid" class="text-center pt-0"></v-card-text>
+            <v-card-text v-show="user.twitterid" v-text="'@' + user.twitterid" class="text-center pt-0"></v-card-text>
           </v-card>
         </v-col>
       </v-row>

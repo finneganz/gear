@@ -23,6 +23,11 @@ class StaticsController extends BaseController
         $auth = $this->getAuthUser();
         return view('statics.contact', compact('auth'));
     }
+    public function showTerms()
+    {   
+        $auth = $this->getAuthUser();
+        return view('statics.terms', compact('auth'));
+    }
     public function contact(ContactRequest $request)
     {   
         Mail::to('gear.archiveApp@gmail.com')

@@ -36,6 +36,7 @@ Route::get('/devices/{device}/{maker}/{product}', 'DeviceController@showDevicePr
 Route::get('/about', 'StaticsController@showAbout');
 Route::get('/policy', 'StaticsController@showPolicy');
 Route::get('/contact', 'StaticsController@showContact');
+Route::get('/terms', 'StaticsController@showTerms');
 Route::post('/contact', 'StaticsController@contact');
 
 // 2. 管理画面

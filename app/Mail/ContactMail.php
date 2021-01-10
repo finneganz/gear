@@ -37,7 +37,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this
-            ->from('example@example.com')
+            ->from($this->_email)
             ->subject($this->_subject)
             ->with(
                 [

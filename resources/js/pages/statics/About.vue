@@ -1,21 +1,33 @@
 <template>
   <v-app>
     <header-component :auth="auth" :csrf="csrf"></header-component>
-    <v-content>
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-md-8">
-                  <div class="card">
-                      <div class="card-header">About Component</div>
-
-                      <div class="card-body">
-                          I'm an about page component.
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </v-content>
+    <v-container
+      fluid
+      class="py-12"
+    >
+      <v-row justify="center">
+        <v-col cols="8">
+          <v-card
+            class="my-12 px-8"
+          >
+            <v-card-title>GearArchiveの運営について</v-card-title>
+            <v-card-text>GearArchiveは、2人の開発者によって運営されています。</v-card-text>
+            <v-card-text class="pt-0">
+              お問い合わせは、gear.archiveApp@gmail.com または
+              <v-btn
+                href="/contact"
+                text
+                class="px-0"
+                color="primary"
+              >
+                コンタクトページ
+              </v-btn>
+              からお願いします。
+            </v-card-text>
+          </v-card>   
+        </v-col>
+      </v-row>
+    </v-container>
     <footer-component></footer-component>
   </v-app>
 </template>

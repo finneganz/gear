@@ -29,4 +29,5 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/statics/about.js', 'public/js/statics')
    .js('resources/js/statics/policy.js', 'public/js/statics')
    .js('resources/js/statics/contact.js', 'public/js/statics')
+   .js('resources/js/statics/terms.js', 'public/js/statics')
    .sass('resources/sass/app.scss', 'public/css');

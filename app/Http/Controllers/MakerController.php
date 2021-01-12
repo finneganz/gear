@@ -12,7 +12,7 @@ class MakerController extends BaseController
     // 管理者用
     public function showMakersList()
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $makers = Maker::orderBy('id', 'ASC')->take(10)->get();
             // 表示用に文字列を置き換え
@@ -30,7 +30,7 @@ class MakerController extends BaseController
     }
     public function showMakerAddPage()
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $auth = $this->getAuthUser();
             return view('makers.add', compact('auth'));
@@ -42,7 +42,7 @@ class MakerController extends BaseController
     }
     public function addMaker(MakerNameRequest $request)
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $maker = new Maker;
             $maker->maker_name = $request->input('makerName');
@@ -57,7 +57,7 @@ class MakerController extends BaseController
     }
     public function showMakerEditPage(string $makername)
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $maker = Maker::where('maker_name', $makername)->first();
             $auth = $this->getAuthUser();
@@ -70,7 +70,7 @@ class MakerController extends BaseController
     }
     public function editMaker(string $makername, MakerNameRequest $request)
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $maker = Maker::where('maker_name', $makername)->first();
             $maker->maker_name = $request->input('makerName');

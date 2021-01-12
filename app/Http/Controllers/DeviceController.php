@@ -54,7 +54,7 @@ class DeviceController extends BaseController
     // 管理者用
     public function showDeviceAddPage()
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $auth = $this->getAuthUser();
             return view('devices.add', compact('auth'));
@@ -66,7 +66,7 @@ class DeviceController extends BaseController
     }
     public function addDevice(AddDeviceRequest $request)
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $deviceDomain = new DeviceDomain;
             $device = $deviceDomain->addNewDevice($request);
@@ -81,7 +81,7 @@ class DeviceController extends BaseController
     }
     public function showDeviceEditPage(Router $router)
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $routeParams = $router->getCurrentRoute()->parameters();
             $deviceDomain = new DeviceDomain;
@@ -98,7 +98,7 @@ class DeviceController extends BaseController
     }
     public function editDevice(Router $router, EditDeviceRequest $request)
     {
-        if(Auth::id() === 1 || Auth::id() === 2)
+        if(Auth::user()->username === 'yasuha' || Auth::user()->username === 'finnegantz')
         {
             $routeParams = $router->getCurrentRoute()->parameters();
             $deviceDomain = new DeviceDomain;

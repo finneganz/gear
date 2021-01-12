@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
         Validator::extend('cfg_file', 'App\Validation\CustomValidator@validateExtensionCfg');
     }
 }

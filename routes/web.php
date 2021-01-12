@@ -18,6 +18,8 @@ Route::get('/', 'UserController@showUserList');
 // 1.2 ユーザー登録
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
 Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/unregister', 'Auth\UnregisterController@showUnregister')->middleware('auth');
+Route::post('/unregister', 'Auth\UnregisterController@Unregister')->middleware('auth');
 // 1.3 ログイン
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');

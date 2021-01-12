@@ -324,6 +324,17 @@
           </v-col>
         </v-row>
       </v-form>
+      <v-row class="my-8">
+        <v-btn
+          href="/unregister"
+          text
+          small
+          block
+          color="primary"
+        >
+          退会をご希望の際はこちら
+        </v-btn>
+      </v-row>
     </v-container>
     <footer-component></footer-component>
   </v-app>

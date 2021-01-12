@@ -38,7 +38,6 @@
         },
         "classmap": [
             "database/seeds",
-            "database/seeds/Users",
             "database/seeds/GameSettings",
             "database/seeds/Devices",
             "database/factories"
